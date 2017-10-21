@@ -35,19 +35,19 @@
       }
     },
     "dev:start:client": {
-      "command": "yarn run babel-node -- webpack/development.hot",
+      "command": "yarn run babel-node webpack/development.hot",
       "env": {
         "NODE_ENV": "development"
       }
     },
     "dev:build": {
-      "command": "yarn run babel-node -- ./script/build webpack/development.js",
+      "command": "yarn run babel-node ./script/build webpack/development.js",
       "env": {
         "NODE_ENV": "development"
       }
     },
     "prod:build": {
-      "command": "yarn run babel-node -- ./script/build webpack/production.js",
+      "command": "yarn run babel-node ./script/build webpack/production.js",
       "env": {
         "NODE_ENV": "production"
       }
@@ -71,13 +71,13 @@
       }
     },
     "test:watch": {
-      "command": "yarn run test -- --watch",
+      "command": "yarn run test --watch",
       "env": {
         "NODE_ENV": "test"
       }
     },
     "test:all:watch": {
-      "command": "yarn run test:all -- --watch",
+      "command": "yarn run test:all --watch",
       "env": {
         "NODE_ENV": "test"
       }
