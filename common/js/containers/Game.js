@@ -4,8 +4,8 @@ import {connect} from 'react-redux';
 import {Helmet} from 'react-helmet';
 import {Container, Header, Checkbox, List, Button, Form} from 'semantic-ui-react';
 import classnames from 'classnames';
-import css from './index.scss';
-import StarsSVG from '../../components/StarsSVG';
+import css from './Game.scss';
+import StarsSVG from '../components/StarsSVG';
 
 const cx = classnames.bind(css);
 
