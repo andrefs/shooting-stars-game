@@ -2,7 +2,9 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {Helmet} from 'react-helmet';
-import {Container, Header, Checkbox, List, Button, Form} from 'semantic-ui-react';
+//import {Container, Header, Checkbox, List, Button, Form} from 'semantic-ui-react';
+
+import {Container, Row, Col} from 'reactstrap';
 import classnames from 'classnames';
 import css from './Game.scss';
 import StarsSVG from '../components/StarsSVG';
@@ -22,8 +24,35 @@ class GameContainer extends Component {
         <Helmet>
           <title>Shooting Stars</title>
         </Helmet>
-        <Header>Shooting Stars</Header>
-        <StarsSVG />
+        <Col lg="10">
+          <div className="header clearfix">
+          </div>
+
+          <Row>
+            <Col lg="12" className={css.artists}>
+              <div className="star-container">
+                <StarsSVG />
+              </div>
+              <div className="labels">
+                <div className="label left">
+                  <span>Justin Bieber</span>
+                </div>
+                <div className="label center">
+                  <span>Carlos Paião</span>
+                </div>
+                <div className="label right">
+                  <span>Charles Bradley</span>
+                </div>
+              </div>
+            </Col>
+          </Row>
+          <Row>
+            <Col lg="12" className="artists">
+              <div id="score-area">
+              </div>
+            </Col>
+          </Row>
+        </Col>
       </Container>
     );
   }
