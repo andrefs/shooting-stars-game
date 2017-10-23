@@ -11,13 +11,6 @@ class HeaderView extends Component {
   render() {
     return (
       <Header>
-        <Menu size="massive">
-          {menuItems.map(item => (
-            <Menu.Item {...item} as={NavLink} key={item.name}>
-              {item.name}
-            </Menu.Item>
-          ))}
-        </Menu>
       </Header>
     );
   }

@@ -1,23 +1,34 @@
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
-import {connect} from 'react-redux';
 import {Helmet} from 'react-helmet';
-//import {Container, Header, Checkbox, List, Button, Form} from 'semantic-ui-react';
-
 import {Container, Row, Col} from 'reactstrap';
 import classnames from 'classnames';
 import css from './Game.scss';
 import StarsSVG from '../components/StarsSVG';
+import {knuthShuffle} from 'knuth-shuffle';
 
-const cx = classnames.bind(css);
+class Game extends Component {
+  render(){
+    console.log('XXXXXXXXXXXXXXXXXXXXXXXX 6', this.props);
+    const {game} = this.props;
 
-class GameContainer extends Component {
+    if(!game || !game.isFetched){
+      return <Container />;
+    }
 
-  static propTypes = {
-    dispatch: PropTypes.func.isRequired
-  }
-
-  render() {
+    const triple = game.turns.current.triple;
+    const items = knuthShuffle([{
+        name: triple.itemA.name,
+        imageUrl: triple.itemA.imageUrl,
+        position: 'A'
+      },{
+        name: triple.itemB.name,
+        imageUrl: triple.itemB.imageUrl,
+        position: 'B'
+      },{
+        name: triple.itemC.name,
+        imageUrl: triple.itemC.imageUrl,
+        position: 'C'
+      }]);
 
     return (
       <Container>
@@ -31,17 +42,17 @@ class GameContainer extends Component {
           <Row>
             <Col lg="12" className={css.artists}>
               <div className="star-container">
-                <StarsSVG />
+                <StarsSVG items={items} />
               </div>
               <div className="labels">
                 <div className="label left">
-                  <span>Justin Bieber</span>
+                  <span>{items[0].name}</span>
                 </div>
                 <div className="label center">
-                  <span>Carlos Paião</span>
+                  <span>{items[1].name}</span>
                 </div>
                 <div className="label right">
-                  <span>Charles Bradley</span>
+                  <span>{items[2].name}</span>
                 </div>
               </div>
             </Col>
@@ -58,6 +69,4 @@ class GameContainer extends Component {
   }
 }
 
-const mapStateToProps = () => ({});
-
-export default connect(mapStateToProps)(GameContainer);
+export default Game;

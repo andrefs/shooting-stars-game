@@ -2,7 +2,7 @@
 
 import Home  from 'containers/Home';
 import Todos from 'containers/Todos';
-import Game  from 'containers/Game';
+import Game  from 'containers/GameContainer';
 
 export default [
   {
