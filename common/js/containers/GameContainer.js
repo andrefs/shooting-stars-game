@@ -24,7 +24,7 @@ class GameContainer extends Component {
     };
     const pick = positionToPick[position];
 
-    this.props.postPick({pick});
+    this.props.postPick(pick);
   }
 
   render() {
