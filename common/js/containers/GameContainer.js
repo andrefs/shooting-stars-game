@@ -19,8 +19,16 @@ class GameContainer extends Component {
     }
   }
 
-  selectItem(ev) {
-    console.log('XXXXXXXXXXXXXX ev', ev);
+  selectItem(position) {
+    const positionToPick = {
+      A: 'BC',
+      B: 'AC',
+      C: 'AB'
+    };
+
+    const pick = positionToPick[position];
+    console.log('XXXXXXXXXXXXXXXX', pick);
+
   }
 
   render() {
