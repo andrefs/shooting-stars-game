@@ -1,15 +1,14 @@
 import React, {Component} from 'react';
 import {Helmet} from 'react-helmet';
 import {Container, Row, Col} from 'reactstrap';
-import classnames from 'classnames';
 import css from './Game.scss';
 import StarsSVG from '../components/StarsSVG';
 import {knuthShuffle} from 'knuth-shuffle';
 
 class Game extends Component {
+
   render(){
-    console.log('XXXXXXXXXXXXXXXXXXXXXXXX 6', this.props);
-    const {game} = this.props;
+    const {game, selectItem} = this.props;
 
     if(!game || !game.isFetched){
       return <Container />;
@@ -17,18 +16,18 @@ class Game extends Component {
 
     const triple = game.turns.current.triple;
     const items = knuthShuffle([{
-        name: triple.itemA.name,
-        imageUrl: triple.itemA.imageUrl,
-        position: 'A'
-      },{
-        name: triple.itemB.name,
-        imageUrl: triple.itemB.imageUrl,
-        position: 'B'
-      },{
-        name: triple.itemC.name,
-        imageUrl: triple.itemC.imageUrl,
-        position: 'C'
-      }]);
+      name: triple.itemA.name,
+      imageUrl: triple.itemA.imageUrl,
+      position: 'A'
+    },{
+      name: triple.itemB.name,
+      imageUrl: triple.itemB.imageUrl,
+      position: 'B'
+    },{
+      name: triple.itemC.name,
+      imageUrl: triple.itemC.imageUrl,
+      position: 'C'
+    }]);
 
     return (
       <Container>
@@ -42,7 +41,7 @@ class Game extends Component {
           <Row>
             <Col lg="12" className={css.artists}>
               <div className="star-container">
-                <StarsSVG items={items} />
+                <StarsSVG items={items} selectItem={selectItem} />
               </div>
               <div className="labels">
                 <div className="label left">

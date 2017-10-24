@@ -19,16 +19,20 @@ class GameContainer extends Component {
     }
   }
 
+  selectItem(ev) {
+    console.log('XXXXXXXXXXXXXX ev', ev);
+  }
+
   render() {
     const {game} = this.props;
 
     return (
-      <Game game={game}/>
+      <Game game={game} selectItem={this.selectItem}/>
     );
   }
 }
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = state => {
   return {
     game: state.game
   };
