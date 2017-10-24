@@ -24,7 +24,7 @@ const loaders = [
     exclude: /node_modules/,
     options: {
       presets: [
-        [ 'es2015', { modules: false } ]
+        [ 'env', { modules: false } ]
       ]
     }
   },
