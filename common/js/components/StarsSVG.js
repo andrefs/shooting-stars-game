@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import css from './StarsSVG.scss';
+const imageBaseUrl = 'https://andrefs.github.io/shooting-stars-images';
 
 class StarsSVG extends Component {
 
@@ -12,13 +13,13 @@ class StarsSVG extends Component {
         <defs>
 
           <pattern id="image-1" x="0" y="0" width="1" height="1">
-            <image xlinkHref={items[0].imageUrl} height="220" />
+            <image xlinkHref={imageBaseUrl + items[0].imageUrl} height="220" />
           </pattern>
           <pattern id="image-2" width="1" height="1">
-            <image xlinkHref={items[1].imageUrl} height="200" />
+            <image xlinkHref={imageBaseUrl +items[1].imageUrl} height="200" />
           </pattern>
           <pattern id="image-3" width="1" height="1">
-            <image xlinkHref={items[2].imageUrl} height="220" />
+            <image xlinkHref={imageBaseUrl +items[2].imageUrl} height="220" />
           </pattern>
         </defs>
 
