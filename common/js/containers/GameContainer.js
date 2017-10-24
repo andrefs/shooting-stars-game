@@ -1,34 +1,30 @@
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
+import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 
-import {fetchGame} from 'actions/game';
+import {fetchGame, postPick} from 'actions/game';
 import Game from '../components/Game';
 
 class GameContainer extends Component {
 
-  static propTypes = {
-    dispatch: PropTypes.func.isRequired
-  }
-
   componentDidMount() {
-    const {dispatch, game} = this.props;
+    const {game} = this.props;
 
     if (!game || !game.isFetched) {
-      dispatch(fetchGame());
+      this.props.fetchGame();
     }
   }
 
-  selectItem(position) {
+  selectItem = (position) => {
     const positionToPick = {
       A: 'BC',
       B: 'AC',
       C: 'AB'
     };
-
     const pick = positionToPick[position];
-    console.log('XXXXXXXXXXXXXXXX', pick);
 
+    this.props.postPick({pick});
   }
 
   render() {
@@ -46,4 +42,11 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(GameContainer);
+const mapDispatchToProps = dispatch => {
+  return bindActionCreators({
+    fetchGame,
+    postPick
+  }, dispatch);
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(GameContainer);
