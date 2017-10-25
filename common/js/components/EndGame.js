@@ -8,8 +8,10 @@ class EndGame extends Component {
     const {game, createGame} = this.props;
 
     return (
-      <Container>
-        <Button className="btn-info" onClick={createGame}>Play Again</Button>
+      <Container className="text-center">
+        <div className="header clearfix">
+        </div>
+        <Button style={{top: '200px;'}} className="btn-info" size="lg" onClick={createGame}>Play Again</Button>
       </Container>
     );
   }

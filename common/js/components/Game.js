@@ -4,6 +4,7 @@ import {Container, Row, Col} from 'reactstrap';
 import css from './Game.scss';
 import StarsSVG from '../components/StarsSVG';
 import {knuthShuffle} from 'knuth-shuffle';
+import classnames from 'classnames';
 
 class Game extends Component {
 
@@ -34,7 +35,7 @@ class Game extends Component {
         <Helmet>
           <title>Shooting Stars</title>
         </Helmet>
-        <Col lg="10">
+        <Col xl={{size:10, offset:1}}>
           <div className="header clearfix">
           </div>
 
@@ -43,22 +44,22 @@ class Game extends Component {
               <div className="star-container">
                 <StarsSVG items={items} selectItem={selectItem} />
               </div>
-              <div className="labels">
-                <div className="label left">
+              <div className={css.labels}>
+                <div className={classnames(css.label,  css.left)}>
                   <span>{items[0].name}</span>
                 </div>
-                <div className="label center">
+                <div className={classnames(css.label, css.center)}>
                   <span>{items[1].name}</span>
                 </div>
-                <div className="label right">
+                <div className={classnames(css.label, css.right)}>
                   <span>{items[2].name}</span>
                 </div>
               </div>
             </Col>
           </Row>
           <Row>
-            <Col lg="12" className="artists">
-              <div id="score-area">
+            <Col lg="12" className={css.artists}>
+              <div id={css.scoreArea}>
               </div>
             </Col>
           </Row>

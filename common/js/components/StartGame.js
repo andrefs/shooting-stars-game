@@ -9,7 +9,7 @@ class StartGame extends Component {
 
     return (
       <Container>
-        <Button className="btn-info" onClick={createGame}>Start</Button>
+        <Button className="btn-info" size="xl" onClick={createGame}>Start</Button>
       </Container>
     );
   }
