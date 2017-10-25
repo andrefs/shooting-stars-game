@@ -1,19 +1,14 @@
 
-@import url('https://fonts.googleapis.com/css?family=Luckiest+Guy');
+@import url('https://fonts.googleapis.com/css?family=Love+Ya+Like+A+Sister');
+
+html, body {
+  font-family: 'Love Ya Like A Sister', cursive;
+}
+
 
 
 .artists {
   width: 600px;
-}
-
-
-#scoreArea {
-  min-height: 60px;
-  margin-top: 20px;
-  text-align: center;
-  font-family: 'Luckiest Guy', cursive;
-  margin: 50px 10px;
-  color: #844401;
 }
 
 
@@ -27,15 +22,14 @@ div.labels {
   top: -15%;
 }
 .label {
-  font-family: 'Luckiest Guy', cursive;
+  font-weight: normal;
   width: 120px;
   z-index: -1;
 
   text-align: center;
   margin: 10px;
   min-height: 60px;
-  color: #844401;
-  font-size: 20px;
+  font-size: 30px;
 }
 .label.left {
   position: absolute;

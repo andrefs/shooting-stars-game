@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Helmet} from 'react-helmet';
-import {Row, Col} from 'reactstrap';
+import {Row, Col, Badge, Table} from 'reactstrap';
 import css from './ScoreBoard.scss';
 
 class ScoreBoard extends Component {
@@ -10,11 +10,15 @@ class ScoreBoard extends Component {
 
     return (
       <Row>
-        <Col lg="12" className={css.artists}>
+        <Col md={{size:8, offset:2}} className={css.artists}>
           <div id={css.scoreArea}>
-          <p>{players.sync.username} : {currentScore.sync}</p>
-          <p>{players.async ? players.async.username : 'Dilbert'} : {currentScore.async}</p>
-          <p>Lucy : {currentScore.bot}</p>
+            <Table>
+              <tbody>
+              <tr><td>{players.sync.username}</td><td className={css.score}><Badge color="info">{currentScore.sync}</Badge></td></tr>
+              <tr><td>{players.async ? players.async.username : 'Dilbert'}</td><td className={css.score}><Badge color="info">{currentScore.async}</Badge></td></tr>
+              <tr><td>Lucy</td><td className={css.score}><Badge color="info">{currentScore.bot}</Badge></td></tr>
+              </tbody>
+            </Table>
           </div>
         </Col>
       </Row>

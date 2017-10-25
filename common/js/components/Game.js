@@ -36,7 +36,7 @@ class Game extends Component {
         <Helmet>
           <title>Shooting Stars</title>
         </Helmet>
-        <Col xl={{size:10, offset:1}}>
+        <Col md={{size:8, offset:2}}>
           <div className="header clearfix">
           </div>
 

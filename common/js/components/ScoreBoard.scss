@@ -1,6 +1,4 @@
 
-@import url('https://fonts.googleapis.com/css?family=Luckiest+Guy');
-
 
 .artists {
   width: 600px;
@@ -8,12 +6,17 @@
 
 
 #scoreArea {
+  font-size: 20px;
+  font-weight: normal;
   min-height: 60px;
-  margin-top: 20px;
+  padding-top: 30px;
   text-align: center;
-  font-family: 'Luckiest Guy', cursive;
   margin: 50px 10px;
-  color: #844401;
+}
+
+td.score {
+  font-size: 30px;
+  line-height: 1;
 }
 
 
