@@ -40,11 +40,11 @@ class GameContainer extends Component {
   render() {
     const {game} = this.props;
 
-    if(game && !game.isFinished && !game.hasStarted){
+    if(!game || !game.isFetched){
       return (
         <StartGame
           game={game}
-          startGame={this.startGame}
+          createGame={this.createGame}
         />
       );
     } else if(game && game.isFinished && !game.hasEnded) {

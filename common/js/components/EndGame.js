@@ -9,7 +9,7 @@ class EndGame extends Component {
 
     return (
       <Container>
-        <Button onClick={createGame}>Play Again</Button>
+        <Button className="btn-info" onClick={createGame}>Play Again</Button>
       </Container>
     );
   }

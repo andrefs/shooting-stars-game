@@ -5,11 +5,11 @@ import {Container, Button} from 'reactstrap';
 class StartGame extends Component {
 
   render(){
-    const {game, startGame} = this.props;
+    const {game, createGame} = this.props;
 
     return (
       <Container>
-        <Button onClick={startGame}>Start</Button>
+        <Button className="btn-info" onClick={createGame}>Start</Button>
       </Container>
     );
   }
