@@ -2,6 +2,7 @@ import {
   FETCH_GAME_REQUEST, FETCH_GAME_SUCCESS, FETCH_GAME_FAILURE,
   POST_PICK_REQUEST, POST_PICK_SUCCESS, POST_PICK_FAILURE,
   CREATE_GAME_REQUEST, CREATE_GAME_SUCCESS, CREATE_GAME_FAILURE,
+  START_GAME, END_GAME
 } from '../constants';
 import {getGameInstance, postPlayerPick, createNewGame} from 'lib/api';
 import generateActionCreator from 'lib/generateActionCreator';
@@ -17,6 +18,8 @@ export const fetchGameFailure = generateActionCreator(FETCH_GAME_FAILURE, 'error
 export const postPickRequest = generateActionCreator(POST_PICK_REQUEST);
 export const postPickSuccess = generateActionCreator(POST_PICK_SUCCESS, 'game');
 export const postPickFailure = generateActionCreator(POST_PICK_FAILURE, 'error');
+
+export const startGame = generateActionCreator(START_GAME);
 
 export const createGame = () => {
   return async (dispatch) => {
@@ -39,11 +42,7 @@ export const fetchGame = () => {
       const response = await getGameInstance();
       const game = await response.json();
 
-      if(!game || game.isFinished){
-        dispatch(createGame());
-      } else {
-        dispatch(fetchGameSuccess(game));
-      }
+      dispatch(fetchGameSuccess(game));
     } catch (e) {
       dispatch(fetchGameFailure(e.message));
     }
@@ -58,11 +57,7 @@ export const postPick = pick => {
       const response = await postPlayerPick(pick);
       const game = await response.json();
 
-      if(!game || game.isFinished){
-        dispatch(createGame());
-      } else {
-        dispatch(postPickSuccess(game));
-      }
+      dispatch(postPickSuccess(game));
     } catch (e) {
       dispatch(postPickFailure(e.message));
     }

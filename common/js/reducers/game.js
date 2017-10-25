@@ -1,11 +1,14 @@
 import {
   FETCH_GAME_REQUEST, FETCH_GAME_SUCCESS, FETCH_GAME_FAILURE,
-  POST_PICK_REQUEST, POST_PICK_SUCCESS, POST_PICK_FAILURE
+  POST_PICK_REQUEST, POST_PICK_SUCCESS, POST_PICK_FAILURE,
+  CREATE_GAME_REQUEST, CREATE_GAME_SUCCESS, CREATE_GAME_FAILURE,
+  START_GAME, END_GAME
 } from 'constants';
 
 const defaultState = {
   isFetching: false,
   isFetched: false,
+  hasStarted: false,
   error: null
 };
 
@@ -23,7 +26,8 @@ const game = (state = defaultState, action) => {
         ...state,
         ...action.game,
         isFetching: false,
-        isFetched: true
+        isFetched: true,
+        hasStarted: true
       };
 
     case FETCH_GAME_FAILURE:
@@ -41,6 +45,29 @@ const game = (state = defaultState, action) => {
         isFetched: true
       };
 
+    case CREATE_GAME_SUCCESS:
+      return {
+        ...state,
+        ...action.game,
+        isFetching: false,
+        isFetched: true,
+        hasStarted: false,
+        hasFinished: false
+      };
+
+    case START_GAME:
+      return {
+        ...state,
+        hasStarted: true,
+        hasEnded: false
+      };
+
+    case END_GAME:
+      return {
+        ...state,
+        hasEnded: true,
+        hasStarted: false
+      };
 
     default:
       return state;

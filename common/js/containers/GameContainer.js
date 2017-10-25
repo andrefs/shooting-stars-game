@@ -3,8 +3,10 @@ import React, {Component} from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 
-import {fetchGame, postPick} from 'actions/game';
+import {fetchGame, postPick, startGame, createGame} from 'actions/game';
 import Game from '../components/Game';
+import StartGame from '../components/StartGame';
+import EndGame from '../components/EndGame';
 
 class GameContainer extends Component {
 
@@ -14,6 +16,14 @@ class GameContainer extends Component {
     if (!game || !game.isFetched) {
       this.props.fetchGame();
     }
+  }
+
+  startGame = () => {
+    this.props.startGame();
+  }
+
+  createGame = () => {
+    this.props.createGame();
   }
 
   selectItem = (position) => {
@@ -30,9 +40,27 @@ class GameContainer extends Component {
   render() {
     const {game} = this.props;
 
-    return (
-      <Game game={game} selectItem={this.selectItem}/>
-    );
+    if(game && !game.isFinished && !game.hasStarted){
+      return (
+        <StartGame
+          game={game}
+          startGame={this.startGame}
+        />
+      );
+    } else if(game && game.isFinished && !game.hasEnded) {
+      return (
+        <EndGame
+          game={game}
+          createGame={this.createGame}
+        />
+      );
+    } else {
+      return (
+        <Game game={game}
+          selectItem={this.selectItem}
+        />
+      );
+    }
   }
 }
 
@@ -45,7 +73,9 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return bindActionCreators({
     fetchGame,
-    postPick
+    postPick,
+    startGame,
+    createGame
   }, dispatch);
 };
 
