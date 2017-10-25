@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import {Helmet} from 'react-helmet';
 import {Row, Col, Badge, Table} from 'reactstrap';
-import css from './ScoreBoard.scss';
+import css from './GameScore.scss';
 
-class ScoreBoard extends Component {
+class GameScore extends Component {
 
   render(){
     const {players, currentScore} = this.props;
@@ -26,4 +26,4 @@ class ScoreBoard extends Component {
   }
 }
 
-export default ScoreBoard;
+export default GameScore;

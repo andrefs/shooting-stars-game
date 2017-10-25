@@ -5,7 +5,7 @@ import css from './Game.scss';
 import StarsSVG from './StarsSVG';
 import {knuthShuffle} from 'knuth-shuffle';
 import classnames from 'classnames';
-import ScoreBoard from './ScoreBoard';
+import GameScore from './GameScore';
 
 class Game extends Component {
 
@@ -58,7 +58,7 @@ class Game extends Component {
               </div>
             </Col>
           </Row>
-          <ScoreBoard currentScore={game.currentScore} players={game.players} />
+          <GameScore currentScore={game.currentScore} players={game.players} />
         </Col>
       </Container>
     );

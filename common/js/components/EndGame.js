@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Helmet} from 'react-helmet';
 import {Container, Button} from 'reactstrap';
-import ScoreBoard from './ScoreBoard';
+import GameScore from './GameScore';
 
 class EndGame extends Component {
 
@@ -12,7 +12,7 @@ class EndGame extends Component {
       <Container className="text-center">
         <div className="header clearfix">
         </div>
-        <ScoreBoard players={game.players} currentScore={game.currentScore} />
+        <GameScore players={game.players} currentScore={game.currentScore} />
         <Button style={{marginTop: '200px;'}} className="btn-info" size="lg" onClick={createGame}>Play Again</Button>
       </Container>
     );
