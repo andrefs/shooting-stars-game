@@ -27,6 +27,7 @@ const game = (state = defaultState, action) => {
         ...action.game,
         isFetching: false,
         isFetched: true,
+        fetchFailed: false,
         hasStarted: true
       };
 
@@ -34,6 +35,7 @@ const game = (state = defaultState, action) => {
       return {
         isFetching: false,
         isFetched: false,
+        fetchFailed: true,
         error: action.error
       };
 
@@ -42,7 +44,8 @@ const game = (state = defaultState, action) => {
         ...state,
         ...action.game,
         isFetching: false,
-        isFetched: true
+        isFetched: true,
+        fetchFailed: false,
       };
 
     case CREATE_GAME_SUCCESS:
@@ -51,6 +54,7 @@ const game = (state = defaultState, action) => {
         ...action.game,
         isFetching: false,
         isFetched: true,
+        fetchFailed: false,
         hasStarted: false,
         hasFinished: false
       };

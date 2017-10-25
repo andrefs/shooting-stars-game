@@ -2,9 +2,10 @@ import React, {Component} from 'react';
 import {Helmet} from 'react-helmet';
 import {Container, Row, Col} from 'reactstrap';
 import css from './Game.scss';
-import StarsSVG from '../components/StarsSVG';
+import StarsSVG from './StarsSVG';
 import {knuthShuffle} from 'knuth-shuffle';
 import classnames from 'classnames';
+import ScoreBoard from './ScoreBoard';
 
 class Game extends Component {
 
@@ -57,12 +58,7 @@ class Game extends Component {
               </div>
             </Col>
           </Row>
-          <Row>
-            <Col lg="12" className={css.artists}>
-              <div id={css.scoreArea}>
-              </div>
-            </Col>
-          </Row>
+          <ScoreBoard currentScore={game.currentScore} players={game.players} />
         </Col>
       </Container>
     );

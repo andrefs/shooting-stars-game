@@ -8,8 +8,10 @@ class StartGame extends Component {
     const {game, createGame} = this.props;
 
     return (
-      <Container>
-        <Button className="btn-info" size="xl" onClick={createGame}>Start</Button>
+      <Container className="text-center">
+        <div className="header clearfix">
+        </div>
+        <Button  style={{top: '200px;'}} className="btn-info" size="lg" onClick={createGame}>Start</Button>
       </Container>
     );
   }

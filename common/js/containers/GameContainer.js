@@ -5,6 +5,7 @@ import {connect} from 'react-redux';
 
 import {fetchGame, postPick, startGame, createGame} from 'actions/game';
 import Game from '../components/Game';
+import LoadingGame from '../components/LoadingGame';
 import StartGame from '../components/StartGame';
 import EndGame from '../components/EndGame';
 
@@ -40,13 +41,20 @@ class GameContainer extends Component {
   render() {
     const {game} = this.props;
 
-    if(!game || !game.isFetched){
+    if(!game || game.isFetching){
+      return (
+        <LoadingGame
+          game={game}
+        />
+      );
+    } else if (game && game.fetchFailed){
       return (
         <StartGame
           game={game}
           createGame={this.createGame}
         />
       );
+
     } else if(game && game.isFinished && !game.hasEnded) {
       return (
         <EndGame
