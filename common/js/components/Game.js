@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Helmet} from 'react-helmet';
-import {Container, Row, Col} from 'reactstrap';
+import {Container, Row, Col, NavBar, Nav, Collapse, NavBarToggler, NavBarBrand, NavItem, NavLink} from 'reactstrap';
 import css from './Game.scss';
 import StarsSVG from './StarsSVG';
 import {knuthShuffle} from 'knuth-shuffle';
@@ -36,9 +36,28 @@ class Game extends Component {
         <Helmet>
           <title>Shooting Stars</title>
         </Helmet>
+
+      <div>
+        <Navbar color="faded" light expand="md">
+          <NavbarBrand href="/">reactstrap</NavbarBrand>
+          <NavbarToggler onClick={this.toggle} />
+          <Collapse isOpen={this.state.isOpen} navbar>
+            <Nav className="ml-auto" navbar>
+              <NavItem>
+                <NavLink href="/components/">Components</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink href="https://github.com/reactstrap/reactstrap">Github</NavLink>
+              </NavItem>
+            </Nav>
+          </Collapse>
+        </Navbar>
+      </div>
+
+
+
+
         <Col md={{size:8, offset:2}}>
-          <div className="header clearfix">
-          </div>
           <h2 className="text-center">{'Round '+(game.turns.previous.length+1)+'/10'}</h2>
 
           <Row>

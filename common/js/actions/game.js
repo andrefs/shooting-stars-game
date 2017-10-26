@@ -29,10 +29,14 @@ export const createGame = () => {
       const response = await createNewGame();
       const game = await response.json();
 
+      if (response.status < 200 || response.status >= 300) {
+        throw game;
+      }
+
       dispatch(createGameSuccess(game));
       dispatch(clearBestScores());
     } catch (e) {
-      dispatch(createGameFailure(e.message));
+      dispatch(createGameFailure(e));
     }
   };
 };
@@ -46,7 +50,7 @@ export const fetchGame = () => {
 
       dispatch(fetchGameSuccess(game));
     } catch (e) {
-      dispatch(fetchGameFailure(e.message));
+      dispatch(fetchGameFailure(e));
     }
   };
 };
@@ -61,7 +65,7 @@ export const postPick = pick => {
 
       dispatch(postPickSuccess(game));
     } catch (e) {
-      dispatch(postPickFailure(e.message));
+      dispatch(postPickFailure(e));
     }
   };
 };

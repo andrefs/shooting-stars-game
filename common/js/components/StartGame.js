@@ -11,7 +11,7 @@ class StartGame extends Component {
       <Container className="text-center">
         <div className="header clearfix">
         </div>
-        <Button  style={{top: '200px;'}} className="btn-info" size="lg" onClick={createGame}>Start</Button>
+        <Button  style={{top: '200px'}} className="btn-info" size="lg" onClick={createGame}>Start</Button>
       </Container>
     );
   }

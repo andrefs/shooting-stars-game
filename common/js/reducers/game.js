@@ -59,6 +59,16 @@ const game = (state = defaultState, action) => {
         hasFinished: false
       };
 
+    case CREATE_GAME_FAILURE:
+      return {
+        ...state,
+        isFetching: false,
+        isFetched: false,
+        createFailed: true,
+        error: action.error
+      };
+
+
     case START_GAME:
       return {
         ...state,
