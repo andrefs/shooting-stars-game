@@ -3,6 +3,7 @@ import {Helmet} from 'react-helmet';
 import {Container, Button} from 'reactstrap';
 import GameScoreContainer from '../containers/GameScoreContainer';
 import BestScoresContainer from '../containers/BestScoresContainer';
+import TitleBar from './TitleBar';
 
 class EndGame extends Component {
 
@@ -11,8 +12,8 @@ class EndGame extends Component {
 
     return (
       <Container className="text-center">
-        <div className="header clearfix">
-        </div>
+        <TitleBar />
+
         <GameScoreContainer players={game.players} currentScore={game.currentScore} />
         <BestScoresContainer />
         <Button className="btn-info" size="lg" onClick={createGame}>Play Again</Button>
