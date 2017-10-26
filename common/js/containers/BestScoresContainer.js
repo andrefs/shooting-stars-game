@@ -21,7 +21,7 @@ class BestScoresContainer extends Component {
 
     if(bestScores && bestScores.isFetched){
       return (
-        <GenericScoreBoard scores={bestScores.player} />
+        <GenericScoreBoard title="Overall Scores" players={bestScores.player} />
       );
     } else {
       return null;

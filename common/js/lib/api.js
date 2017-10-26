@@ -26,7 +26,7 @@ export const createNewGame = () => {
 };
 
 
-export const getScoreBoard = (...params) => {
+export const getBestScores = (...params) => {
   const url = '/players/bestScores?userId='+userId;
   return fetch(url, ...params);
 };

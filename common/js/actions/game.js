@@ -6,6 +6,7 @@ import {
 } from '../constants';
 import {getGameInstance, postPlayerPick, createNewGame} from 'lib/api';
 import generateActionCreator from 'lib/generateActionCreator';
+import {clearBestScores} from './bestScores';
 
 export const createGameRequest = generateActionCreator(CREATE_GAME_REQUEST);
 export const createGameSuccess = generateActionCreator(CREATE_GAME_SUCCESS, 'game');
@@ -29,6 +30,7 @@ export const createGame = () => {
       const game = await response.json();
 
       dispatch(createGameSuccess(game));
+      dispatch(clearBestScores());
     } catch (e) {
       dispatch(createGameFailure(e.message));
     }

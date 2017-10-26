@@ -1,5 +1,5 @@
 import {
-  FETCH_BEST_SCORES_REQUEST, FETCH_BEST_SCORES_SUCCESS, FETCH_BEST_SCORES_FAILURE,
+  FETCH_BEST_SCORES_REQUEST, FETCH_BEST_SCORES_SUCCESS, FETCH_BEST_SCORES_FAILURE, CLEAR_BEST_SCORES
 } from '../constants';
 
 import {getBestScores} from 'lib/api';
@@ -9,6 +9,7 @@ import generateActionCreator from 'lib/generateActionCreator';
 export const fetchBestScoresRequest = generateActionCreator(FETCH_BEST_SCORES_REQUEST);
 export const fetchBestScoresSuccess = generateActionCreator(FETCH_BEST_SCORES_SUCCESS, 'bestScores');
 export const fetchBestScoresFailure = generateActionCreator(FETCH_BEST_SCORES_FAILURE, 'error');
+export const clearBestScores        = generateActionCreator(CLEAR_BEST_SCORES);
 
 export const fetchBestScores = () => {
   return async (dispatch) => {

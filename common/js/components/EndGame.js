@@ -13,7 +13,7 @@ class EndGame extends Component {
       <Container className="text-center">
         <div className="header clearfix">
         </div>
-        <GameScoreContainer players={game.players} currentScore={game.currentScore} />
+        <GameScoreContainer title="Game Scores" players={game.players} currentScore={game.currentScore} />
         <BestScoresContainer />
         <Button className="btn-info" size="lg" onClick={createGame}>Play Again</Button>
       </Container>
