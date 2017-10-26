@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import {Helmet} from 'react-helmet';
 import {Container, Button} from 'reactstrap';
-import GameScore from './GameScore';
+import GameScoreContainer from '../containers/GameScoreContainer';
+import BestScoresContainer from '../containers/BestScoresContainer';
 
 class EndGame extends Component {
 
@@ -12,8 +13,9 @@ class EndGame extends Component {
       <Container className="text-center">
         <div className="header clearfix">
         </div>
-        <GameScore players={game.players} currentScore={game.currentScore} />
-        <Button style={{marginTop: '200px;'}} className="btn-info" size="lg" onClick={createGame}>Play Again</Button>
+        <GameScoreContainer players={game.players} currentScore={game.currentScore} />
+        <BestScoresContainer />
+        <Button className="btn-info" size="lg" onClick={createGame}>Play Again</Button>
       </Container>
     );
   }

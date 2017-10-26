@@ -5,7 +5,7 @@ import css from './Game.scss';
 import StarsSVG from './StarsSVG';
 import {knuthShuffle} from 'knuth-shuffle';
 import classnames from 'classnames';
-import GameScore from './GameScore';
+import GameScoreContainer from '../containers/GameScoreContainer';
 
 class Game extends Component {
 
@@ -39,6 +39,7 @@ class Game extends Component {
         <Col md={{size:8, offset:2}}>
           <div className="header clearfix">
           </div>
+          <h2 className="text-center">{'Round '+(game.turns.previous.length+1)+'/10'}</h2>
 
           <Row>
             <Col lg="12" className={css.artists}>
@@ -58,7 +59,10 @@ class Game extends Component {
               </div>
             </Col>
           </Row>
-          <GameScore currentScore={game.currentScore} players={game.players} />
+          <GameScoreContainer
+            title="Score"
+            currentScore={game.currentScore}
+            players={game.players} />
         </Col>
       </Container>
     );

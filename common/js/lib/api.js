@@ -24,3 +24,10 @@ export const createNewGame = () => {
   const url = '/gameInstances/current/?userId='+userId;
   return fetch(url, {method: 'POST'});
 };
+
+
+export const getScoreBoard = (...params) => {
+  const url = '/players/bestScores?userId='+userId;
+  return fetch(url, ...params);
+};
+
