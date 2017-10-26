@@ -19,7 +19,7 @@ class GameScore extends Component {
 
 
     return (
-      <GenericScoreBoard players={_players} title={title} />
+      <GenericScoreBoard players={_players} title={title || 'Game'} />
     );
   }
 }

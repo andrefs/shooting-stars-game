@@ -17,11 +17,11 @@ class BestScoresContainer extends Component {
   }
 
   render() {
-    const {bestScores} = this.props;
+    const {bestScores, title} = this.props;
 
     if(bestScores && bestScores.isFetched){
       return (
-        <GenericScoreBoard title="Overall Scores" players={bestScores.player} />
+        <GenericScoreBoard title={title || 'Overall'} columnHeaders={true} players={bestScores.player} />
       );
     } else {
       return null;
