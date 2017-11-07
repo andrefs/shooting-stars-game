@@ -16,7 +16,7 @@ export const fetchGameRequest = generateActionCreator(FETCH_GAME_REQUEST);
 export const fetchGameSuccess = generateActionCreator(FETCH_GAME_SUCCESS, 'game');
 export const fetchGameFailure = generateActionCreator(FETCH_GAME_FAILURE, 'error');
 
-export const postPickRequest = generateActionCreator(POST_PICK_REQUEST);
+export const postPickRequest = generateActionCreator(POST_PICK_REQUEST, 'pick');
 export const postPickSuccess = generateActionCreator(POST_PICK_SUCCESS, 'game');
 export const postPickFailure = generateActionCreator(POST_PICK_FAILURE, 'error');
 

@@ -7,6 +7,7 @@ import {knuthShuffle} from 'knuth-shuffle';
 import classnames from 'classnames';
 import GameScoreContainer from '../containers/GameScoreContainer';
 import TitleBar from './TitleBar';
+import FlashContainer from '../containers/FlashContainer';
 
 class Game extends Component {
 
@@ -39,6 +40,7 @@ class Game extends Component {
         </Helmet>
 
         <TitleBar title={'Round '+(game.turns.previous.length+1)+'/10'} />
+        <FlashContainer />
 
         <Col md={{size:8, offset:2}}>
           <Row>
