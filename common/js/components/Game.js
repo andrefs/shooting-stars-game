@@ -18,6 +18,7 @@ class Game extends Component {
       return <Container />;
     }
 
+    // shuffle items to place them randomly
     const triple = game.turns.current.triple;
     const items = knuthShuffle([{
       name: triple.itemA.name,

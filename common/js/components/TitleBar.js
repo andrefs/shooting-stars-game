@@ -14,9 +14,9 @@ class TitleBar extends Component {
             <img src="http://via.placeholder.com/350x150" />
           </div>
           <div className={classnames(css.titleDiv, 'text-center')}>
-          {title ?
-            <h1 className={css.titleText}>{title}</h1>
-          : null}
+            {title ?
+              <h1 className={css.titleText}>{title}</h1>
+              : null}
           </div>
         </div>
       </div>

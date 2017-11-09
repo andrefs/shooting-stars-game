@@ -41,13 +41,16 @@ class GameContainer extends Component {
   render() {
     const {game} = this.props;
 
+    // game is loading
     if(!game || game.isFetching){
       return (
         <LoadingGame
           game={game}
         />
       );
-    } else if (game && game.fetchFailed){
+    }
+    // no game currently being played
+    else if (game && game.fetchFailed){
       return (
         <StartGame
           game={game}
@@ -55,14 +58,18 @@ class GameContainer extends Component {
         />
       );
 
-    } else if(game && game.isFinished && !game.hasEnded) {
+    }
+    // current game is finished
+    else if(game && game.isFinished && !game.hasEnded) {
       return (
         <EndGame
           game={game}
           createGame={this.createGame}
         />
       );
-    } else {
+    }
+    // we're in the middle of a game
+    else {
       return (
         <Game game={game}
           selectItem={this.selectItem}

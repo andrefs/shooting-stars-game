@@ -63,6 +63,10 @@ export const postPick = pick => {
       const response = await postPlayerPick(pick);
       const game = await response.json();
 
+      if(response.status < 200 || response.status >= 300){
+        throw game;
+      }
+
       dispatch(postPickSuccess(game));
     } catch (e) {
       dispatch(postPickFailure(e));

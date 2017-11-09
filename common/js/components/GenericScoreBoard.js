@@ -14,17 +14,17 @@ class GenericScoreBoard extends Component {
           <h2>{title}</h2>
           <div id={css.scoreArea}>
             <Table>
-            {columnHeaders ?
-              <thead>
-                <tr>
-                  {players[0].ranking ? <td>Ranking</td> : null}
-                  <td>Player</td>
-                  <td>Score</td>
-                  {players[0].games ? <td>Games Played</td> : null}
-                </tr>
-              </thead>
-              : null
-            }
+              {columnHeaders ?
+                <thead>
+                  <tr>
+                    {players[0].ranking ? <td>Ranking</td> : null}
+                    <td>Player</td>
+                    <td>Score</td>
+                    {players[0].games ? <td>Games Played</td> : null}
+                  </tr>
+                </thead>
+                : null
+              }
               <tbody>
                 {players.map((p, i) => {
                   return (

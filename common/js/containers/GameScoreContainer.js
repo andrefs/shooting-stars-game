@@ -6,7 +6,8 @@ class GameScore extends Component {
   render(){
     const {title, players, currentScore} = this.props;
 
-    const _players = [{
+    const _players = [
+      {
         username: players.sync.username,
         score: currentScore.sync
       },{

@@ -9,14 +9,14 @@ class FlashBar extends Component {
 
     return (
       <div className={css.flashBar}>
-      {(items||[]).map((item, i) => {
-        return (
-          <div key={i} className={classnames(css.flashBarItem, css[item.type] || css.flashInfo)} >
-            {item.title ? <h3>{item.title}</h3> : null}
-            {item.message ? <p>{item.message}</p> : null}
-          </div>
-        );
-      })}
+        {(items||[]).map((item, i) => {
+          return (
+            <div key={i} className={classnames(css.flashBarItem, css[item.type] || css.flashInfo)} >
+              {item.title ? <h3>{item.title}</h3> : null}
+              {item.message ? <p>{item.message}</p> : null}
+            </div>
+          );
+        })}
       </div>
     );
   }
