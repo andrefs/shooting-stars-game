@@ -3,6 +3,8 @@ import thunk from 'redux-thunk';
 import rootReducer from 'reducers';
 import { createLogger } from 'redux-logger';
 import { routerMiddleware } from 'react-router-redux';
+import { apiMiddleware } from 'redux-api-middleware';
+import apiAuthInjector from './apiAuthInjector';
 
 export default function configureStore(initialState, history = null) {
   /* Middleware
@@ -10,7 +12,9 @@ export default function configureStore(initialState, history = null) {
    */
   let middleware = [
     thunk,
-    createLogger()
+    createLogger(),
+    apiAuthInjector,
+    apiMiddleware
   ];
 
   if (history) {

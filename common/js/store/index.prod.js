@@ -2,12 +2,18 @@ import { compose, createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import rootReducer from 'reducers';
 import { routerMiddleware } from 'react-router-redux';
+import { apiMiddleware } from 'redux-api-middleware';
+import apiAuthInjector from './apiAuthInjector';
 
 export default function configureStore(initialState, history = null) {
   /* Middleware
    * Configure this array with the middleware that you want included.
    */
-  let middleware = [ thunk ];
+  let middleware = [
+    thunk,
+    apiAuthInjector,
+    apiMiddleware
+  ];
 
   if (history) {
     middleware.push(routerMiddleware(history));

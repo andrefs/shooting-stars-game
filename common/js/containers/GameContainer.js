@@ -8,6 +8,7 @@ import Game from '../components/Game';
 import LoadingGame from '../components/LoadingGame';
 import StartGame from '../components/StartGame';
 import EndGame from '../components/EndGame';
+import Login from '../components/Login';
 
 class GameContainer extends Component {
 
@@ -40,6 +41,14 @@ class GameContainer extends Component {
 
   render() {
     const {game} = this.props;
+
+    // TODO
+    const x = 3;
+    if(x===3){
+      return (
+        <Login />
+      );
+    }
 
     // game is loading
     if(!game || game.isFetching){
