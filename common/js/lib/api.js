@@ -41,6 +41,6 @@ export const getBestScores = () => {
 };
 
 export const postLogin = (data) => {
-  const url = '/auth/login';
+  const url = '/auth/register';
   return unauthFetch(url, {method:'POST', body: JSON.stringify(data)});
 };

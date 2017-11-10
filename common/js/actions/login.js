@@ -13,7 +13,6 @@ export const login = (username, age, gender) => {
     dispatch(loginRequest());
     try {
       const response = await postLogin(username, age, gender);
-      console.log('XXXXXXXXXXXXXXxx 1', response);
       const login = await response.json();
 
       if (response.status < 200 || response.status >= 300) {

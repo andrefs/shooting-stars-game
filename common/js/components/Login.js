@@ -43,14 +43,14 @@ class Login extends Component {
                 <Row>
                   <Col xs={{size:6}}>
                     <FormGroup>
-                      <Label for="age"><Badge className={css.badge} color="secondary">2</Badge>Your year of birth:</Label>
+                      <Label for="birthYear"><Badge className={css.badge} color="secondary">2</Badge>Your year of birth:</Label>
                       <Input
-                        id="age"
-                        name="age"
+                        id="birthYear"
+                        name="birthYear"
                         type="select"
-                        onChange={this.props.handleAgeChange}
-                        value={this.props.age}
-                        className={cn(css.age, 'form-control-lg')}>
+                        onChange={this.props.handleBirthYearChange}
+                        value={this.props.birthYear}
+                        className={cn(css.birthYear, 'form-control-lg')}>
                           <option></option>
                           {years.reverse().map(y => <option key={y}>{y}</option>)}
                         </Input>
