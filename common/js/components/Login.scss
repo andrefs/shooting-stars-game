@@ -1,7 +1,11 @@
 
 
 .loginForm {
-    margin-top: 20px;
+  font-family: helvetica;
+  margin-top: 20px;
+  .badge {
+    margin-right: 5px;
+  }
 
   .facebook {
     background-color: #3B5998;
@@ -13,13 +17,18 @@
   .loginButton {
     margin-top: 10px;
     min-height: 60px;
+    cursor: pointer;
   }
 
   .socialButtons {
     button {
       margin-top: 0;
       min-height: 60px;
+      cursor: pointer;
     }
+  }
+  input::placeholder {
+    font-size: .9rem;
   }
 
   .bordered {

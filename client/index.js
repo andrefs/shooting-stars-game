@@ -25,7 +25,7 @@ const initialState = window.__INITIAL_STATE__;
 const store = configureStore(initialState, history);
 
 const render = (Component) => {
-  ReactDOM.render(
+  ReactDOM.hydrate(
     <Provider store={store}>
       <AppContainer>
         <ConnectedRouter history={history}>

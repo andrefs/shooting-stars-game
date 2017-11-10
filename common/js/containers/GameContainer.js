@@ -8,7 +8,7 @@ import Game from '../components/Game';
 import LoadingGame from '../components/LoadingGame';
 import StartGame from '../components/StartGame';
 import EndGame from '../components/EndGame';
-import Login from '../components/Login';
+import LoginContainer from '../containers/LoginContainer';
 
 class GameContainer extends Component {
 
@@ -46,7 +46,7 @@ class GameContainer extends Component {
     const x = 3;
     if(x===3){
       return (
-        <Login />
+        <LoginContainer />
       );
     }
 
