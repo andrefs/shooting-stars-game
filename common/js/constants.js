@@ -28,3 +28,8 @@ export const CLEAR_BEST_SCORES         = 'CLEAR_BEST_SCORES';
 
 export const ADD_FLASH_ITEM    = 'ADD_FLASH_ITEM';
 export const REMOVE_FLASH_ITEM = 'REMOVE_FLASH_ITEM';
+
+export const LOGIN_REQUEST = 'POST_PICK_REQUEST';
+export const LOGIN_SUCCESS = 'POST_PICK_SUCCESS';
+export const LOGIN_FAILURE = 'POST_PICK_FAILURE';
+

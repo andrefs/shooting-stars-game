@@ -11,6 +11,11 @@ class Login extends Component {
   render(){
 
     const submitEnabled = this.props.username && this.props.username.length > 0;
+    let years = [];
+    const currentYear = new Date().getFullYear();
+    for(let i=1900; i<currentYear; i++){
+      years.push(i);
+    }
 
     return (
       <Container>
@@ -22,7 +27,7 @@ class Login extends Component {
                 <Row>
                   <Col>
                     <FormGroup>
-                      <Label for="username"><Badge className={css.badge} color="secondary">1</Badge> Choose a username or enter your email address</Label>
+                      <Label for="username"><Badge className={css.badge} color="secondary">1</Badge> Choose your username or enter an email address:</Label>
                       <Input
                         id="username"
                         name="username"
@@ -38,21 +43,22 @@ class Login extends Component {
                 <Row>
                   <Col xs={{size:6}}>
                     <FormGroup>
-                      <Label for="age"><Badge className={css.badge} color="secondary">2</Badge> Tell us your age</Label>
+                      <Label for="age"><Badge className={css.badge} color="secondary">2</Badge>Your year of birth:</Label>
                       <Input
-                      id="age"
-                      name="age"
-                      type="number"
-                      min="0"
-                      max="130"
-                      onChange={this.props.handleAgeChange}
-                      value={this.props.age}
-                      className={cn(css.age, 'form-control-lg')} />
+                        id="age"
+                        name="age"
+                        type="select"
+                        onChange={this.props.handleAgeChange}
+                        value={this.props.age}
+                        className={cn(css.age, 'form-control-lg')}>
+                          <option></option>
+                          {years.reverse().map(y => <option key={y}>{y}</option>)}
+                        </Input>
                     </FormGroup>
                   </Col>
                   <Col xs={{size:6}}>
                     <FormGroup>
-                      <Label for="gender"><Badge className={css.badge} color="secondary">3</Badge> And your gender</Label>
+                      <Label for="gender"><Badge className={css.badge} color="secondary">3</Badge> And your gender:</Label>
                       <Input
                         id="gender"
                         name="gender"

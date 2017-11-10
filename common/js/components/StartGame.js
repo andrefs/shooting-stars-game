@@ -1,11 +1,10 @@
 import React, {Component} from 'react';
-import {Helmet} from 'react-helmet';
 import {Container, Button} from 'reactstrap';
 
 class StartGame extends Component {
 
   render(){
-    const {game, createGame} = this.props;
+    const {createGame} = this.props;
 
     return (
       <Container className="text-center">

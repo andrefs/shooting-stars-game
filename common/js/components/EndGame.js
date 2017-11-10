@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {Helmet} from 'react-helmet';
 import {Container, Button} from 'reactstrap';
 import GameScoreContainer from '../containers/GameScoreContainer';
 import BestScoresContainer from '../containers/BestScoresContainer';

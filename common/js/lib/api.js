@@ -1,3 +1,4 @@
+import isomorphicFetch from 'isomorphic-fetch';
 import {CALL_API} from 'redux-api-middleware';
 const apiUrl = 'http://localhost:15111';
 
@@ -12,6 +13,12 @@ export function fetch(path, params){
     }
   };
 }
+
+// Overrides the fetch() method to add the base API url to the front.
+export function unauthFetch(url, params, ...rest){
+  return isomorphicFetch( apiUrl + url, {mode: 'cors', ...params}, ...rest);
+}
+
 
 export const getGameInstance = () => {
   const url = '/gameInstances/current';
@@ -33,3 +40,7 @@ export const getBestScores = () => {
   return fetch(url);
 };
 
+export const postLogin = (data) => {
+  const url = '/auth/login';
+  return unauthFetch(url, {method:'POST', body: JSON.stringify(data)});
+};

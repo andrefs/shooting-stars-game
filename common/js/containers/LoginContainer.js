@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-
-// import {showFlash} from '../actions/flash';
+import {login} from '../actions/login';
 import Login from '../components/Login';
 
 class LoginContainer extends Component {
@@ -23,31 +22,32 @@ class LoginContainer extends Component {
     this.handleGenderSelect   = this.handleGenderSelect.bind(this);
   }
 
-	handleUsernameChange(e) {
-		this.setState({username: e.target.value});
-	}
-	handleAgeChange(e) {
-		this.setState({age: e.target.value});
-	}
-	handleGenderSelect(e) {
-		this.setState({gender: e.target.value});
-	}
-	handleClearForm(e) {
-		e.preventDefault();
-		this.setState(this.emptyState);
-	}
-	handleFormSubmit(e) {
-		e.preventDefault();
+  handleUsernameChange(e) {
+    this.setState({username: e.target.value});
+  }
+  handleAgeChange(e) {
+    this.setState({age: e.target.value});
+  }
+  handleGenderSelect(e) {
+    this.setState({gender: e.target.value});
+  }
+  handleClearForm(e) {
+    e.preventDefault();
+    this.setState(this.emptyState);
+  }
+  handleFormSubmit(e) {
+    e.preventDefault();
 
-		const formPayload = {
-			username: this.state.username,
-			age: this.state.age,
-			gender: this.state.gender
-		};
+    const formPayload = {
+      username: this.state.username,
+      age: this.state.age,
+      gender: this.state.gender
+    };
 
-		console.log('Send this in a POST request:', formPayload);
-		this.handleClearForm(e);
-	}
+    console.log('Send this in a POST request:', formPayload);
+    this.props.login(formPayload);
+    this.handleClearForm(e);
+  }
 
   render() {
     return (
@@ -72,7 +72,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return bindActionCreators({
+    login,
   }, dispatch);
 };
-
 export default connect(mapStateToProps, mapDispatchToProps)(LoginContainer);
