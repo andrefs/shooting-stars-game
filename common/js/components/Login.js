@@ -21,7 +21,7 @@ class Login extends Component {
       <Container>
         <TitleBar title="Player details"/>
         <Row className={css.loginForm}>
-          <Col md={{size:8, offset:2}}>
+          <Col xl={{size:6, offset:3}} md={{size:8, offset:2}}>
             <Form onSubmit={this.props.handleFormSubmit}>
               <Container className={css.bordered}>
                 <Row>
