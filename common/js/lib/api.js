@@ -3,13 +3,14 @@ import {CALL_API} from 'redux-api-middleware';
 const apiUrl = 'http://localhost:15111';
 
 export function fetch(path, params){
+  const _params = params || {};
   return {
     [CALL_API]: {
       endpoint: apiUrl+path,
-      method: params.method || 'GET',
+      method: _params.method || 'GET',
       headers: {'Content-Type':'application/json'},
       types: ['REQUEST', 'SUCCESS', 'FAILURE'],
-      options: params.options
+      options: _params.options
     }
   };
 }
