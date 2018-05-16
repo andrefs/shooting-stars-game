@@ -21,7 +21,7 @@ export const postPlayerPick = (pick) => {
 };
 
 export const createNewGame = () => {
-  const url = '/gameInstances/current/?userId='+userId;
+  const url = '/gameInstances/current?userId='+userId;
   return fetch(url, {method: 'POST'});
 };
 
