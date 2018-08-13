@@ -9,7 +9,7 @@ class StarsSVG extends Component {
 
     return (
 
-      <svg className={css.stars} viewBox="0 0 560 289.77">
+      <svg className={css.stars} viewBox="-10 0 580 289.77">
         <defs>
 
           <pattern id="image-1" x="0" y="0" width="1" height="1">
