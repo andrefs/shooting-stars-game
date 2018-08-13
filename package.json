@@ -1,7 +1,7 @@
 {
   "name": "shooting-stars-game",
   "description": "Test your music knowledge with this game!",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "license": "MIT",
   "main": "client/index.js",
   "repository": {
