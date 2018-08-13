@@ -4,18 +4,18 @@ import GenericScoreBoard from '../components/GenericScoreBoard';
 class GameScore extends Component {
 
   render(){
-    const {title, players, currentScore} = this.props;
+    const {title, player, opponentNames, currentScore} = this.props;
 
     const _players = [
       {
-        username: players.sync.username,
-        score: currentScore.sync
+        username: player.username,
+        score: currentScore.player
       },{
-        username: players.async ? players.async.username : 'Dilbert',
-        score: currentScore.async
+        username: opponentNames.rand1,
+        score: currentScore.rand1
       },{
-        username: 'Lucy',
-        score: currentScore.bot
+        username: opponentNames.rand2,
+        score: currentScore.rand2
       }];
 
 

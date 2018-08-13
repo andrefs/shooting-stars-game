@@ -14,7 +14,7 @@ class EndGame extends Component {
       <Container className="text-center">
         <TitleBar />
 
-        <GameScoreContainer players={game.players} currentScore={game.currentScore} />
+        <GameScoreContainer player={game.player} opponentNames={game.opponentNames} currentScore={game.currentScore} />
         <BestScoresContainer />
         <Button className="btn-info" size="lg" onClick={createGame}>Play Again</Button>
       </Container>

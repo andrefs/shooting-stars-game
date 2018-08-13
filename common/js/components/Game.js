@@ -65,7 +65,9 @@ class Game extends Component {
           <GameScoreContainer
             title="Score"
             currentScore={game.currentScore}
-            players={game.players} />
+            player={game.player}
+            opponentNames={game.opponentNames}
+            />
         </Col>
       </Container>
     );
