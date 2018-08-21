@@ -1,47 +1,68 @@
-import { compose, createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
+import { connectRouter, routerMiddleware } from 'connected-react-router';
 import thunk from 'redux-thunk';
-import rootReducer from 'reducers';
+import { createBrowserHistory, createMemoryHistory } from 'history';
 import { createLogger } from 'redux-logger';
-import { routerMiddleware } from 'react-router-redux';
+import rootReducer from '../reducers';
 import { apiMiddleware } from 'redux-api-middleware';
 import apiAuthInjector from './apiAuthInjector';
 
-export default function configureStore(initialState, history = null) {
-  /* Middleware
-   * Configure this array with the middleware that you want included
-   */
-  let middleware = [
+// A nice helper to tell us if we're on the server
+export const isServer = !(
+  typeof window !== 'undefined' &&
+  window.document &&
+  window.document.createElement
+);
+
+export default (url = '/') => {
+  // Create a history depending on the environment
+  const history = isServer
+    ? createMemoryHistory({
+        initialEntries: [url]
+      })
+    : createBrowserHistory();
+
+  const enhancers = [];
+
+  // Dev tools are helpful
+  if (process.env.NODE_ENV === 'development' && !isServer) {
+    const devToolsExtension = window.devToolsExtension;
+
+    if (typeof devToolsExtension === 'function') {
+      enhancers.push(devToolsExtension());
+    }
+  }
+
+  const middleware = [
     thunk,
+    routerMiddleware(history),
     createLogger(),
     apiAuthInjector,
     apiMiddleware
   ];
 
-  if (history) {
-    middleware.push(routerMiddleware(history));
-  }
-
-  // Add universal enhancers here
-  let enhancers = [];
-
-  const composeEnhancers = (
-    typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
-  ) || compose;
-  const enhancer = composeEnhancers(...[
+  const composedEnhancers = compose(
     applyMiddleware(...middleware),
     ...enhancers
-  ]);
+  );
 
-  // create store with enhancers, middleware, reducers, and initialState
-  const store = createStore(rootReducer, initialState, enhancer);
+  // Do we have preloaded state available? Great, save it.
+  const initialState = !isServer ? window.__PRELOADED_STATE__ : {};
 
-  if (module.hot) {
-    // Enable Webpack hot module replacement for reducers
-    module.hot.accept('../reducers', () => {
-      const nextRootReducer = require('../reducers').default;
-      store.replaceReducer(nextRootReducer);
-    });
+  // Delete it once we have it stored in a variable
+  if (!isServer) {
+    delete window.__PRELOADED_STATE__;
   }
 
-  return store;
-}
+  // Create the store
+  const store = createStore(
+    connectRouter(history)(rootReducer),
+    initialState,
+    composedEnhancers
+  );
+
+  return {
+    store,
+    history
+  };
+};

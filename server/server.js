@@ -1,101 +1,77 @@
-import path from 'path';
-import Express from 'express';
-import React from 'react';
-import { Provider } from 'react-redux';
-import { StaticRouter, matchPath } from 'react-router';
-import render from './render';
-import routes from 'routes';
-import ErrorPage from 'components/ErrorPage';
-import configureStore from 'store';
-import serveStatic from 'serve-static';
+// Express requirements
+import bodyParser from 'body-parser';
 import compression from 'compression';
-import App from 'containers/App';
-import Api from './api';
+import express from 'express';
+import morgan from 'morgan';
+import path from 'path';
+//import forceDomain from 'forcedomain';
+import Loadable from 'react-loadable';
+//import cookieParser from 'cookie-parser';
 
+// Our loader - this basically acts as the entry point for each page load
+import loader from './loader';
+
+
+// Create our express app using the port optionally specified
 const { PORT, APPLICATION_PORT } = process.env;
-const app = new Express();
+const app = express();
 const port = PORT || APPLICATION_PORT || 3000;
 
-// gzip
+// NOTE: UNCOMMENT THIS IF YOU WANT THIS FUNCTIONALITY
+/*
+  Forcing www and https redirects in production, totally optional.
+
+  http://mydomain.com
+  http://www.mydomain.com
+  https://mydomain.com
+
+  Resolve to: https://www.mydomain.com
+*/
+// if (process.env.NODE_ENV === 'production') {
+//   app.use(
+//     forceDomain({
+//       hostname: 'www.mydomain.com',
+//       protocol: 'https'
+//     })
+//   );
+// }
+
+// Compress, parse, log, and raid the cookie jar
 app.use(compression());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(morgan('dev'));
+//app.use(cookieParser());
 
-// Use this middleware to serve up static files built into dist
-app.use('/dist', serveStatic(path.join(__dirname, '../dist')));
+// Set up homepage, static assets, and capture everything else
+app.use(express.Router().get('/', loader));
+app.use(express.static(path.resolve(__dirname, '../dist')));
 
-// Mount the REST API
-app.use('/api', Api);
+app.use(loader);
 
-// This is fired every time the server side receives a request
-app.use(handleRender);
+// We tell React Loadable to load all required assets and start listening - ROCK AND ROLL!
+Loadable.preloadAll().then(() => {
+  app.listen(port, console.log(`App listening on port ${port}!`));
+});
 
-function handleRender(req, res) {
-  // This can come from the server somewhere if you want to pre-populate the
-  // app's initial state.
-  const initialState = {};
-
-  // Create a new Redux store instance
-  const store = configureStore(initialState);
-
-  // Grab the initial state from our Redux store
-  const finalState = store.getState();
-
-  // See react-router's Server Rendering section:
-  // https://reacttraining.com/react-router/web/guides/server-rendering
-  const matches = routes.reduce((matches, route) => {
-    const { path } = route;
-    const match = matchPath(req.url, { path, exact: true, strict: false });
-
-    if (match) {
-      const wc = route.component && route.component.WrappedComponent;
-
-      matches.push({
-        route,
-        match,
-        fetchData: (wc && wc.fetchData) || (() => Promise.resolve())
-      });
-
-    }
-
-    return matches;
-  }, []);
-
-  // No matched route, render a 404 page.
-  if (!matches.length) {
-    res.status(404).send(render(<ErrorPage code={404} />, finalState));
-    return;
+// Handle the bugs somehow
+app.on('error', error => {
+  if (error.syscall !== 'listen') {
+    throw error;
   }
 
-  // Otherwise, there is a match, so render the provider and router context
-  const component = (
-    <Provider store={store}>
-      <StaticRouter context={{}} location={req.url}>
-        <App />
-      </StaticRouter>
-    </Provider>
-  );
+  const bind = typeof port === 'string' ? 'Pipe ' + port : 'Port ' + port;
 
-  // an array of fetchData promises.
-  const fetchData = matches.map(match => {
-    const { fetchData, ...rest } = match; // eslint-disable-line no-unused-vars
-
-    // return fetch data Promise, excluding unnecessary fetchData method
-    return match.fetchData({ store, ...rest });
-  });
-
-  // Execute the render only after all promises have been resolved.
-  Promise
-    .all(fetchData)
-    .then(() => {
-      const state = store.getState();
-      res.status(200).send(render(component, state));
-    });
-
-}
-
-app.listen(port, (error) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.info(`Application server mounted locally on port ${port}.`);
+  switch (error.code) {
+    case 'EACCES':
+      console.error(bind + ' requires elevated privileges');
+      process.exit(1);
+      break;
+    case 'EADDRINUSE':
+      console.error(bind + ' is already in use');
+      process.exit(1);
+      break;
+    default:
+      throw error;
   }
 });
