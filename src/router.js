@@ -4,6 +4,7 @@ import Router from 'vue-router';
 import Game from './views/Game.vue';
 import Login from './views/Login.vue';
 import Register from './views/Register.vue';
+import NotFoundComponent from './components/NotFoundComponent';
 
 Vue.use(Router);
 
@@ -31,6 +32,10 @@ export default new Router({
       name: 'register',
       component: Register,
     },
+    {
+      path: '*',
+      component: NotFoundComponent
+    }
 
     // {
     //   path: '/home',
