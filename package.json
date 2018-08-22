@@ -45,7 +45,13 @@
       "@vue/standard"
     ],
     "rules": {
-      "semi": "always"
+      "semi": ["warn","always"],
+      "comma-dangle": ["warn", "only-multiline"],
+      "no-multiple-empty-lines": ["warn", {
+        "max": 2,
+        "maxBOF": 0,
+        "maxEOF": 1
+      }]
     },
     "parserOptions": {
       "parser": "babel-eslint"
