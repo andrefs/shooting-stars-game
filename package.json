@@ -59,8 +59,22 @@
       }],
       "space-before-blocks": ["warn", {
         "functions": "never",
-        "keywords": "always",
+        "keywords": "never",
         "classes": "always"
+      }],
+      "indent": ["warn", 2, {
+         "ObjectExpression": "off",
+         "FunctionExpression": {"parameters": "off"}
+      }],
+      "keyword-spacing": ["warn", {
+        "before": true,
+        "after": true,
+        "overrides": {
+          "if": {"after": false},
+          "for": {"after": false},
+          "catch": {"after": false},
+          "while": {"after": false}
+        }
       }]
     },
     "parserOptions": {
