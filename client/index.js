@@ -7,11 +7,13 @@ import { Frontload } from 'react-frontload';
 import { ConnectedRouter } from 'connected-react-router';
 import createStore from '../common/js/store';
 import App from 'containers/App';
+import {loadAuth} from '../common/js/actions/auth';
 
 
 // Create a store and get back itself and its history object
 const { store, history } = createStore();
 
+store.dispatch(loadAuth());              // try to load token from localStorage
 
 /* Images
  * This space is reserved for images that are required by server rendering,

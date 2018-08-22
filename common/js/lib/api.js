@@ -20,6 +20,11 @@ export function unauthFetch(url, params, ...rest){
   return isomorphicFetch( apiUrl + url, {mode: 'cors', ...params}, ...rest);
 }
 
+export const getUser = () => {
+  const url = '/user';
+  return fetch(url);
+};
+
 
 export const getGameInstance = () => {
   const url = '/gameInstances/current';

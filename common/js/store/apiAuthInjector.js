@@ -4,6 +4,7 @@ import ls from 'local-storage';
 export default function() {
   return function(next) {
     return function(action) {
+      console.log('XXXXXXXXXXXXXXXXXXX apiAuthInjector', action);
       const callApi = action[CALL_API];
 
       // Check if this action is a redux-api-middleware action.

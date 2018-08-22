@@ -6,6 +6,7 @@ import { createLogger } from 'redux-logger';
 import rootReducer from '../reducers';
 import { apiMiddleware } from 'redux-api-middleware';
 import apiAuthInjector from './apiAuthInjector';
+import Immutable from 'immutable';
 
 // A nice helper to tell us if we're on the server
 export const isServer = !(
@@ -47,6 +48,7 @@ export default (url = '/') => {
   );
 
   // Do we have preloaded state available? Great, save it.
+  //const initialState = Immutable.fromJS(!isServer ? window.__PRELOADED_STATE__ : {});
   const initialState = !isServer ? window.__PRELOADED_STATE__ : {};
 
   // Delete it once we have it stored in a variable

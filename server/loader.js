@@ -53,6 +53,5 @@ export default (req, res) => {
       const html = render(routeMarkup, state);
       res.send(html);
     }
-  })
-  .catch(err => console.log('XXXXXXXXXXXXXXXXXXXxx err 1', err));
+  });
 };
