@@ -51,6 +51,16 @@
         "max": 2,
         "maxBOF": 0,
         "maxEOF": 1
+      }],
+      "space-before-function-paren": ["warn", {
+        "anonymous": "never",
+        "named": "never",
+        "asyncArrow": "always"
+      }],
+      "space-before-blocks": ["warn", {
+        "functions": "never",
+        "keywords": "always",
+        "classes": "always"
       }]
     },
     "parserOptions": {
