@@ -2,7 +2,7 @@
   <v-container fluid>
     <v-slide-y-transition mode="out-in">
       <v-layout column align-center>
-        <v-form @submit.prevent="handleSubmit">
+        <v-form ref="loginForm" v-model="valid" @submit.prevent="handleSubmit">
           <h1>Login</h1>
           <v-text-field
             :rules="[rules.required, rules.min]"
@@ -21,7 +21,7 @@
             hint="At least 8 characters"
             @click:append="showPwd = !showPwd"
           ></v-text-field>
-          <button type="button" class="button buttonBlue">Login
+          <button type="submit" class="button buttonBlue">Login
             <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
           </button>
         </v-form>
@@ -31,9 +31,12 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
+
 export default {
   data(){
     return {
+      valid: true,
       showPwd: false,
       rules: {
         required: value => !!value || 'Required.',
@@ -63,8 +66,14 @@ export default {
   },
 
   methods: {
+    ...mapActions(['postLogin']),
     handleSubmit(){
-      // Send data to the server or update your stores and such.
+      if(this.$refs.loginForm.validate()){
+        this.postLogin({
+          username: this.username,
+          password: this.password
+        });
+      }
     }
   }
 };

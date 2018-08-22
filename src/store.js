@@ -19,6 +19,14 @@ export default new Vuex.Store({
     }
   },
   actions: {
+    postLogin({username, password}){
+      console.log('XXXXXXXXXXXXXX postLogin', {username, password});
+      return this.$http({
+          url: 'http://localhost:15111/login',
+          method: 'POST'
+      })
+        .then(response => console.log('XXXXXXXXXXXXXX response', response));
+    }
 
   },
 });
