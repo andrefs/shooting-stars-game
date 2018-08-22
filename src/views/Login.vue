@@ -2,17 +2,20 @@
   <v-container fluid>
     <v-slide-y-transition mode="out-in">
       <v-layout column align-center>
-        <v-form>
+        <v-form @submit.prevent="handleSubmit">
+          <h1>Login</h1>
           <v-text-field
             :rules="[rules.required, rules.min]"
             name="Username"
             label="Username"
+            v-model="username"
             required
           ></v-text-field>
           <v-text-field
             :append-icon="showPwd ? 'visibility_off' : 'visibility'"
             :rules="[rules.required, rules.min]"
             :type="showPwd ? 'text' : 'password'"
+            v-model="password"
             name="password"
             label="Password"
             hint="At least 8 characters"
@@ -29,7 +32,7 @@
 
 <script>
 export default {
-  data () {
+  data(){
     return {
       showPwd: false,
       rules: {
@@ -38,6 +41,31 @@ export default {
         emailMatch: () => ('The email and password you entered don\'t match')
       }
     };
+  },
+
+  computed: {
+    username: {
+      get(){
+        return this.$store.state.loginForm.username;
+      },
+      set(value){
+        this.$store.commit('updateLoginFormUsername', value);
+      }
+    },
+    password: {
+      get(){
+        return this.$store.state.loginForm.password;
+      },
+      set(value){
+        this.$store.commit('updateLoginFormPassword', value);
+      }
+    },
+  },
+
+  methods: {
+    handleSubmit(){
+      // Send data to the server or update your stores and such.
+    }
   }
 };
 </script>
@@ -117,63 +145,6 @@ input:focus ~ label, input.used ~ label {
   color: #4a89dc;
 }
 
-
-/* Underline */
-
-.bar {
-  position: relative;
-  display: block;
-  width: 100%;
-}
-
-.bar:before, .bar:after {
-  content: '';
-  height: 2px;
-  width: 0;
-  bottom: 1px;
-  position: absolute;
-  background: #4a89dc;
-  transition: all 0.2s ease;
-}
-
-.bar:before { left: 50%; }
-
-.bar:after { right: 50%; }
-
-
-/* active */
-
-input:focus ~ .bar:before, input:focus ~ .bar:after { width: 50%; }
-
-
-/* Highlight */
-
-.highlight {
-  position: absolute;
-  height: 60%;
-  width: 100px;
-  top: 25%;
-  left: 0;
-  pointer-events: none;
-  opacity: 0.5;
-}
-
-
-/* active */
-
-input:focus ~ .highlight {
-  animation: inputHighlighter 0.3s ease;
-}
-
-
-/* Animations */
-
-@keyframes inputHighlighter {
-  from { background: #4a89dc; }
-  to   { width: 0; background: transparent; }
-}
-
-
 /* Button */
 
 .button {
@@ -207,78 +178,4 @@ input:focus ~ .highlight {
 
 .buttonBlue:hover { background: #357bd8; }
 
-
-/* Ripples container */
-
-.ripples {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  background: transparent;
-}
-
-
-/* Ripples circle */
-
-.ripplesCircle {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  opacity: 0;
-  width: 0;
-  height: 0;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.25);
-}
-
-.ripples.is-active .ripplesCircle {
-  animation: ripples .4s ease-in;
-}
-
-
-/* Ripples animation */
-
-@keyframes ripples {
-  0% { opacity: 0; }
-
-  25% { opacity: 1; }
-
-  100% {
-    width: 200%;
-    padding-bottom: 200%;
-    opacity: 0;
-  }
-}
-
-footer { text-align: center; }
-
-footer p {
-  color: #888;
-  font-size: 13px;
-  letter-spacing: .4px;
-}
-
-footer a {
-  color: #4a89dc;
-  text-decoration: none;
-  transition: all .2s ease;
-}
-
-footer a:hover {
-  color: #666;
-  text-decoration: underline;
-}
-
-footer img {
-  width: 80px;
-  transition: all .2s ease;
-}
-
-footer img:hover { opacity: .83; }
-
-footer img:focus , footer a:focus { outline: none; }
 </style>
