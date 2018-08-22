@@ -1,27 +1,31 @@
-import Vue from 'vue'
+import Vue from 'vue';
 import {
   Vuetify,
   VApp,
   VNavigationDrawer,
   VFooter,
+  VForm,
   VList,
   VBtn,
   VIcon,
   VGrid,
+  VTextField,
   VToolbar,
   transitions
-} from 'vuetify'
-import 'vuetify/src/stylus/app.styl'
+} from 'vuetify';
+import 'vuetify/src/stylus/app.styl';
 
 Vue.use(Vuetify, {
   components: {
     VApp,
     VNavigationDrawer,
     VFooter,
+    VForm,
     VList,
     VBtn,
     VIcon,
     VGrid,
+    VTextField,
     VToolbar,
     transitions
   },
@@ -34,4 +38,5 @@ Vue.use(Vuetify, {
     success: '#4CAF50',
     warning: '#FFC107'
   },
-})
+});
+
