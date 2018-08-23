@@ -66,5 +66,5 @@ export default store => {
 
   Vue.use(Plugin);
 
-  return Plugin;
+  return _axios;
 };
