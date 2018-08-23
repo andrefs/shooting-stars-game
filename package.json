@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "js-cookie": "^2.2.0",
+    "knuth-shuffle": "^1.0.8",
     "register-service-worker": "^1.0.0",
     "vue": "^2.5.17",
     "vue-router": "^3.0.1",
@@ -116,7 +117,13 @@
         "warn",
         "as-needed"
       ],
-      "object-curly-spacing": ["warn", "never"]
+      "object-curly-spacing": [
+        "warn",
+        "never"
+      ],
+      "space-infix-ops": [
+        "off"
+      ]
     },
     "parserOptions": {
       "parser": "babel-eslint"

@@ -45,6 +45,46 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+@import url('https://fonts.googleapis.com/css?family=Love+Ya+Like+A+Sister');
+
+html, body {
+  font-family: 'Love Ya Like A Sister', cursive;
+}
+
+/**********
+* LABELS *
+**********/
+
+div.labels {
+  width: 100%;
+  position: relative;
+  top: -15%;
+}
+.label {
+  font-weight: normal;
+  width: 120px;
+  z-index: -1;
+
+  text-align: center;
+  margin: 10px;
+  min-height: 60px;
+  font-size: 30px;
+}
+.label.left {
+  position: absolute;
+  left: 12%;
+}
+.label.center {
+  position: absolute;
+  left: 50%;
+  margin-left: -60px;
+  margin-top: -4%;
+}
+.label.right {
+  position: absolute;
+  right: 12%;
+}
+
 h1, h2 {
   font-weight: normal;
 }
