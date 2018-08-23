@@ -18,7 +18,7 @@
 
 export default {
   name: 'App',
-  data () {
+  data(){
     return {
       clipped: false,
       drawer: true,
