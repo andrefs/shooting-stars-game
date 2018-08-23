@@ -115,7 +115,8 @@
       "arrow-parens": [
         "warn",
         "as-needed"
-      ]
+      ],
+      "object-curly-spacing": ["warn", "never"]
     },
     "parserOptions": {
       "parser": "babel-eslint"

@@ -15,7 +15,9 @@ let store = new Vuex.Store({
       username: '',
       password: ''
     },
-    status: {},
+    authStatus: '',
+    gameStatus: '',
+    game: {},
     token: '',
     user: null
   },
@@ -40,38 +42,64 @@ let store = new Vuex.Store({
     },
 
     loginRequest: state => {
-      state.status = { loggingIn: true };
+      state.authStatus = 'loggingIn';
       state.user = {};
     },
     loginSuccess: (state, {token, user}) => {
-      state.status = { loggedIn: true };
+      state.authStatus = 'loggedIn';
       state.user = user;
       state.token = token;
     },
     loginFailure: state => {
-      state.status = {};
+      state.authStatus = 'loggingInFailed';
       state.user = null;
       state.token = '';
     },
     logout: state => {
-      state.status = {};
+      state.authStatus = {};
       state.user = null;
       state.token = '';
     },
 
     registerRequest: state => {
-      state.status = { registering: true };
+      state.authStatus = 'registering';
       state.user = {};
     },
     registerSuccess: (state, {token, user}) => {
-      state.status = { registered: true };
+      state.authStatus = 'loggedIn';
       state.user = user;
       state.token = token;
     },
     registerFailure: state => {
-      state.status = {};
+      state.authStatus = 'registeringFailed';
       state.user = null;
       state.token = '';
+    },
+
+    fetchGameRequest: state => {
+      state.gameStatus = 'fetching';
+      state.game = null;
+    },
+    fetchGameSuccess: (state, {game}) => {
+      state.gameStatus = 'ok';
+      state.game = game;
+    },
+    fetchGameFailure: state => {
+      state.gameStatus = 'fetchingFailed';
+      state.game = null;
+    },
+
+    createGameRequest: state => {
+      state.gameStatus = 'creating';
+      state.game = null;
+    },
+    createGameSuccess: (state, {game}) => {
+      state.gameStatus = 'ok';
+      state.game = game;
+    },
+    createGameFailure: state => {
+      state.gameStatus = 'creatingFailed';
+      state.game = null;
     },
   },
   actions: {
@@ -106,27 +134,57 @@ let store = new Vuex.Store({
         commit('registerSuccess', {token, user});
       } catch(error){
         commit('registerFailure', error);
-        // dispatch something alert
+        // TODO dispatch something alert
 
         throw error;
       }
     },
 
-
-    async getTriples(...args){
-      console.log('XXXXXXXXXXXXXXXXXXXx getTriples args', args);
-      console.log('XXXXXXXXXXXXXXXXXXXx getTriples this', this);
+    async createGame({commit}){
+      commit('createGameRequest');
       try {
-        // Send credentials to API
-        let response = await this.$axios.get('/triples');
-        console.log('XXXXXXXXXXXXXXXXX getTriples response', response);
+        let response = await this.$axios.post('/gameInstances/current');
+        const game = response.data;
+        commit('createGameSuccess', {game});
       } catch(error){
-        if(error.response && error.response.status === 401){
-          throw new Error('Bad credentials');
+        commit('createGameFailure', error);
+
+        // 404 might happen, it's ok
+        if(error.response && error.response.status !== 404){
+          // TODO dispatch something alert
+          throw error;
         }
-        throw error;
       }
     },
+
+    async fetchGame({commit}){
+      commit('fetchGameRequest');
+      try {
+        let response = await this.$axios.get('/gameInstances/current');
+        const game = response.data;
+        commit('fetchGameSuccess', {game});
+      } catch(error){
+        commit('fetchGameFailure', error);
+
+        // 404 might happen, it's ok
+        if(error.response && error.response.status !== 404){
+          // TODO dispatch something alert
+          throw error;
+        }
+      }
+    },
+
+    // async getTriples(...args){
+    //   try {
+    //     // Send credentials to API
+    //     let response = await this.$axios.get('/triples');
+    //   } catch(error){
+    //     if(error.response && error.response.status === 401){
+    //       throw new Error('Bad credentials');
+    //     }
+    //     throw error;
+    //   }
+    // },
   },
   plugins: [
     createPersistedState({

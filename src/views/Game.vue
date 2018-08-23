@@ -2,16 +2,10 @@
   <v-container fluid>
     <v-slide-y-transition mode="out-in">
       <v-layout column align-center>
-        <img src="@/assets/logo.png" alt="Vuetify.js" class="mb-5">
-        <blockquote>
-          &#8220;First, solve the problem. Then, write the code.&#8221;
-          <footer>
-            <small>
-              <em>&mdash;John Johnson</em>
-            </small>
-          </footer>
-        </blockquote>
-
+        <LoadingGame v-if="gameStatus==='fetching'" />
+        <ChooseNext  v-else-if="!game" />
+        <ShowScore   v-else-if="game.isFinished" />
+        <PlayGame    v-else />
         <button v-on:click="apiCall">API call</button>
       </v-layout>
     </v-slide-y-transition>
@@ -19,11 +13,21 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import {mapActions, mapState} from 'vuex';
+import LoadingGame from '../components/LoadingGame.vue';
+import ChooseNext from '../components/ChooseNext.vue';
+import PlayGame from '../components/PlayGame.vue';
+import ShowScore from '../components/ShowScore.vue';
 
 export default {
+  name: 'game',
+  components: {LoadingGame, ChooseNext, PlayGame, ShowScore},
+  created(){
+    this.getGame();
+  },
+  computed: mapState(['game', 'gameStatus']),
   methods: {
-    ...mapActions(['getTriples']),
+    ...mapActions(['fetchGame']),
     async apiCall(){
       try {
         await this.$store.dispatch('getTriples');
@@ -31,7 +35,10 @@ export default {
         // TODO error handling
         console.log('XXXXXXXXXXXXXXXXXXX err 1', e);
       }
-    }
+    },
+    getGame(){
+      this.fetchGame();
+    },
   }
 };
 </script>
