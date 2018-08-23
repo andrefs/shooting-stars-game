@@ -36,6 +36,7 @@ import { mapActions } from 'vuex';
 export default {
   data(){
     return {
+      loading: false,
       valid: true,
       showPwd: false,
       rules: {
@@ -67,13 +68,29 @@ export default {
 
   methods: {
     ...mapActions(['postLogin']),
-    handleSubmit(){
+    async handleSubmit(){
+      console.log('XXXXXXXXXXXXXx handleSubmit');
       if(this.$refs.loginForm.validate()){
-        this.postLogin({
-          username: this.username,
-          password: this.password
-        });
+        this.loading = true;
+        try {
+          await this.$store.dispatch('login', {
+            fields: {
+              username: this.username,
+              password: this.password
+            }
+          });
+          this.clearForm();
+          this.loading = false;
+          this.$router.push({name: 'game'});
+        } catch(e){
+          this.loading = false;
+          // TODO error handling
+          console.log('XXXXXXXXXXXXXXXXXXX err 2', e);
+        }
       }
+    },
+    clearForm(){
+      this.$refs.loginForm.reset();
     }
   }
 };

@@ -11,10 +11,30 @@
             </small>
           </footer>
         </blockquote>
+
+        <button v-on:click="apiCall">API call</button>
       </v-layout>
     </v-slide-y-transition>
   </v-container>
 </template>
+
+<script>
+import { mapActions } from 'vuex';
+
+export default {
+  methods: {
+    ...mapActions(['getTriples']),
+    async apiCall(){
+      try {
+        await this.$store.dispatch('getTriples');
+      } catch(e){
+        // TODO error handling
+        console.log('XXXXXXXXXXXXXXXXXXX err 1', e);
+      }
+    }
+  }
+};
+</script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
