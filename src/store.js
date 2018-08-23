@@ -101,6 +101,17 @@ let store = new Vuex.Store({
       state.gameStatus = 'creatingFailed';
       state.game = null;
     },
+
+    postPickRequest: state => {
+      state.gameStatus = 'postingPick';
+    },
+    postPickSuccess: (state, {game}) => {
+      state.gameStatus = 'ok';
+      state.game = game;
+    },
+    postPickFailure: state => {
+      state.gameStatus = 'postPickFailed';
+    },
   },
   actions: {
     // Login
@@ -165,6 +176,23 @@ let store = new Vuex.Store({
         commit('fetchGameSuccess', {game});
       } catch(error){
         commit('fetchGameFailure', error);
+
+        // 404 might happen, it's ok
+        if(error.response && error.response.status !== 404){
+          // TODO dispatch something alert
+          throw error;
+        }
+      }
+    },
+
+    async postPick({commit}, pick){
+      commit('postPickRequest');
+      try {
+        let response = await this.$axios.post(`/gameInstances/currentTurn/${pick}`);
+        const game = response.data;
+        commit('postPickSuccess', {game});
+      } catch(error){
+        commit('postPickFailure', error);
 
         // 404 might happen, it's ok
         if(error.response && error.response.status !== 404){
