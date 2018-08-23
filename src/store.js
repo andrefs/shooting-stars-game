@@ -2,8 +2,6 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import createPersistedState from 'vuex-persistedstate';
 import * as Cookie from 'js-cookie';
-import Api from './services/Api';
-let api = Api();
 
 Vue.use(Vuex);
 
@@ -13,6 +11,11 @@ let store = new Vuex.Store({
       username: '',
       password: ''
     },
+    registerForm: {
+      username: '',
+      password: ''
+    },
+    status: {},
     token: '',
     user: null
   },
@@ -23,23 +26,68 @@ let store = new Vuex.Store({
     updateLoginFormPassword: (state, password) => {
       state.loginForm.password = password;
     },
+    updateRegisterFormUsername: (state, username) => {
+      state.registerForm.username = username;
+    },
+    updateRegisterFormPassword: (state, password) => {
+      state.registerForm.password = password;
+    },
     setToken: (state, token) => {
       state.token = token;
     },
     setUser: (state, user) => {
       state.user = user;
-    }
+    },
+
+    loginRequest: state => {
+      state.status = { loggingIn: true };
+      state.user = {};
+    },
+    loginSuccess: (state, {token, user}) => {
+      state.status = { loggedIn: true };
+      state.user = user;
+      state.token = token;
+    },
+    loginFailure: state => {
+      state.status = {};
+      state.user = null;
+      state.token = '';
+    },
+    logout: state => {
+      state.status = {};
+      state.user = null;
+      state.token = '';
+    },
+
+    registerRequest: state => {
+      state.status = { registering: true };
+      state.user = {};
+    },
+    registerSuccess: (state, {token, user}) => {
+      state.status = { registered: true };
+      state.user = user;
+      state.token = token;
+    },
+    registerFailure: state => {
+      state.status = {};
+      state.user = null;
+      state.token = '';
+    },
   },
   actions: {
     // Login
-    async login({commit}, {fields}){
+    async login({dispatch, commit}, {fields}){
+      commit('loginRequest');
+
       try {
         // Send credentials to API
-        let response = await api.post('/auth/register', fields);
+        let response = await this.$axios.post('/auth/login', fields);
         const {token, user} = response.data;
-        commit('setToken', token);
-        commit('setUser', user);
+        commit('loginSuccess', {token, user});
       } catch(error){
+        commit('loginFailure', error);
+        // dispatch something alert
+
         if(error.response && error.response.status === 401){
           throw new Error('Bad credentials');
         }
@@ -47,7 +95,24 @@ let store = new Vuex.Store({
       }
     },
 
-    // Login
+    // Register
+    async register({dispatch, commit}, {fields}){
+      commit('registerRequest');
+
+      try {
+        // Send credentials to API
+        let response = await this.$axios.post('/auth/register', fields);
+        const {token, user} = response.data;
+        commit('registerSuccess', {token, user});
+      } catch(error){
+        commit('registerFailure', error);
+        // dispatch something alert
+
+        throw error;
+      }
+    },
+
+
     async getTriples(...args){
       console.log('XXXXXXXXXXXXXXXXXXXx getTriples args', args);
       console.log('XXXXXXXXXXXXXXXXXXXx getTriples this', this);
@@ -66,7 +131,7 @@ let store = new Vuex.Store({
   plugins: [
     createPersistedState({
       paths: ['token'],
-      getState: (key) => Cookie.getJSON(key),
+      getState: key => Cookie.getJSON(key),
       setState: (key, state) => Cookie.set(key, state, { expires: 1, secure: false })
     })
   ]

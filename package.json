@@ -111,6 +111,10 @@
             }
           }
         }
+      ],
+      "arrow-parens": [
+        "warn",
+        "as-needed"
       ]
     },
     "parserOptions": {

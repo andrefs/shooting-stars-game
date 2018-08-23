@@ -69,7 +69,6 @@ export default {
   methods: {
     ...mapActions(['postLogin']),
     async handleSubmit(){
-      console.log('XXXXXXXXXXXXXx handleSubmit');
       if(this.$refs.loginForm.validate()){
         this.loading = true;
         try {
