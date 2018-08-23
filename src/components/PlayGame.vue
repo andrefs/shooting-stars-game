@@ -1,10 +1,20 @@
 <template>
-  <h1>Play game</h1>
+  <TitleBar :title="title" />
 </template>
 
 <script>
+import {mapState} from 'vuex';
+import TitleBar from './TitleBar.vue';
+
 export default {
-  name: 'PlayGame'
+  name: 'PlayGame',
+  components: {TitleBar},
+  computed: {
+    ...mapState(['game', 'gameStatus']),
+    title(){
+      return 'Round '+(this.game.turns.previous.length+1)+'/10';
+    }
+  }
 };
 </script>
 

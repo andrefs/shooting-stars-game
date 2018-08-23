@@ -29,12 +29,12 @@ export default {
   methods: {
     ...mapActions(['fetchGame']),
     async apiCall(){
-      try {
-        await this.$store.dispatch('getTriples');
-      } catch(e){
-        // TODO error handling
-        console.log('XXXXXXXXXXXXXXXXXXX err 1', e);
-      }
+      // try {
+      //   await this.$store.dispatch('getTriples');
+      // } catch(e){
+      //   // TODO error handling
+      //   console.log('XXXXXXXXXXXXXXXXXXX err 1', e);
+      // }
     },
     getGame(){
       this.fetchGame();
