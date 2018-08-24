@@ -20,6 +20,10 @@
         </div>
       </v-flex>
     </v-layout>
+    <GenericScoreBoard
+      title="Score"
+      :players="players"
+      :columnHeaders="false"/>
   </v-container>
   </div>
 </template>
@@ -29,10 +33,11 @@ import {knuthShuffle} from 'knuth-shuffle';
 import {mapState} from 'vuex';
 import TitleBar from './TitleBar.vue';
 import StarsSVG from './StarsSVG.vue';
+import GenericScoreBoard from './GenericScoreBoard.vue';
 
 export default {
   name: 'PlayGame',
-  components: {TitleBar, StarsSVG},
+  components: {TitleBar, StarsSVG, GenericScoreBoard},
   computed: {
     ...mapState(['game', 'gameStatus']),
     items(){
@@ -52,6 +57,18 @@ export default {
         position: 'C'
       }]);
     },
+    players(){
+      return [{
+        username: this.game.player.username,
+        score: this.game.currentScore.player
+      }, {
+        username: this.game.opponentNames.rand1 || 'Dilbert',
+        score: this.game.currentScore.rand1
+      }, {
+        username: this.game.opponentNames.rand2 || 'Ernesto',
+        score: this.game.currentScore.rand2
+      }];
+    },
     title(){
       return 'Round '+(this.game.turns.previous.length+1)+'/10';
     }
@@ -65,8 +82,6 @@ export default {
   width: 600px;
   margin-bottom: 70px;
 }
-
-
 
 /**********
 * LABELS *

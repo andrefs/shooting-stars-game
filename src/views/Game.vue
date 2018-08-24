@@ -6,7 +6,6 @@
         <ChooseNext  v-else-if="!game" />
         <ShowScore   v-else-if="game.isFinished" />
         <PlayGame    v-else />
-        <button v-on:click="apiCall">API call</button>
       </v-layout>
     </v-slide-y-transition>
   </v-container>
@@ -28,14 +27,6 @@ export default {
   computed: mapState(['game', 'gameStatus']),
   methods: {
     ...mapActions(['fetchGame']),
-    async apiCall(){
-      // try {
-      //   await this.$store.dispatch('getTriples');
-      // } catch(e){
-      //   // TODO error handling
-      //   console.log('XXXXXXXXXXXXXXXXXXX err 1', e);
-      // }
-    },
     getGame(){
       this.fetchGame();
     },
@@ -49,6 +40,19 @@ export default {
 
 html, body, .application {
   font-family: 'Love Ya Like A Sister', cursive;
+}
+
+h1, h2 {
+  text-align: center;
+}
+
+h1 {
+  font-size: 3em;
+}
+
+h2 {
+  font-size: 2em;
+  font-weight: normal;
 }
 
 </style>

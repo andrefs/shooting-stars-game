@@ -2,8 +2,10 @@ import Vue from 'vue';
 import {
   Vuetify,
   VApp,
+  VDataTable,
   VNavigationDrawer,
   VFooter,
+  VChip,
   VForm,
   VList,
   VBtn,
@@ -18,8 +20,10 @@ import 'vuetify/src/stylus/app.styl';
 Vue.use(Vuetify, {
   components: {
     VApp,
+    VDataTable,
     VNavigationDrawer,
     VFooter,
+    VChip,
     VForm,
     VList,
     VBtn,
