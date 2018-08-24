@@ -7,6 +7,10 @@ Vue.use(Vuex);
 
 let store = new Vuex.Store({
   state: {
+    gameStatus: '',
+    game: {},
+    bestScores: {},
+
     loginForm: {
       username: '',
       password: ''
@@ -15,9 +19,8 @@ let store = new Vuex.Store({
       username: '',
       password: ''
     },
+
     authStatus: '',
-    gameStatus: '',
-    game: {},
     token: '',
     user: null
   },
@@ -112,6 +115,17 @@ let store = new Vuex.Store({
     postPickFailure: state => {
       state.gameStatus = 'postPickFailed';
     },
+
+    fetchBestScoresRequest: state => {
+      state.bestScores = {};
+    },
+    fetchBestScoresSuccess: (state, {bestScores}) => {
+      state.bestScores = bestScores;
+    },
+    fetchBestScoresFailure: state => {
+      state.bestScores = {};
+    },
+
   },
   actions: {
     // Login
@@ -176,6 +190,23 @@ let store = new Vuex.Store({
         commit('fetchGameSuccess', {game});
       } catch(error){
         commit('fetchGameFailure', error);
+
+        // 404 might happen, it's ok
+        if(error.response && error.response.status !== 404){
+          // TODO dispatch something alert
+          throw error;
+        }
+      }
+    },
+
+    async fetchBestScores({commit}){
+      commit('fetchBestScoresRequest');
+      try {
+        let response = await this.$axios.get('/players/bestScores');
+        const bestScores = response.data;
+        commit('fetchBestScoresSuccess', {bestScores});
+      } catch(error){
+        commit('fetchBestScoresFailure', error);
 
         // 404 might happen, it's ok
         if(error.response && error.response.status !== 404){

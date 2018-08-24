@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app id="shooting-stars">
     <v-toolbar
       app
       :clipped-left="clipped"
@@ -36,9 +36,12 @@ export default {
 };
 </script>
 
-
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style>
+#shooting-stars {
+  background-color: white;
+}
+
 footer { text-align: center; }
 
 footer p {

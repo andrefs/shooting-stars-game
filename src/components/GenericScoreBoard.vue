@@ -1,5 +1,5 @@
 <template>
-  <v-layout>
+  <v-layout mt-2>
     <v-flex :class="['artists']">
       <h2>{{title}}</h2>
       <div id="scoreArea">
