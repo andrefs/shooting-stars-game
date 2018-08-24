@@ -4,7 +4,20 @@
   <v-container>
     <v-layout>
       <v-flex :class="['artists']">
-        <StarsSVG :items="items" />
+        <div :class="['star-container']">
+          <StarsSVG :items="items" />
+        </div>
+        <div :class="['labels']">
+          <div :class="['label','left']">
+            <span>{{items[0].name}}</span>
+          </div>
+          <div :class="['label','center']">
+            <span>{{items[1].name}}</span>
+          </div>
+          <div :class="['label','right']">
+            <span>{{items[2].name}}</span>
+          </div>
+        </div>
       </v-flex>
     </v-layout>
   </v-container>
@@ -51,6 +64,56 @@ export default {
 .artists {
   width: 600px;
   margin-bottom: 70px;
+}
+
+
+
+/**********
+* LABELS *
+**********/
+
+div.labels {
+  width: 100%;
+  position: relative;
+  top: -15%;
+}
+.label {
+  font-weight: normal;
+  width: 120px;
+
+  text-align: center;
+  margin: 10px;
+  min-height: 60px;
+  font-size: 30px;
+}
+.label.left {
+  position: absolute;
+  left: 12%;
+}
+.label.center {
+  position: absolute;
+  left: 50%;
+  margin-left: -60px;
+  margin-top: -4%;
+}
+.label.right {
+  position: absolute;
+  right: 12%;
+}
+
+h1, h2 {
+  font-weight: normal;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+li {
+  display: inline-block;
+  margin: 0 10px;
+}
+a {
+  color: #42b983;
 }
 
 </style>
