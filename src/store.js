@@ -79,6 +79,11 @@ let store = new Vuex.Store({
       state.token = '';
     },
 
+    registerGuestRequest: state => {
+      state.authStatus = 'registering';
+      state.user = {};
+    },
+
     fetchOrCreateGameRequest: state => {
       state.gameStatus = 'fetching';
       state.game = null;
@@ -163,6 +168,23 @@ let store = new Vuex.Store({
       try {
         // Send credentials to API
         let response = await this.$axios.post('/auth/register', fields);
+        const {token, user} = response.data;
+        commit('registerSuccess', {token, user});
+      } catch(error){
+        commit('registerFailure', error);
+        // TODO dispatch something alert
+
+        throw error;
+      }
+    },
+
+    // Register guest
+    async registerGuest({dispatch, commit}){
+      commit('registerGuestRequest');
+
+      try {
+        // Send credentials to API
+        let response = await this.$axios.post('/auth/registerGuest');
         const {token, user} = response.data;
         commit('registerSuccess', {token, user});
       } catch(error){

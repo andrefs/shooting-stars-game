@@ -1,13 +1,11 @@
 <template>
   <v-container fluid>
-    <v-slide-y-transition mode="out-in">
-      <v-layout column align-center>
-        <LoadingGame v-if="gameStatus==='fetching'" />
-        <ChooseNext  v-else-if="!game" />
-        <ShowScore   v-else-if="game.isFinished" />
-        <PlayGame    v-else />
-      </v-layout>
-    </v-slide-y-transition>
+    <v-layout column align-center>
+      <LoadingGame v-if="gameStatus==='fetching'" />
+      <ChooseNext  v-else-if="!game" />
+      <ShowScore   v-else-if="game.isFinished" />
+      <PlayGame    v-else />
+    </v-layout>
   </v-container>
 </template>
 
@@ -38,8 +36,13 @@ export default {
 <style>
 @import url('https://fonts.googleapis.com/css?family=Love+Ya+Like+A+Sister');
 
-html, body, .application {
+html, body, .application, #shooting-stars, #shooting-stars .v-jumbotron h3 {
   font-family: 'Love Ya Like A Sister', cursive;
+}
+
+#shooting-stars .v-jumbotron h3 {
+  font-size: 6em;
+  color: black;
 }
 
 h1, h2 {

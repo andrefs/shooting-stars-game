@@ -3,15 +3,14 @@ import {
   Vuetify,
   VApp,
   VDataTable,
-  VNavigationDrawer,
   VFooter,
   VChip,
   VForm,
-  VList,
   VBtn,
+  VJumbotron,
+  VTextField,
   VIcon,
   VGrid,
-  VTextField,
   VToolbar,
   transitions
 } from 'vuetify';
@@ -21,16 +20,15 @@ Vue.use(Vuetify, {
   components: {
     VApp,
     VDataTable,
-    VNavigationDrawer,
     VFooter,
     VChip,
     VForm,
-    VList,
     VBtn,
     VIcon,
     VGrid,
     VTextField,
     VToolbar,
+    VJumbotron,
     transitions
   },
   theme: {

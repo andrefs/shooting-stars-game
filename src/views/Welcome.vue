@@ -1,27 +1,45 @@
 <template>
-  <v-container fluid>
-    <v-slide-y-transition mode="out-in">
-      <v-layout column align-center>
-      <p>Here you can just <router-link to="/game">play the game</router-link>, <router-link to="/login">login</router-link> or <router-link to="/register">get registered</router-link>.</p>
-      </v-layout>
-    </v-slide-y-transition>
-  </v-container>
+  <div>
+    <v-jumbotron :gradient="gradient" dark>
+      <v-container fill-height>
+        <v-layout align-center>
+          <v-flex text-xs-center>
+            <h3>Shooting Stars</h3>
+          </v-flex>
+
+        </v-layout>
+      </v-container>
+    </v-jumbotron>
+
+    <v-layout mt-5>
+      <v-flex xs6 offset-xs3>
+        <v-btn  v-on:click="startGame" block class="start-game" large color="cyan darken-1">Play now!</v-btn>
+      </v-flex>
+    </v-layout>
+  </div>
 </template>
 
+
+<script>
+import {mapActions, mapState} from 'vuex';
+
+export default {
+  data: () => ({
+    gradient: 'to top, #7B1FA2, #E1BEE7'
+  }),
+  computed: mapState(['token']),
+  methods: {
+    ...mapActions(['registerGuest']),
+    async startGame(){
+      if(!this.token){
+        await this.registerGuest();
+      }
+      this.$router.push({name: 'game'});
+    }
+  }
+};
+</script>
+
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h1, h2 {
-  font-weight: normal;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
+<style>
 </style>
