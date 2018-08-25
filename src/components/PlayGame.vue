@@ -1,30 +1,30 @@
 <template>
   <div>
-  <TitleBar :title="title" />
-  <v-container>
-    <v-layout>
-      <v-flex :class="['artists']">
-        <div :class="['star-container']">
-          <StarsSVG :items="items" />
-        </div>
-        <div :class="['labels']">
-          <div :class="['label','left']">
-            <span>{{items[0].name}}</span>
+    <TitleBar :title="title" />
+    <v-container>
+      <v-layout>
+        <v-flex :class="['artists']">
+          <div :class="['star-container']">
+            <StarsSVG :items="items" />
           </div>
-          <div :class="['label','center']">
-            <span>{{items[1].name}}</span>
+          <div :class="['labels']">
+            <div :class="['label','left']">
+              <span>{{items[0].name}}</span>
+            </div>
+            <div :class="['label','center']">
+              <span>{{items[1].name}}</span>
+            </div>
+            <div :class="['label','right']">
+              <span>{{items[2].name}}</span>
+            </div>
           </div>
-          <div :class="['label','right']">
-            <span>{{items[2].name}}</span>
-          </div>
-        </div>
-      </v-flex>
-    </v-layout>
-    <GenericScoreBoard
-      title="Score"
-      :players="players"
-      :columnHeaders="false"/>
-  </v-container>
+        </v-flex>
+      </v-layout>
+      <GenericScoreBoard
+        title="Score"
+        :players="players"
+        :columnHeaders="false"/>
+    </v-container>
   </div>
 </template>
 

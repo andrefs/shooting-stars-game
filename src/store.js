@@ -79,6 +79,10 @@ let store = new Vuex.Store({
       state.token = '';
     },
 
+    fetchOrCreateGameRequest: state => {
+      state.gameStatus = 'fetching';
+      state.game = null;
+    },
     fetchGameRequest: state => {
       state.gameStatus = 'fetching';
       state.game = null;
@@ -88,6 +92,10 @@ let store = new Vuex.Store({
       state.game = game;
     },
     fetchGameFailure: state => {
+      state.gameStatus = 'fetchingFailed';
+      state.game = null;
+    },
+    fetchOrCreateGameFailure: state => {
       state.gameStatus = 'fetchingFailed';
       state.game = null;
     },
@@ -194,6 +202,27 @@ let store = new Vuex.Store({
         // 404 might happen, it's ok
         if(error.response && error.response.status !== 404){
           // TODO dispatch something alert
+          throw error;
+        }
+      }
+    },
+
+    async fetchOrCreateGame({commit, dispatch}){
+      commit('fetchOrCreateGameRequest');
+      try {
+        let response = await this.$axios.get('/gameInstances/current');
+        const game = response.data;
+        if(game.isFinished){
+          dispatch('createGame');
+        } else {
+          commit('fetchGameSuccess', {game});
+        }
+      } catch(error){
+        // there's no current game, we need to create it
+        if(error.response && error.response.status === 404){
+          dispatch('createGame');
+        } else {
+          commit('fetchOrCreateGameFailure', error);
           throw error;
         }
       }

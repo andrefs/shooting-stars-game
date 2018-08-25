@@ -26,9 +26,9 @@ export default {
   },
   computed: mapState(['game', 'gameStatus']),
   methods: {
-    ...mapActions(['fetchGame']),
+    ...mapActions(['fetchOrCreateGame']),
     getGame(){
-      this.fetchGame();
+      this.fetchOrCreateGame();
     },
   }
 };
