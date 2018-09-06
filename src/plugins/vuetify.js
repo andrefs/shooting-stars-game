@@ -3,6 +3,7 @@ import {
   Vuetify,
   VApp,
   VDataTable,
+  VTooltip,
   VFooter,
   VChip,
   VForm,
@@ -25,6 +26,7 @@ Vue.use(Vuetify, {
     VForm,
     VBtn,
     VIcon,
+    VTooltip,
     VGrid,
     VTextField,
     VToolbar,
@@ -32,13 +34,13 @@ Vue.use(Vuetify, {
     transitions
   },
   theme: {
-    primary: '#ee44aa',
-    secondary: '#424242',
-    accent: '#82B1FF',
-    error: '#FF5252',
-    info: '#2196F3',
-    success: '#4CAF50',
-    warning: '#FFC107'
+    primary   : '#ee44aa',
+    secondary : '#424242',
+    accent    : '#82B1FF',
+    error     : '#FF5252',
+    info      : '#2196F3',
+    success   : '#4CAF50',
+    warning   : '#FFC107'
   },
 });
 

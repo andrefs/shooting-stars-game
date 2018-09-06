@@ -22,9 +22,14 @@ let store = new Vuex.Store({
 
     authStatus: '',
     token: '',
-    user: null
+    user: null,
+
+    showHelp: true
   },
   mutations: {
+    toggleHelp: state => {
+      state.showHelp = !state.showHelp;
+    },
     updateLoginFormUsername: (state, username) => {
       state.loginForm.username = username;
     },

@@ -1,9 +1,7 @@
 <template>
   <v-app id="shooting-stars">
-    <v-toolbar
-      app
-      :clipped-left="clipped"
-    >
+    <v-toolbar app :clipped-left="clipped">
+    <v-btn @click="toggleHelp">{{ showHelp ? 'hide help' : 'show help' }}</v-btn>
     </v-toolbar>
     <v-content>
       <router-view/>
@@ -15,11 +13,13 @@
 </template>
 
 <script>
+import {mapActions, mapState} from 'vuex';
 
 export default {
   name: 'App',
   data(){
     return {
+      show: false,
       clipped: false,
       drawer: true,
       fixed: false,
@@ -32,7 +32,12 @@ export default {
       rightDrawer: false,
       title: 'Vuetify.js'
     };
-  }
+  },
+  methods: {
+    ...mapActions(['toggleHelp']),
+    toggleHelp(){ this.$store.commit('toggleHelp'); }
+  },
+  computed: mapState(['showHelp'])
 };
 </script>
 
