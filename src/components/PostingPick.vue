@@ -1,5 +1,5 @@
 <template>
-  <VCenterLoadingSpinner />
+  <VCenterLoadingSpinner :hideOverlay=true />
 </template>
 
 <script>
@@ -7,7 +7,7 @@ import VCenterLoadingSpinner from './VCenterLoadingSpinner.vue';
 
 export default {
   components: {VCenterLoadingSpinner},
-  name: 'LoadingGame'
+  name: 'LoadingSpinner'
 };
 </script>
 

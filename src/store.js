@@ -24,9 +24,16 @@ let store = new Vuex.Store({
     token: '',
     user: null,
 
-    showHelp: true
+    showHelp: true,
+    showLoadingSpinner: false
   },
   mutations: {
+    showLoadingSpinner: state => {
+      state.showLoadingSpinner = true;
+    },
+    hideLoadingSpinner: state => {
+      state.showLoadingSpinner = false;
+    },
     toggleHelp: state => {
       state.showHelp = !state.showHelp;
     },

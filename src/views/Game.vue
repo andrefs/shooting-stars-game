@@ -1,10 +1,10 @@
 <template>
   <v-container fluid>
     <v-layout column align-center>
-      <LoadingGame v-if="!token || gameStatus==='fetching'" />
-      <!--ChooseNext  v-else-if="!game" /-->
+      <LoadingGame v-if="!token || !game || gameStatus==='fetching'" />
       <ShowScore   v-else-if="game.isFinished" />
       <PlayGame    v-else />
+      <PostingPick v-if="gameStatus==='postingPick'" />
     </v-layout>
   </v-container>
 </template>
@@ -12,15 +12,14 @@
 <script>
 import {mapActions, mapState} from 'vuex';
 import LoadingGame from '../components/LoadingGame.vue';
+import PostingPick from '../components/PostingPick.vue';
 import ChooseNext from '../components/ChooseNext.vue';
 import PlayGame from '../components/PlayGame.vue';
 import ShowScore from '../components/ShowScore.vue';
 
 export default {
   name: 'game',
-  components: {LoadingGame, ChooseNext, PlayGame, ShowScore},
-  beforeCreate(){
-  },
+  components: {LoadingGame, ChooseNext, PlayGame, ShowScore, PostingPick},
   created(){
     if(!this.token){
       this.$router.replace({name: 'welcome'});
