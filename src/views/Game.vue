@@ -1,8 +1,8 @@
 <template>
   <v-container fluid>
     <v-layout column align-center>
-      <LoadingGame v-if="gameStatus==='fetching'" />
-      <ChooseNext  v-else-if="!game" />
+      <LoadingGame v-if="!token || gameStatus==='fetching'" />
+      <!--ChooseNext  v-else-if="!game" /-->
       <ShowScore   v-else-if="game.isFinished" />
       <PlayGame    v-else />
     </v-layout>
@@ -19,10 +19,16 @@ import ShowScore from '../components/ShowScore.vue';
 export default {
   name: 'game',
   components: {LoadingGame, ChooseNext, PlayGame, ShowScore},
-  created(){
-    this.getGame();
+  beforeCreate(){
   },
-  computed: mapState(['game', 'gameStatus']),
+  created(){
+    if(!this.token){
+      this.$router.replace({name: 'welcome'});
+    } else {
+      this.getGame();
+    }
+  },
+  computed: mapState(['game', 'gameStatus', 'token']),
   methods: {
     ...mapActions(['fetchOrCreateGame']),
     getGame(){
@@ -38,11 +44,6 @@ export default {
 
 html, body, .application, #shooting-stars, #shooting-stars .v-jumbotron h3 {
   font-family: 'Love Ya Like A Sister', cursive;
-}
-
-#shooting-stars .v-jumbotron h3 {
-  font-size: 6em;
-  color: black;
 }
 
 h1, h2 {

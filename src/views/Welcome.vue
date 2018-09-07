@@ -6,7 +6,6 @@
           <v-flex text-xs-center>
             <h3>Shooting Stars</h3>
           </v-flex>
-
         </v-layout>
       </v-container>
     </v-jumbotron>
@@ -24,8 +23,9 @@
 import {mapActions, mapState} from 'vuex';
 
 export default {
+  name: 'welcome',
   data: () => ({
-    gradient: 'to top, #7B1FA2, #E1BEE7'
+    gradient: 'to top, #00acc1, #a0d3da'
   }),
   computed: mapState(['token']),
   methods: {
@@ -42,4 +42,10 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
+
+#shooting-stars .v-jumbotron h3 {
+  font-size: 6em;
+  color: black;
+}
+
 </style>
