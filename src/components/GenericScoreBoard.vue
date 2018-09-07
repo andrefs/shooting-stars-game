@@ -1,6 +1,6 @@
 <template>
   <v-layout mt-2>
-    <v-flex :class="['artists']">
+    <v-flex :class="classes">
       <h2>{{title}}</h2>
       <div id="scoreArea">
         <v-data-table
@@ -25,7 +25,7 @@
 <script>
 export default {
   name: 'GenericScoreBoard',
-  props: ['title', 'players', 'columnHeaders'],
+  props: ['title', 'players', 'columnHeaders', 'classes'],
   computed: {
     headers(){
       const h = [];
@@ -61,6 +61,11 @@ export default {
   line-height: 1;
   font-size: 30px;
   font-weight: bold;
+}
+
+.bottom {
+  position: fixed;
+  bottom: 35px;
 }
 
 

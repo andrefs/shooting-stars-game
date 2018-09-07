@@ -2,8 +2,8 @@
   <div>
     <TitleBar :title="title" />
     <v-container>
-      <v-layout>
-        <v-flex :class="['artists']">
+      <v-layout :column="!landscape">
+        <v-flex :class="{artists:true, second: landscape}" >
           <div :class="['star-container']">
             <StarsSVG :items="items" />
           </div>
@@ -19,11 +19,13 @@
             </div>
           </div>
         </v-flex>
+        <v-flex>
+          <GenericScoreBoard
+            title="Score"
+            :players="players"
+            :columnHeaders="false" />
+        </v-flex>
       </v-layout>
-      <GenericScoreBoard
-        title="Score"
-        :players="players"
-        :columnHeaders="false"/>
     </v-container>
   </div>
 </template>
@@ -71,6 +73,18 @@ export default {
     },
     title(){
       return 'Round '+(this.game.turns.previous.length+1)+'/10';
+    },
+    landscape(){
+      if(this.$vuetify.breakpoint.width > this.$vuetify.breakpoint.height){
+        return true;
+      }
+      return false;
+    },
+    flexContainer(){
+      const landscape = this.$vuetify.breakpoint.width > this.$vuetify.breakpoint.height;
+      return landscape ?
+        {column: false} :
+        {column: true};
     }
   }
 };
@@ -130,5 +144,10 @@ li {
 a {
   color: #42b983;
 }
+
+.second {
+  order: 2;
+}
+
 
 </style>
