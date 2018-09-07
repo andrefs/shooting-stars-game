@@ -2,14 +2,20 @@
   <div>
   <TitleBar />
   <v-container>
-    <GenericScoreBoard
-      title="Game"
-      :players="players"
-      :columnHeaders="false" />
-    <GenericScoreBoard
-      title="Overall"
-      :players="bestScores.player"
-      :columnHeaders="true" />
+    <v-layout  :column="!landscape" mt-5>
+      <v-flex>
+        <GenericScoreBoard
+          title="Game"
+          :players="players"
+          :columnHeaders="false" />
+      </v-flex>
+      <v-flex>
+        <GenericScoreBoard
+          title="Overall"
+          :players="bestScores.player"
+          :columnHeaders="true" />
+      </v-flex>
+    </v-layout>
 
     <v-layout mt-5>
       <v-flex xs6 offset-xs3>
@@ -33,6 +39,12 @@ export default {
   },
   computed: {
     ...mapState(['game', 'bestScores']),
+    landscape(){
+      if(this.$vuetify.breakpoint.width > this.$vuetify.breakpoint.height){
+        return true;
+      }
+      return false;
+    },
     players(){
       return [{
         username: this.game.player.username,
