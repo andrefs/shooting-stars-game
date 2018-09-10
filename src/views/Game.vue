@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid>
+  <v-container fluid fill-height>
     <v-layout column align-center>
       <LoadingGame v-if="!token || !game || gameStatus==='fetching'" />
       <ShowScore   v-else-if="game.isFinished" />

@@ -124,7 +124,9 @@
       "space-infix-ops": [
         "off"
       ],
-      "key-spacing": ["off"]
+      "key-spacing": ["off"],
+      "no-multi-spaces": ["error", {"exceptions": {"Property": true}}],
+      "operator-linebreak": ["error", "after"]
     },
     "parserOptions": {
       "parser": "babel-eslint"

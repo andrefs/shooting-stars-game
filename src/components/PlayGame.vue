@@ -1,20 +1,23 @@
 <template>
-  <div>
+  <div class="fullArea">
     <TitleBar :title="title" />
-    <v-container>
-      <v-layout :column="!landscape">
+    <v-container :fill-height="!landscape">
+      <v-layout
+        justify-space-between
+        v-bind="flexContainer"
+        >
         <v-flex :class="{artists:true, second: landscape}" >
           <div :class="['star-container']">
             <StarsSVG :items="items" />
           </div>
-          <div :class="['labels']">
-            <div :class="['label','left']">
+          <div class="labels">
+            <div :class="{label:true, left: true, landscape: landscape, portrait: !landscape}">
               <span>{{items[0].name}}</span>
             </div>
-            <div :class="['label','center']">
+            <div :class="{label:true, center: true, landscape: landscape, portrait: !landscape}">
               <span>{{items[1].name}}</span>
             </div>
-            <div :class="['label','right']">
+            <div :class="{label:true, right: true, landscape: landscape, portrait: !landscape}">
               <span>{{items[2].name}}</span>
             </div>
           </div>
@@ -81,10 +84,12 @@ export default {
       return false;
     },
     flexContainer(){
-      const landscape = this.$vuetify.breakpoint.width > this.$vuetify.breakpoint.height;
-      return landscape ?
-        {column: false} :
-        {column: true};
+      if(this.landscape){
+        console.log('flexContainer landscape');
+        return {column: false, 'align-center': true};
+      }
+        console.log('flexContainer portrait');
+      return {column: true,  'align-center': true};
     }
   }
 };
@@ -92,42 +97,57 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+@import url('https://fonts.googleapis.com/css?family=Love+Ya+Like+A+Sister');
+
 .artists {
-  width: 600px;
-  margin-bottom: 70px;
+  width: 100%;
+  margin-top: -7%;
+  flex-grow: 2;
 }
 
 /**********
 * LABELS *
 **********/
+.label {
+  font-family: 'Love Ya Like A Sister', cursive !important;
+  text-align: center;
+}
+
+.label.portrait {
+  font-size: 5vw;
+}
+.label.landscape {
+  font-size: 3vw;
+}
 
 div.labels {
   width: 100%;
   position: relative;
-  top: -15%;
+  top: -20%;
+  text-align: center;
 }
 .label {
   font-weight: normal;
-  width: 120px;
+  width: 30%;
+  word-spacing: 30%;
 
   text-align: center;
   margin: 10px;
   min-height: 60px;
-  font-size: 30px;
 }
 .label.left {
   position: absolute;
-  left: 12%;
+  left: 0;
 }
 .label.center {
   position: absolute;
   left: 50%;
-  margin-left: -60px;
+  margin-left: -15%;
   margin-top: -4%;
 }
 .label.right {
   position: absolute;
-  right: 12%;
+  right: 0;
 }
 
 h1, h2 {
@@ -149,5 +169,12 @@ a {
   order: 2;
 }
 
+.fullArea {
+  width: 100%;
+  height: 100%;
+}
+.star-container {
+  margin-bottom: -7%;
+}
 
 </style>
