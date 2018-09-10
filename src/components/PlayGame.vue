@@ -1,48 +1,65 @@
 <template>
-  <div class="fullArea">
+  <v-layout
+    v-resize="recalcLandscape"
+    column>
     <TitleBar :title="title" />
-    <v-container :fill-height="!landscape">
-      <v-layout
-        justify-space-between
-        v-bind="flexContainer"
-        >
-        <v-flex :class="{artists:true, second: landscape}" >
-          <div :class="['star-container']">
-            <StarsSVG :items="items" />
+    <v-layout
+      class="play-game-layout"
+      v-bind="flexContainer"
+      >
+      <v-flex  :class="{artists:true, second: landscape}">
+        <div :class="['star-container']">
+          <StarsSVG :items="items" />
+        </div>
+        <div class="labels">
+          <div :class="{label:true, left: true, landscape: landscape, portrait: !landscape}">
+            <span>{{items[0].name}}</span>
           </div>
-          <div class="labels">
-            <div :class="{label:true, left: true, landscape: landscape, portrait: !landscape}">
-              <span>{{items[0].name}}</span>
-            </div>
-            <div :class="{label:true, center: true, landscape: landscape, portrait: !landscape}">
-              <span>{{items[1].name}}</span>
-            </div>
-            <div :class="{label:true, right: true, landscape: landscape, portrait: !landscape}">
-              <span>{{items[2].name}}</span>
-            </div>
+          <div :class="{label:true, center: true, landscape: landscape, portrait: !landscape}">
+            <span>{{items[1].name}}</span>
           </div>
-        </v-flex>
-        <v-flex>
-          <GenericScoreBoard
-            title="Score"
-            :players="players"
-            :columnHeaders="false" />
-        </v-flex>
-      </v-layout>
-    </v-container>
-  </div>
+          <div :class="{label:true, right: true, landscape: landscape, portrait: !landscape}">
+            <span>{{items[2].name}}</span>
+          </div>
+        </div>
+      </v-flex>
+      <v-flex class="score-flex">
+        <GenericScoreBoard
+          title="Score"
+          :players="players"
+          :columnHeaders="false" />
+      </v-flex>
+    </v-layout>
+  </v-layout>
 </template>
 
 <script>
 import {knuthShuffle} from 'knuth-shuffle';
-import {mapState} from 'vuex';
 import TitleBar from './TitleBar.vue';
 import StarsSVG from './StarsSVG.vue';
 import GenericScoreBoard from './GenericScoreBoard.vue';
+import {mapState} from 'vuex';
 
 export default {
   name: 'PlayGame',
   components: {TitleBar, StarsSVG, GenericScoreBoard},
+  mounted(){
+    this.recalcLandscape();
+  },
+  data(){
+    return {
+      landscape: 'init'
+    };
+  },
+  methods: {
+    recalcLandscape(){
+      if(window.innerWidth > window.innerHeight){
+        this.landscape = true;
+      } else {
+        this.landscape = false;
+      }
+    }
+  },
   computed: {
     ...mapState(['game', 'gameStatus']),
     items(){
@@ -77,32 +94,33 @@ export default {
     title(){
       return 'Round '+(this.game.turns.previous.length+1)+'/10';
     },
-    landscape(){
-      if(this.$vuetify.breakpoint.width > this.$vuetify.breakpoint.height){
-        return true;
-      }
-      return false;
-    },
     flexContainer(){
       if(this.landscape){
-        console.log('flexContainer landscape');
         return {column: false, 'align-center': true};
       }
-        console.log('flexContainer portrait');
-      return {column: true,  'align-center': true};
+      return {column: true};
     }
   }
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss">
+<style>
 @import url('https://fonts.googleapis.com/css?family=Love+Ya+Like+A+Sister');
 
+html {
+  overflow: hidden;
+}
+.play-game-content {
+  padding: 0 !important;
+}
+
 .artists {
-  width: 100%;
-  margin-top: -7%;
-  flex-grow: 2;
+  flex-basis: auto;
+  flex-grow: 5;
+}
+.second {
+  order: 2;
 }
 
 /**********
@@ -123,7 +141,7 @@ export default {
 div.labels {
   width: 100%;
   position: relative;
-  top: -20%;
+  margin-top: -9%;
   text-align: center;
 }
 .label {
@@ -150,6 +168,10 @@ div.labels {
   right: 0;
 }
 
+.star-container {
+  margin-top: -6%;
+}
+
 h1, h2 {
   font-weight: normal;
 }
@@ -165,16 +187,9 @@ a {
   color: #42b983;
 }
 
-.second {
-  order: 2;
-}
-
-.fullArea {
-  width: 100%;
-  height: 100%;
-}
-.star-container {
-  margin-bottom: -7%;
+.score-flex {
+  flex-basis: 15%;
 }
 
 </style>
+

@@ -18,6 +18,7 @@ import {
   VToolbar,
   transitions
 } from 'vuetify';
+import {Resize} from 'vuetify/es5/directives';
 import 'vuetify/src/stylus/app.styl';
 
 Vue.use(Vuetify, {
@@ -48,5 +49,8 @@ Vue.use(Vuetify, {
     success   : '#4CAF50',
     warning   : '#FFC107'
   },
+  directives: {
+    Resize
+  }
 });
 

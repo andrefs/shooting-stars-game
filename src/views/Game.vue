@@ -1,11 +1,9 @@
 <template>
-  <v-container fluid fill-height>
-    <v-layout column align-center>
-      <LoadingGame v-if="!token || !game || gameStatus==='fetching'" />
-      <ShowScore   v-else-if="game.isFinished" />
-      <PlayGame    v-else />
-      <PostingPick v-if="gameStatus==='postingPick'" />
-    </v-layout>
+  <v-container class="game-container" fill-height fluid>
+    <LoadingGame v-if="!token || !game || gameStatus==='fetching'" />
+    <ShowScore   v-else-if="game.isFinished" />
+    <PlayGame    v-else />
+    <PostingPick v-if="gameStatus==='postingPick'" />
   </v-container>
 </template>
 
@@ -19,7 +17,7 @@ import ShowScore from '../components/ShowScore.vue';
 
 export default {
   name: 'game',
-  components: {LoadingGame, ChooseNext, PlayGame, ShowScore, PostingPick},
+  components: {LoadingGame, ChooseNext, ShowScore, PostingPick, PlayGame},
   created(){
     if(!this.token){
       this.$router.replace({name: 'welcome'});
