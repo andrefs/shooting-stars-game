@@ -7,9 +7,10 @@
       class="play-game-layout"
       v-bind="flexContainer"
       >
-      <v-flex  :class="{artists:true, second: landscape}">
+      <v-flex :class="{artists:true, second: landscape}">
         <div :class="['star-container']">
-          <StarsSVG :items="items" />
+          <!-- StarsSVGCluster :items="items" v-if="landscape"/ -->
+          <StarsSVGInline :items="items" />
         </div>
         <div class="labels">
           <div :class="{label:true, left: true, landscape: landscape, portrait: !landscape}">
@@ -36,13 +37,14 @@
 <script>
 import {knuthShuffle} from 'knuth-shuffle';
 import TitleBar from './TitleBar.vue';
-import StarsSVG from './StarsSVG.vue';
+import StarsSVGInline from './StarsSVGInline.vue';
+import StarsSVGCluster from './StarsSVGCluster.vue';
 import GenericScoreBoard from './GenericScoreBoard.vue';
 import {mapState} from 'vuex';
 
 export default {
   name: 'PlayGame',
-  components: {TitleBar, StarsSVG, GenericScoreBoard},
+  components: {TitleBar, StarsSVGInline, StarsSVGCluster, GenericScoreBoard},
   mounted(){
     this.recalcLandscape();
   },
