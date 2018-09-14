@@ -1,7 +1,7 @@
 <template>
   <v-app id="shooting-stars">
-    <v-toolbar app :clipped-left="clipped">
-    <v-btn @click="toggleHelp">{{ showHelp ? 'hide help' : 'show help' }}</v-btn>
+    <v-toolbar app :clipped-left="clipped" dense>
+      <v-btn @click="toggleHelp">{{ showHelp ? 'hide help' : 'show help' }}</v-btn>
     </v-toolbar>
     <v-content id="app-content">
       <router-view/>

@@ -30,8 +30,8 @@
 }
 */
 .titleBar h1 {
-  margin-top: 0.5rem;
   font-size: 2em;
+  line-height: 1.1;
 }
 
 </style>

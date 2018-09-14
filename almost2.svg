@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   viewBox="-10 0 580 289.77"
+   version="1.1"
+   id="svg37"
+   sodipodi:docname="almost2.svg"
+   inkscape:version="0.92.2 2405546, 2018-03-11">
+  <metadata
+     id="metadata41">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="3840"
+     inkscape:window-height="2133"
+     id="namedview39"
+     showgrid="false"
+     inkscape:zoom="2.1866028"
+     inkscape:cx="258.97465"
+     inkscape:cy="204.31891"
+     inkscape:window-x="1920"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg37" />
+  <defs
+     id="defs11">
+    <pattern
+       id="image-1"
+       x="0"
+       y="0"
+       width="1"
+       height="1">
+      <image
+         v-bind="{'xlink:href':imageBaseUrl +'/'+items[0].imageUrl}"
+         height="220"
+         id="image2" />
+    </pattern>
+    <pattern
+       id="image-2"
+       width="1"
+       height="1">
+      <image
+         v-bind="{'xlink:href':imageBaseUrl +'/'+items[1].imageUrl}"
+         height="200"
+         id="image5" />
+    </pattern>
+    <pattern
+       id="image-3"
+       width="1"
+       height="1">
+      <image
+         v-bind="{'xlink:href':imageBaseUrl +'/'+items[2].imageUrl}"
+         height="220"
+         id="image8" />
+    </pattern>
+  </defs>
+  <g
+     id="g858">
+    <path
+       id="path13"
+       d="M101.47 54.58c8.86-3.17 45.6 36.42 54.63 39.06 9.02 2.64 61.32-10.9 67.07-3.45 5.75 7.4-20.55 54.6-20.27 64 .28 9.4 29.3 54.9 24 62.7-5.3 7.7-58.3-2.7-67.14.5-8.86 3.1-43.2 44.8-52.23 42.2-9.03-2.7-15.5-56.3-21.24-63.7-5.8-7.5-56.1-27.3-56.3-36.7-.3-9.4 48.7-32.1 54-39.88 5.3-7.77 8.6-61.7 17.4-64.86z"
+       class="starLeft" />
+    <path
+       id="path15"
+       d="M458.53 54.58c-8.86-3.17-45.6 36.42-54.63 39.06-9.02 2.64-61.32-10.9-67.07-3.45-5.75 7.4 20.55 54.6 20.27 64-.28 9.4-29.3 54.9-24 62.7 5.3 7.7 58.3-2.7 67.14.5 8.86 3.1 43.2 44.8 52.23 42.2 9.03-2.7 15.5-56.3 21.24-63.7 5.8-7.5 56.1-27.3 56.3-36.7.3-9.4-48.7-32.1-54-39.88-5.3-7.77-8.6-61.7-17.4-64.86z"
+       class="starRight" />
+  </g>
+  <path
+     class="starCenter"
+     d="M280 30c9.4 0 30.66 49.66 38.27 55.2 7.6 5.5 61.4 10.4 64.3 19.33 2.92 8.94-37.74 44.5-40.65 53.45-2.9 8.94 9.1 61.62 1.48 67.14-7.6 5.53-54-22.15-63.4-22.15-9.4 0-55.8 27.68-63.4 22.15-7.6-5.52 4.38-58.2 1.48-67.14-2.9-8.94-43.57-44.5-40.66-53.45 2.9-8.94 56.7-13.82 64.3-19.34C249.35 79.6 270.6 30 280 30z"
+     id="path17" />
+  <text
+     x="157.9599"
+     y="218.87691"
+     font-size="11.60900879px"
+     font-weight="400"
+     letter-spacing="0"
+     style="font-weight:400;font-size:21.33333397px;line-height:11.60900879px;font-family:sans-serif;letter-spacing:0;word-spacing:0;stroke-width:0.43533787"
+     word-spacing="0"
+     id="text29">
+    <tspan
+       x="279.41739"
+       y="250.1487"
+       font-size="23.21802139px"
+       style="font-size:21.33333397px;line-height:24.78523636px;text-align:center;text-anchor:middle"
+       id="tspan25">This is a</tspan>
+    <tspan
+       x="279.41739"
+       y="274.93393"
+       font-size="23.21802139px"
+       style="font-size:21.33333397px;line-height:24.78523636px;text-align:center;text-anchor:middle"
+       id="tspan27">star center</tspan>
+  </text>
+  <g
+     id="g882"
+     transform="translate(-4.5831311)">
+    <text
+       id="text23"
+       word-spacing="0"
+       style="font-weight:400;font-size:21.33333333px;line-height:11.60900879px;font-family:sans-serif;letter-spacing:0;word-spacing:0;stroke-width:0.43533787;"
+       letter-spacing="0"
+       font-weight="400"
+       font-size="11.60900879px"
+       y="245.40207"
+       x="43.991886">
+      <tspan
+         id="tspan19"
+         style="font-size:21.33333333px;line-height:24.78523636px;text-align:center;text-anchor:middle;"
+         font-size="23.21802139px"
+         y="276.67386"
+         x="165.44937">This is a</tspan>
+      <tspan
+         id="tspan21"
+         style="font-size:21.33333333px;line-height:24.78523636px;text-align:center;text-anchor:middle;"
+         font-size="23.21802139px"
+         y="301.45911"
+         x="165.44937">star left</tspan>
+    </text>
+    <text
+       id="text35"
+       word-spacing="0"
+       style="font-weight:400;font-size:21.33333333px;line-height:11.60900879px;font-family:sans-serif;letter-spacing:0;word-spacing:0;stroke-width:0.43533787;"
+       letter-spacing="0"
+       font-weight="400"
+       font-size="11.60900879px"
+       y="243.1517"
+       x="276.91971">
+      <tspan
+         id="tspan31"
+         style="font-size:21.33333333px;line-height:24.78523636px;text-align:center;text-anchor:middle;"
+         font-size="23.21802139px"
+         y="274.42349"
+         x="398.3772">This is a</tspan>
+      <tspan
+         id="tspan33"
+         style="font-size:21.33333333px;line-height:24.78523636px;text-align:center;text-anchor:middle;"
+         font-size="23.21802139px"
+         y="299.20871"
+         x="398.3772">star right</tspan>
+    </text>
+  </g>
+</svg>
