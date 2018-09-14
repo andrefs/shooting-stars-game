@@ -29,7 +29,7 @@ export default {
   },
   computed: mapState(['game', 'gameStatus', 'token']),
   methods: {
-    ...mapActions(['fetchOrCreateGame']),
+    ...mapActions(['fetchOrCreateGame', 'registerGuest']),
     getGame(){
       this.fetchOrCreateGame();
     },
