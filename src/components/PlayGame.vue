@@ -95,7 +95,9 @@ export default {
       }];
     },
     title(){
-      return 'Round '+(this.game.turns.previous.length+1)+'/10';
+      let turns = this.game && this.game.turns && this.game.turns.previous ?
+        this.game.turns.previous.length : 0;
+      return 'Round '+(turns+1)+'/10';
     },
     flexContainer(){
       if(this.landscape){
