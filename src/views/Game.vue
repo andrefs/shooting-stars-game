@@ -1,5 +1,5 @@
 <template>
-  <v-container class="game-container" fill-height fluid>
+  <v-container class="game-container" fluid>
     <LoadingGame v-if="!token || !game || gameStatus==='fetching'" />
     <ShowScore   v-else-if="game.isFinished" />
     <PlayGame    v-else />
@@ -45,12 +45,12 @@ html, body, .application, #shooting-stars, #shooting-stars .v-jumbotron h3 {
   font-family: 'Love Ya Like A Sister', cursive;
 }
 
-h1, h2 {
-  text-align: center;
+.game-container {
+  height: 100%;
 }
 
-h1 {
-  font-size: 3em;
+h1, h2 {
+  text-align: center;
 }
 
 h2 {

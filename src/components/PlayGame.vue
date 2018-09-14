@@ -1,6 +1,7 @@
 <template>
   <v-layout
     v-resize="recalcLandscape"
+    class="parent-layout"
     column>
     <TitleBar :title="title" />
     <v-layout
@@ -12,7 +13,7 @@
           <!-- StarsSVGCluster :items="items" v-if="landscape"/ -->
           <StarsSVGInline :items="items" />
         </div>
-        <div class="labels">
+        <!-- div class="labels">
           <div :class="{label:true, left: true, landscape: landscape, portrait: !landscape}">
             <span>{{items[0].name}}</span>
           </div>
@@ -22,7 +23,7 @@
           <div :class="{label:true, right: true, landscape: landscape, portrait: !landscape}">
             <span>{{items[2].name}}</span>
           </div>
-        </div>
+        </div -->
       </v-flex>
       <v-flex class="score-flex">
         <GenericScoreBoard
@@ -117,12 +118,25 @@ html {
   padding: 0 !important;
 }
 
+.play-game-layout {
+  height: 100%;
+}
+
 .artists {
   flex-basis: auto;
   flex-grow: 5;
+  height: 100%;
 }
 .second {
   order: 2;
+}
+
+.star-container {
+  height: 100%;
+}
+
+.parent-layout {
+  height: 100%;
 }
 
 /**********
@@ -137,13 +151,13 @@ html {
   font-size: 5vw;
 }
 .label.landscape {
-  font-size: 3vw;
+  font-size: 1.3em;
 }
 
 div.labels {
   width: 100%;
   position: relative;
-  margin-top: -9%;
+  margin-top: -20%;
   text-align: center;
 }
 .label {

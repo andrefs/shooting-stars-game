@@ -3,7 +3,7 @@
     <v-toolbar app :clipped-left="clipped">
     <v-btn @click="toggleHelp">{{ showHelp ? 'hide help' : 'show help' }}</v-btn>
     </v-toolbar>
-    <v-content>
+    <v-content id="app-content">
       <router-view/>
     </v-content>
     <!--v-footer :fixed="fixed" app>
@@ -43,8 +43,16 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
+
+html { font-size: calc(1em + 1vw); }
+
+
 #shooting-stars {
   background-color: white;
+}
+
+#app-content {
+  height: 100vh;
 }
 
 footer { text-align: center; }

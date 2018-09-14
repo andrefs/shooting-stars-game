@@ -1,30 +1,28 @@
 <template>
-  <div>
-  <TitleBar />
-  <v-container>
-    <v-layout  :column="!landscape" mt-5>
-      <v-flex>
+  <v-layout>
+    <TitleBar />
+    <v-layout wrap>
+      <v-flex class="score-flex" mx-2>
         <GenericScoreBoard
           title="Game"
           :players="players"
-          :columnHeaders="false" />
+          :columnHeaders="true" />
       </v-flex>
-      <v-flex>
+      <v-flex class="score-flex" mx-2>
         <GenericScoreBoard
           title="Overall"
           :players="bestScores.player"
           :columnHeaders="true" />
       </v-flex>
     </v-layout>
-
-    <v-layout mt-5>
+    <v-layout>
       <v-flex xs6 offset-xs3>
         <v-btn block class="start-game" large color="cyan darken-1" v-on:click="createGame">Play again!</v-btn>
       </v-flex>
     </v-layout>
-  </v-container>
-  </div>
+  </v-layout>
 </template>
+
 
 <script>
 import GenericScoreBoard from './GenericScoreBoard.vue';

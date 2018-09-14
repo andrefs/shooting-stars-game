@@ -1,11 +1,12 @@
 <template functional>
-  <div>
+  <div class="titleBar">
     <h1>{{props.title}}</h1>
   </div>
 </template>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
+/*
 .titleVerticalSpace, .titleBar {
   height: 5vw;
   display: flex;
@@ -27,8 +28,10 @@
   bottom: 0;
 
 }
+*/
 .titleBar h1 {
   margin-top: 0.5rem;
+  font-size: 2.5em;
 }
 
 </style>

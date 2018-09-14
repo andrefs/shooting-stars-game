@@ -3,6 +3,7 @@ import {
   Vuetify,
   VApp,
   VDataTable,
+  VResponsive,
   VTooltip,
   VProgressCircular,
   VFooter,
@@ -36,6 +37,7 @@ Vue.use(Vuetify, {
     VTooltip,
     VGrid,
     VTextField,
+    VResponsive,
     VToolbar,
     VJumbotron,
     transitions
