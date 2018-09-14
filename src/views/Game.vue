@@ -18,12 +18,14 @@ import ShowScore from '../components/ShowScore.vue';
 export default {
   name: 'game',
   components: {LoadingGame, ChooseNext, ShowScore, PostingPick, PlayGame},
-  created(){
+  async created(){
+    // if(!this.token){
+    //   this.$router.replace({name: 'welcome'});
+    // }
     if(!this.token){
-      this.$router.replace({name: 'welcome'});
-    } else {
-      this.getGame();
+      await this.registerGuest();
     }
+    this.getGame();
   },
   computed: mapState(['game', 'gameStatus', 'token']),
   methods: {

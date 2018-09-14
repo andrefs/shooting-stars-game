@@ -12,13 +12,14 @@ export default new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
+    // {
+    //   path: '/',
+    //   name: 'welcome',
+    //   component: () => import(/* webpackChunkName: "about" */ './views/Welcome.vue'),
+    // },
     {
+      //path: '/game',
       path: '/',
-      name: 'welcome',
-      component: () => import(/* webpackChunkName: "about" */ './views/Welcome.vue'),
-    },
-    {
-      path: '/game',
       name: 'game',
       component: Game,
     },
