@@ -1,6 +1,6 @@
 <template>
   <v-container class="game-container" fluid>
-    <LoadingGame v-if="!token || !game || gameStatus==='fetching'" />
+    <LoadingGame v-if="!token || !game || gameStatus==='fetching' || !gameStatus" />
     <ShowScore   v-else-if="game.isFinished" />
     <PlayGame    v-else />
     <PostingPick v-if="gameStatus==='postingPick'" />
