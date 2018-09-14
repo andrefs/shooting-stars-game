@@ -119,14 +119,14 @@ svg.stars path {
 
   transition: transform 0.2s;
   stroke: #facfa3;
-  stroke-width: .75vh;
+  stroke-width: 1.25%;
   filter:url(#dropshadow);
   cursor: pointer;
 }
 
 svg.stars path:hover {
   stroke: orange;
-  stroke-width: 1.25vh;
+  stroke-width: 2%;
 }
 
 svg.stars path.starCenter {
