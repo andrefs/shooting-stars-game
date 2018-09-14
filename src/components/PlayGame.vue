@@ -39,13 +39,13 @@
 import {knuthShuffle} from 'knuth-shuffle';
 import TitleBar from './TitleBar.vue';
 import StarsSVGInline from './StarsSVGInline.vue';
-//import StarsSVGCluster from './StarsSVGCluster.vue';
+// import StarsSVGCluster from './StarsSVGCluster.vue';
 import GenericScoreBoard from './GenericScoreBoard.vue';
 import {mapState} from 'vuex';
 
 export default {
   name: 'PlayGame',
-  components: {TitleBar, StarsSVGInline, /*StarsSVGCluster,*/ GenericScoreBoard},
+  components: {TitleBar, StarsSVGInline, /* StarsSVGCluster, */ GenericScoreBoard},
   mounted(){
     this.recalcLandscape();
   },

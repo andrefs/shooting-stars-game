@@ -1,7 +1,7 @@
 <template>
   <v-layout mt-2>
     <v-flex :class="classes">
-      <h2>{{title}}</h2>
+      <h2 class="score-title">{{title}}</h2>
       <div id="scoreArea">
         <v-data-table
           :headers="headers"
@@ -51,6 +51,9 @@ export default {
   text-align: center;
   margin: 10px 10px;
   padding-top: 0;
+}
+.score-title {
+  font-size: 1em;
 }
 
 #scoreArea td {
