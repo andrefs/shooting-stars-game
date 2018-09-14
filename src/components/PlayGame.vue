@@ -39,13 +39,13 @@
 import {knuthShuffle} from 'knuth-shuffle';
 import TitleBar from './TitleBar.vue';
 import StarsSVGInline from './StarsSVGInline.vue';
-import StarsSVGCluster from './StarsSVGCluster.vue';
+//import StarsSVGCluster from './StarsSVGCluster.vue';
 import GenericScoreBoard from './GenericScoreBoard.vue';
 import {mapState} from 'vuex';
 
 export default {
   name: 'PlayGame',
-  components: {TitleBar, StarsSVGInline, StarsSVGCluster, GenericScoreBoard},
+  components: {TitleBar, StarsSVGInline, /*StarsSVGCluster,*/ GenericScoreBoard},
   mounted(){
     this.recalcLandscape();
   },
@@ -137,55 +137,6 @@ html {
 
 .parent-layout {
   height: 100%;
-}
-
-/**********
-* LABELS *
-**********/
-.label {
-  font-family: 'Love Ya Like A Sister', cursive !important;
-  text-align: center;
-}
-
-.label.portrait {
-  font-size: 5vw;
-}
-.label.landscape {
-  font-size: 1.3em;
-}
-
-div.labels {
-  width: 100%;
-  position: relative;
-  margin-top: -20%;
-  text-align: center;
-}
-.label {
-  font-weight: normal;
-  width: 30%;
-  word-spacing: 30%;
-
-  text-align: center;
-  margin: 10px;
-  min-height: 60px;
-}
-.label.left {
-  position: absolute;
-  left: 0;
-}
-.label.center {
-  position: absolute;
-  left: 50%;
-  margin-left: -15%;
-  margin-top: -4%;
-}
-.label.right {
-  position: absolute;
-  right: 0;
-}
-
-.star-container {
-  margin-top: -6%;
 }
 
 h1, h2 {
