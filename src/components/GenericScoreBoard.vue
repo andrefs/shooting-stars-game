@@ -62,7 +62,7 @@ export default {
 }
 
 #scoreArea td.score .v-chip {
-  line-height: 1;
+  height: 1em;
   font-size: 1.2em;
   font-weight: bold;
 }

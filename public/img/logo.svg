@@ -16,7 +16,10 @@
    version="1.1"
    id="svg8"
    inkscape:version="0.92.2 2405546, 2018-03-11"
-   sodipodi:docname="logo.svg">
+   sodipodi:docname="logo.svg"
+   inkscape:export-filename="/home/andrefs/Academia/MAPi/projects/shooting-stars-game/public/img/logo.png"
+   inkscape:export-xdpi="132.86"
+   inkscape:export-ydpi="132.86">
   <defs
      id="defs2" />
   <sodipodi:namedview
@@ -26,9 +29,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.58153846"
-     inkscape:cx="259.56552"
-     inkscape:cy="170.24525"
+     inkscape:zoom="1.932497"
+     inkscape:cx="131.23415"
+     inkscape:cy="166.8061"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -62,7 +65,9 @@
        style="fill:#ffcc00;stroke:none;stroke-width:0.82200003;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        inkscape:connector-curvature="0"
        id="path2"
-       d="m 59.937074,76.474543 c 6.045871,0 19.718413,31.932807 24.609637,35.486487 4.891206,3.5537 39.486179,6.68927 41.354439,12.43923 1.86825,5.74994 -24.27659,28.6211 -26.144853,34.37106 -1.86832,5.75 5.839993,39.62067 0.948803,43.17431 -4.891243,3.55377 -34.722155,-14.24389 -40.768026,-14.24389 -6.045872,0 -35.876827,17.79766 -40.76805,14.24398 -4.891218,-3.55366 2.8171,-37.4244 0.948828,-43.17433 -1.868297,-5.74994 -28.0131394,-28.62119 -26.1448654,-34.37109 1.868271,-5.75 36.4632354,-8.88557 41.3544474,-12.43925 4.891207,-3.5537 18.563768,-35.486558 24.60964,-35.486558 z" />
+       d="m 59.937074,76.474543 c 6.045871,0 19.718413,31.932807 24.609637,35.486487 4.891206,3.5537 39.486179,6.68927 41.354439,12.43923 1.86825,5.74994 -24.27659,28.6211 -26.144853,34.37106 -1.86832,5.75 5.839993,39.62067 0.948803,43.17431 -4.891243,3.55377 -34.722155,-14.24389 -40.768026,-14.24389 -6.045872,0 -35.876827,17.79766 -40.76805,14.24398 -4.891218,-3.55366 2.8171,-37.4244 0.948828,-43.17433 -1.868297,-5.74994 -28.0131394,-28.62119 -26.1448654,-34.37109 1.868271,-5.75 36.4632354,-8.88557 41.3544474,-12.43925 4.891207,-3.5537 18.563768,-35.486558 24.60964,-35.486558 z"
+       inkscape:export-xdpi="132.86"
+       inkscape:export-ydpi="132.86" />
     <path
        style="fill:none;stroke:none;stroke-width:0.53195137px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 1.0471862,8.5217567 c 0,0 48.9653258,-55.0612987 120.4618138,-0.076903"
@@ -70,7 +75,9 @@
        inkscape:connector-curvature="0" />
     <g
        id="g1461"
-       transform="matrix(2.1566319,0,0,2.1566319,-70.356442,-186.41021)">
+       transform="matrix(2.1566319,0,0,2.1566319,-70.356442,-186.41021)"
+       inkscape:export-xdpi="132.86"
+       inkscape:export-ydpi="132.86">
       <text
          id="text1368"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05555534px;line-height:7.05555534px;font-family:'Love Ya Like A Sister';-inkscape-font-specification:'Love Ya Like A Sister';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
