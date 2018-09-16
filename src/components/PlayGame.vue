@@ -12,7 +12,7 @@
       <v-flex :class="{artists:true, second: landscape}">
         <div class="star-container">
           <!-- StarsSVGCluster :items="items" v-if="landscape"/ -->
-          <StarsSVGInline :items="items" />
+          <StarsSVGInline :items="items" :turnNumber="turnNumber"/>
         </div>
         <!-- div class="labels">
           <div :class="{label:true, left: true, landscape: landscape, portrait: !landscape}">
@@ -68,6 +68,9 @@ export default {
   },
   computed: {
     ...mapState(['game', 'gameStatus']),
+    turnNumber(){
+      return this.game.turns.previous.length + 1;
+    },
     items(){
       const triple = this.game.turns.current.triple;
       // eslint-disable-next-line

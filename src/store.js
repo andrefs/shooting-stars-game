@@ -279,10 +279,10 @@ let store = new Vuex.Store({
       }
     },
 
-    async postPick({commit}, pick){
+    async postPick({commit}, {turnNumber, pick}){
       commit('postPickRequest');
       try {
-        let response = await this.$axios.post(`/gameInstances/currentTurn/${pick}`);
+        let response = await this.$axios.post(`/gameInstances/current/${turnNumber}/${pick}`);
         const game = response.data;
         commit('postPickSuccess', {game});
       } catch(error){

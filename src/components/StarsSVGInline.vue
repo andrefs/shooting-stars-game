@@ -83,10 +83,13 @@ import {mapActions} from 'vuex';
 
 export default {
   name: 'StarsSVGInline',
-  props: ['items'],
+  props: ['items', 'turnNumber'],
   methods: {
     ...mapActions(['postPick']),
     selectItem(position){
+      if(!this.allowSubmit){
+        return false;
+      }
       const positionToPick = {
         A: 'BC',
         B: 'AC',
@@ -94,13 +97,20 @@ export default {
       };
       const pick = positionToPick[position];
 
-      this.postPick(pick);
+      this.postPick({turnNumber: this.turnNumber, pick});
     }
   },
   data(){
     return {
       imageBaseUrl: 'https://andrefs.github.io/shooting-stars-images'
     };
+  },
+  computed: {
+    allowSubmit: {
+      get(){
+        return this.$store.state.gameStatus !== 'postingPick';
+      },
+    }
   }
 };
 </script>
