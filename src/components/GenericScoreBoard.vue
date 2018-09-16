@@ -1,6 +1,6 @@
 <template>
   <v-layout mt-2>
-    <v-flex :class="classes">
+  <v-flex :class="[...(classes||[]), 'score-board']">
       <h2 class="score-title">{{title}}</h2>
       <div id="scoreArea">
         <v-data-table
@@ -47,6 +47,7 @@ export default {
 <style>
 
 #scoreArea {
+  font-size: 0.5em;
   font-weight: normal;
   text-align: center;
   margin: 10px 10px;
@@ -57,18 +58,13 @@ export default {
 }
 
 #scoreArea td {
-  font-size: 20px;
+  font-size: 2em;
 }
 
 #scoreArea td.score .v-chip {
   line-height: 1;
-  font-size: 30px;
+  font-size: 1.2em;
   font-weight: bold;
-}
-
-.bottom {
-  position: fixed;
-  bottom: 35px;
 }
 
 

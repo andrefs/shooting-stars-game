@@ -3,13 +3,14 @@
     v-resize="recalcLandscape"
     class="parent-layout"
     column>
-    <TitleBar :title="title" />
+    <LogoCorner />
+    <TitleCorner :title="title" :pretitle="pretitle" />
     <v-layout
       class="play-game-layout"
       v-bind="flexContainer"
       >
       <v-flex :class="{artists:true, second: landscape}">
-        <div :class="['star-container']">
+        <div class="star-container">
           <!-- StarsSVGCluster :items="items" v-if="landscape"/ -->
           <StarsSVGInline :items="items" />
         </div>
@@ -38,6 +39,8 @@
 <script>
 import {knuthShuffle} from 'knuth-shuffle';
 import TitleBar from './TitleBar.vue';
+import TitleCorner from './TitleCorner.vue';
+import LogoCorner from './LogoCorner.vue';
 import StarsSVGInline from './StarsSVGInline.vue';
 // import StarsSVGCluster from './StarsSVGCluster.vue';
 import GenericScoreBoard from './GenericScoreBoard.vue';
@@ -45,7 +48,7 @@ import {mapState} from 'vuex';
 
 export default {
   name: 'PlayGame',
-  components: {TitleBar, StarsSVGInline, /* StarsSVGCluster, */ GenericScoreBoard},
+  components: {TitleBar, TitleCorner, LogoCorner, StarsSVGInline, /* StarsSVGCluster, */ GenericScoreBoard},
   mounted(){
     this.recalcLandscape();
   },
@@ -94,10 +97,13 @@ export default {
         score: this.game.currentScore.rand2
       }];
     },
+    pretitle(){
+      return 'Round';
+    },
     title(){
       let turns = this.game && this.game.turns && this.game.turns.previous ?
         this.game.turns.previous.length : 0;
-      return 'Round '+(turns+1)+'/10';
+      return (turns+1)+'/10';
     },
     flexContainer(){
       if(this.landscape){
@@ -135,6 +141,8 @@ html {
 
 .star-container {
   height: 100%;
+  z-index: 5;
+  position: relative;
 }
 
 .parent-layout {

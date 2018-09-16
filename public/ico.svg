@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="92.192711mm"
+   height="93.372269mm"
+   viewBox="0 0 92.192711 93.372269"
+   version="1.1"
+   id="svg1582"
+   inkscape:version="0.92.2 2405546, 2018-03-11"
+   sodipodi:docname="ico.svg">
+  <defs
+     id="defs1576" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="2.0636577"
+     inkscape:cx="-286.05574"
+     inkscape:cy="192.92169"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     fit-margin-top="10"
+     fit-margin-left="10"
+     fit-margin-right="10"
+     fit-margin-bottom="10"
+     inkscape:window-width="3840"
+     inkscape:window-height="2133"
+     inkscape:window-x="1920"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:pagecheckerboard="false"
+     borderlayer="false"
+     showborder="true" />
+  <metadata
+     id="metadata1579">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-770.95014,-146.61468)">
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:12.95694828px;line-height:12.95694828px;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.48588556"
+       x="801.12958"
+       y="219.29391"
+       id="text1563"><tspan
+         sodipodi:role="line"
+         id="tspan1561"
+         x="801.12958"
+         y="219.29391"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:93.2900238px;font-family:'Love Ya Like A Sister';-inkscape-font-specification:'Love Ya Like A Sister';stroke-width:0.48588556">S</tspan></text>
+    <path
+       style="fill:#ffcc00;stroke:#000000;stroke-width:2.77200007;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       inkscape:connector-curvature="0"
+       id="path2-6"
+       d="m 829.90454,186.9577 c 1.99856,0 6.51824,10.55592 8.13512,11.73065 1.61687,1.17473 13.05281,2.21125 13.6704,4.11199 0.61758,1.90074 -8.02503,9.46118 -8.64262,11.36193 -0.6176,1.90075 1.93051,13.09727 0.31364,14.27198 -1.61688,1.17476 -11.47798,-4.70855 -13.47654,-4.70855 -1.99857,0 -11.85969,5.88331 -13.47656,4.70859 -1.61688,-1.17472 0.93124,-12.37127 0.31365,-14.272 -0.6176,-1.90074 -9.26021,-9.46121 -8.64262,-11.36193 0.61759,-1.90076 12.05353,-2.93728 13.6704,-4.112 1.61687,-1.17474 6.13656,-11.73068 8.13513,-11.73068 z" />
+  </g>
+</svg>
