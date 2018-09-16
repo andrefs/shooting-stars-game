@@ -26,7 +26,7 @@
           </div>
         </div -->
       </v-flex>
-      <v-flex :class="{'score-flex': true, 'score-flex-landscape': landscape}">
+      <v-flex :class="{'score-flex': true, 'score-flex-portrait': !landscape, 'score-flex-landscape': landscape}">
         <GenericScoreBoard
           title="Score"
           :players="players"
@@ -171,8 +171,10 @@ a {
   align-self: center;
   flex-basis: 15%;
   flex-grow: 0;
-  margin-top: -10%;
   position: relative;
+}
+.score-flex-portrait {
+  margin-top: -10%;
 }
 .score-flex-landscape {
   margin-top: 10%;

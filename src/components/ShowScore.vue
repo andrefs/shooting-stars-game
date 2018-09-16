@@ -1,7 +1,7 @@
 <template>
-  <v-layout>
+  <v-layout class="parent-layout">
     <TitleBar />
-    <v-layout wrap>
+    <v-layout row wrap class="scores-layout">
       <v-flex class="score-flex" mx-2>
         <GenericScoreBoard
           title="Game"
@@ -14,9 +14,7 @@
           :players="bestScores.player"
           :columnHeaders="true" />
       </v-flex>
-    </v-layout>
-    <v-layout>
-      <v-flex xs6 offset-xs3>
+      <v-flex xs6>
         <v-btn block class="start-game" large color="cyan darken-1" v-on:click="createGame">Play again!</v-btn>
       </v-flex>
     </v-layout>
@@ -71,5 +69,11 @@ export default {
   color: white;
   text-transform: initial;
   font-size: 2em;
+  height: 2em;
+}
+.scores-layout {
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
 }
 </style>
