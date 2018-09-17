@@ -4,6 +4,7 @@
     class="parent-layout"
     column>
     <LogoCorner />
+    <ShareBar />
     <TitleCorner :title="title" :pretitle="pretitle" />
     <v-layout
       class="play-game-layout"
@@ -40,6 +41,7 @@
 import {knuthShuffle} from 'knuth-shuffle';
 import TitleBar from './TitleBar.vue';
 import TitleCorner from './TitleCorner.vue';
+import ShareBar from './ShareBar.vue';
 import LogoCorner from './LogoCorner.vue';
 import StarsSVGInline from './StarsSVGInline.vue';
 // import StarsSVGCluster from './StarsSVGCluster.vue';
@@ -48,7 +50,7 @@ import {mapState} from 'vuex';
 
 export default {
   name: 'PlayGame',
-  components: {TitleBar, TitleCorner, LogoCorner, StarsSVGInline, /* StarsSVGCluster, */ GenericScoreBoard},
+  components: {TitleBar, TitleCorner, ShareBar, LogoCorner, StarsSVGInline, /* StarsSVGCluster, */ GenericScoreBoard},
   mounted(){
     this.recalcLandscape();
   },

@@ -7,18 +7,18 @@
 
 <style>
 .title-corner h1 {
-  font-size: 3em;
+  text-align: right;
+  font-size: 9vw;
   line-height: 1.1;
 }
 
 .title-corner h1.pretitle {
-  font-size: 1em;
+  font-size: 3vw;
   line-height: 1;
 }
 
 .title-corner {
   position: fixed;
   right: 16px;
-  z-index: 0;
 }
 </style>

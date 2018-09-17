@@ -1,6 +1,6 @@
 <template>
   <v-layout mt-2>
-  <v-flex :class="[...(classes||[]), 'score-board']">
+  <v-flex :class="[...(classes||[]), 'score-board', 'elevation-1']">
       <h2 class="score-title">{{title}}</h2>
       <div id="scoreArea">
         <v-data-table
@@ -65,6 +65,10 @@ export default {
   height: 1em;
   font-size: 1.2em;
   font-weight: bold;
+}
+
+.score-board {
+  border-radius: 25px;
 }
 
 

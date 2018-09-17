@@ -6,10 +6,9 @@
 
 <style>
 .logo-corner {
+  width: 25%;
   position: fixed;
   left: 16px;
-  z-index: 0;
-  width: 25%;
 }
 .logo-corner img {
   width: 100%;

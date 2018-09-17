@@ -6,6 +6,7 @@ import App from './App.vue';
 import router from './router';
 import store from './store';
 import './registerServiceWorker';
+import VueGoodshare from 'vue-goodshare';
 
 Vue.config.productionTip = false;
 
@@ -22,6 +23,9 @@ store.$axios = axios;
 new Vue({
   router,
   store,
+  components: {
+    VueGoodshare
+  },
   render: h => h(App),
 }).$mount('#app');
 
