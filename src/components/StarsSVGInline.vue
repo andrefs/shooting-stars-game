@@ -1,14 +1,14 @@
 <template>
   <svg :class="['stars']" viewBox="-20 -10 600 389.77">
     <defs>
-      <pattern id="image-1" x="0" y="0" width="1" height="1">
-        <image v-bind="{'xlink:href':imageBaseUrl +'/'+items[0].imageUrl}" height="220" />
+      <pattern id="image-1" width="1" height="1">
+        <image v-bind="{'href':imageBaseUrl +'/'+items[0].imageUrl}" height="220" width="220" />
       </pattern>
       <pattern id="image-2" width="1" height="1">
-        <image v-bind="{'xlink:href':imageBaseUrl +'/'+items[1].imageUrl}" height="200" />
+        <image v-bind="{'href':imageBaseUrl +'/'+items[1].imageUrl}" height="200" width="200" />
       </pattern>
       <pattern id="image-3" width="1" height="1">
-        <image v-bind="{'xlink:href':imageBaseUrl +'/'+items[2].imageUrl}" height="220" />
+        <image v-bind="{'href':imageBaseUrl +'/'+items[2].imageUrl}" height="220" width="220" />
       </pattern>
     </defs>
     <path :data-position="items[0].position" v-on:click="() => selectItem(items[0].position)" :class="['starLeft']" d="M101.47 54.58c8.86-3.17 45.6 36.42 54.63 39.06 9.02 2.64 61.32-10.9 67.07-3.45 5.75 7.4-20.55 54.6-20.27 64 .28 9.4 29.3 54.9 24 62.7-5.3 7.7-58.3-2.7-67.14.5-8.86 3.1-43.2 44.8-52.23 42.2-9.03-2.7-15.5-56.3-21.24-63.7-5.8-7.5-56.1-27.3-56.3-36.7-.3-9.4 48.7-32.1 54-39.88 5.3-7.77 8.6-61.7 17.4-64.86z"/>
