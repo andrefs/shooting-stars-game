@@ -130,7 +130,7 @@ svg.stars path {
   transition: transform 0.2s;
   stroke: #facfa3;
   stroke-width: 1.25%;
-  filter:url(#dropshadow);
+  /*filter:url(#dropshadow);*/
   cursor: pointer;
 }
 
