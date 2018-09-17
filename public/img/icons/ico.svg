@@ -15,7 +15,10 @@
    version="1.1"
    id="svg1582"
    inkscape:version="0.92.2 2405546, 2018-03-11"
-   sodipodi:docname="ico.svg">
+   sodipodi:docname="ico.svg"
+   inkscape:export-filename="/home/andrefs/Academia/MAPi/projects/shooting-stars-game/public/img/icons/ico.png"
+   inkscape:export-xdpi="351.84"
+   inkscape:export-ydpi="351.84">
   <defs
      id="defs1576" />
   <sodipodi:namedview
@@ -25,9 +28,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2.0636577"
-     inkscape:cx="-286.05574"
-     inkscape:cy="192.92169"
+     inkscape:zoom="1.2122804"
+     inkscape:cx="52.415985"
+     inkscape:cy="180.85637"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -35,9 +38,9 @@
      fit-margin-left="10"
      fit-margin-right="10"
      fit-margin-bottom="10"
-     inkscape:window-width="3840"
-     inkscape:window-height="2133"
-     inkscape:window-x="1920"
+     inkscape:window-width="1920"
+     inkscape:window-height="1053"
+     inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
      inkscape:pagecheckerboard="false"
@@ -51,7 +54,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
