@@ -1,8 +1,6 @@
 <template>
   <v-app id="shooting-stars">
-    <v-toolbar app :clipped-left="clipped" dense>
-      <v-btn @click="toggleHelp">{{ showHelp ? 'hide help' : 'show help' }}</v-btn>
-    </v-toolbar>
+    <TopBar :showHelp="showHelp"/>
     <v-content id="app-content">
       <router-view/>
     </v-content>
@@ -13,10 +11,12 @@
 </template>
 
 <script>
+import TopBar from './components/TopBar.vue';
 import {mapActions, mapState} from 'vuex';
 
 export default {
   name: 'App',
+  components: {TopBar},
   data(){
     return {
       show: false,

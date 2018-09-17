@@ -1,6 +1,8 @@
 <template functional>
   <div class="logo-corner">
-    <img src="img/logo.gif" alt="Shooting Stars logo">
+    <router-link :to="{name: 'game'}">
+      <img src="img/logo.gif" alt="Shooting Stars logo">
+    </router-link>
   </div>
 </template>
 

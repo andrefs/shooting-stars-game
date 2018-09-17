@@ -2,7 +2,8 @@
   <v-container fluid>
     <v-slide-y-transition mode="out-in">
       <v-layout column align-center>
-        <v-form ref="loginForm" v-model="valid" @submit.prevent="handleSubmit">
+        <LogoCorner />
+        <v-form id="login-form" ref="loginForm" v-model="valid" @submit.prevent="handleSubmit">
           <h1>Login</h1>
           <v-text-field
             :rules="[rules.required, rules.min]"
@@ -32,6 +33,7 @@
 
 <script>
 import {mapActions} from 'vuex';
+import LogoCorner from '../components/LogoCorner.vue';
 
 export default {
   data(){
@@ -46,6 +48,7 @@ export default {
       }
     };
   },
+  components: {LogoCorner},
 
   computed: {
     username: {
@@ -203,4 +206,7 @@ input:focus ~ label, input.used ~ label {
 
 .buttonBlue:hover { background: #357bd8; }
 
+#login-form {
+  width: 100%;
+}
 </style>

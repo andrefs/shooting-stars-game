@@ -71,13 +71,14 @@ let store = new Vuex.Store({
       state.token = '';
     },
     logout: state => {
-      state.authStatus = {};
+      state.authStatus = '';
       state.user = null;
       state.token = '';
     },
 
     registerRequest: state => {
       state.authStatus = 'registering';
+      state.token = null;
       state.user = {};
     },
     registerSuccess: (state, {token, user}) => {
@@ -310,7 +311,7 @@ let store = new Vuex.Store({
   },
   plugins: [
     createPersistedState({
-      paths: ['token'],
+      paths: ['token', 'authStatus'],
       getState: key => Cookie.getJSON(key),
       setState: (key, state) => Cookie.set(key, state, {expires: 1, secure: false})
     })
