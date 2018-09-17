@@ -58,13 +58,13 @@
     </text -->
 
 
-    <foreignObject class="label left"   >
+    <foreignObject class="label left"   width="550" height="150">
       <p>{{items[0].name}}</p>
     </foreignObject>
-    <foreignObject class="label center" >
+    <foreignObject class="label center" width="550" height="150">
       <p>{{items[1].name}}</p>
     </foreignObject>
-    <foreignObject class="label right"  >
+    <foreignObject class="label right"  width="550" height="150">
       <p>{{items[2].name}}</p>
     </foreignObject>
 
