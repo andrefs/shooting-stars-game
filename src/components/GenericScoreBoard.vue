@@ -7,6 +7,7 @@
           :headers="headers"
           :hide-headers="!columnHeaders"
           :items="players"
+          :pagination.sync="pagination"
           hide-actions>
           <template slot="items" slot-scope="props">
             <tr :class="{'main-player': props.item.main}">
@@ -26,6 +27,11 @@
 export default {
   name: 'GenericScoreBoard',
   props: ['title', 'players', 'columnHeaders', 'classes'],
+  data(){
+    return {
+      pagination: {'sortBy': 'score', 'descending': true}
+    }
+  },
   computed: {
     headers(){
       const h = [];
@@ -38,7 +44,7 @@ export default {
         h.push({text: 'Games played', value: 'games', align: 'center'});
       }
       return h;
-    }
+    },
   }
 };
 </script>

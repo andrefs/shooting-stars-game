@@ -12,7 +12,8 @@
         <GenericScoreBoard
           title="Overall"
           :players="overall"
-          :columnHeaders="true" />
+          :columnHeaders="true"
+          />
       </v-flex>
       <v-flex xs6>
         <v-btn block class="start-game" color="cyan darken-1" v-on:click="createGame">Play again!</v-btn>
