@@ -93,7 +93,8 @@ export default {
     players(){
       return [{
         username: this.game.player.username,
-        score: this.game.currentScore.player
+        score: this.game.currentScore.player,
+        main: true
       }, {
         username: this.game.opponentNames.rand1 || 'Dilbert',
         score: this.game.currentScore.rand1

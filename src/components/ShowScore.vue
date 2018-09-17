@@ -4,18 +4,18 @@
     <v-layout row wrap class="scores-layout">
       <v-flex class="score-flex" mx-2>
         <GenericScoreBoard
-          title="Game"
-          :players="players"
+          title="This game"
+          :players="thisGame"
           :columnHeaders="true" />
       </v-flex>
       <v-flex class="score-flex" mx-2>
         <GenericScoreBoard
           title="Overall"
-          :players="bestScores.player"
+          :players="overall"
           :columnHeaders="true" />
       </v-flex>
       <v-flex xs6>
-        <v-btn block class="start-game" large color="cyan darken-1" v-on:click="createGame">Play again!</v-btn>
+        <v-btn block class="start-game" color="cyan darken-1" v-on:click="createGame">Play again!</v-btn>
       </v-flex>
     </v-layout>
   </v-layout>
@@ -41,10 +41,11 @@ export default {
       }
       return false;
     },
-    players(){
+    thisGame(){
       return [{
         username: this.game.player.username,
-        score: this.game.currentScore.player
+        score: this.game.currentScore.player,
+        main: true
       }, {
         username: this.game.opponentNames.rand1 || 'Dilbert',
         score: this.game.currentScore.rand1
@@ -53,6 +54,16 @@ export default {
         score: this.game.currentScore.rand2
       }];
     },
+    overall(){
+      if(this.bestScores.player){
+        return this.bestScores.player.map(p => {
+          if(p.username === this.game.player.username){
+            p.main = true;
+          }
+          return p;
+        });
+      }
+    }
   },
   methods: {
     ...mapActions(['fetchBestScores', 'createGame']),

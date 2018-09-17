@@ -9,10 +9,10 @@
           :items="players"
           hide-actions>
           <template slot="items" slot-scope="props">
-            <tr>
+            <tr :class="{'main-player': props.item.main}">
               <td v-if="props.item.ranking">{{props.item.ranking}}</td>
               <td>{{props.item.username}}</td>
-              <td class="score"><v-chip text-color="white" label color="cyan darken-1">{{props.item.score}}</v-chip></td>
+              <td class="score"><v-chip :text-color="props.item.main ? '#FFCC00' : 'white'" label color="cyan darken-1">{{props.item.score}}</v-chip></td>
               <td v-if="props.item.games">{{props.item.games}}</td>
             </tr>
           </template>
@@ -57,6 +57,10 @@ export default {
   font-size: 1em;
 }
 
+#scoreArea tr.main-player td {
+  font-weight: 800;
+  font-size: 2.5em;
+}
 #scoreArea td {
   font-size: 2em;
 }
