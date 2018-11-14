@@ -4,34 +4,25 @@
     class="parent-layout"
     column>
     <LogoCorner />
-    <TitleCorner :title="title" :pretitle="pretitle" />
+    <TitleCorner :title="title" :pretitle="pretitle" vStep="2"/>
     <v-layout
       class="play-game-layout"
       v-bind="flexContainer"
       >
       <v-flex :class="{artists:true, second: landscape}">
-        <div class="star-container">
+        <div class="star-container" data-v-step="1">
           <!-- StarsSVGCluster :items="items" v-if="landscape"/ -->
           <ItemsNoImage   :items="items" :turnNumber="turnNumber" v-if="imageless"/>
           <StarsSVGInline :items="items" :turnNumber="turnNumber" v-else/>
         </div>
-        <!-- div class="labels">
-          <div :class="{label:true, left: true, landscape: landscape, portrait: !landscape}">
-            <span>{{items[0].name}}</span>
-          </div>
-          <div :class="{label:true, center: true, landscape: landscape, portrait: !landscape}">
-            <span>{{items[1].name}}</span>
-          </div>
-          <div :class="{label:true, right: true, landscape: landscape, portrait: !landscape}">
-            <span>{{items[2].name}}</span>
-          </div>
-        </div -->
       </v-flex>
       <v-flex :class="{'score-flex': true, 'score-flex-portrait': !landscape, 'score-flex-landscape': landscape}">
         <GenericScoreBoard
           title="Score"
           :players="players"
-          :columnHeaders="false" />
+          :columnHeaders="false"
+          data-v-step="3"
+          />
       </v-flex>
     </v-layout>
   </v-layout>
@@ -61,6 +52,9 @@ export default {
   },
   mounted(){
     this.recalcLandscape();
+    if(!this.hideTutorial){
+      this.$tours['game-tour'].start();
+    }
   },
   data(){
     return {
@@ -77,7 +71,7 @@ export default {
     }
   },
   computed: {
-    ...mapState(['game', 'gameStatus']),
+    ...mapState(['game', 'gameStatus', 'hideTutorial']),
     imageless(){
       return process.env.VUE_APP_GAME_STYLE === 'imageless';
     },
@@ -195,6 +189,10 @@ a {
 }
 .score-flex-landscape {
   margin-top: 15%;
+}
+
+div.v-tour {
+  z-index: 20;
 }
 
 </style>

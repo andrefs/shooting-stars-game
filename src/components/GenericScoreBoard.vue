@@ -30,7 +30,7 @@ export default {
   data(){
     return {
       pagination: {'sortBy': 'score', 'descending': true}
-    }
+    };
   },
   computed: {
     headers(){

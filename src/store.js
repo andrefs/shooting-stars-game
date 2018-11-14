@@ -24,7 +24,7 @@ let store = new Vuex.Store({
     token: '',
     user: null,
 
-    showHelp: true,
+    hideTutorial: false,
     showLoadingSpinner: false
   },
   mutations: {
@@ -34,8 +34,8 @@ let store = new Vuex.Store({
     hideLoadingSpinner: state => {
       state.showLoadingSpinner = false;
     },
-    toggleHelp: state => {
-      state.showHelp = !state.showHelp;
+    toggleTutorial: state => {
+      state.hideTutorial = !state.hideTutorial;
     },
     updateLoginFormUsername: (state, username) => {
       state.loginForm.username = username;
@@ -154,6 +154,7 @@ let store = new Vuex.Store({
 
   },
   actions: {
+
     // Login
     async login({dispatch, commit}, {fields}){
       commit('loginRequest');
@@ -311,7 +312,7 @@ let store = new Vuex.Store({
   },
   plugins: [
     createPersistedState({
-      paths: ['token', 'authStatus'],
+      paths: ['token', 'authStatus', 'hideTutorial'],
       getState: key => Cookie.getJSON(key),
       setState: (key, state) => Cookie.set(key, state, {expires: 1, secure: false})
     })

@@ -1,5 +1,5 @@
 <template functional>
-  <div class="title-corner">
+  <div class="title-corner" :data-v-step="props.vStep">
     <h1 class="pretitle">{{props.pretitle}}</h1>
     <h1>{{props.title}}</h1>
   </div>

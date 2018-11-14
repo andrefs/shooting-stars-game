@@ -4527,6 +4527,11 @@ jsprim@^1.2.2:
     json-schema "0.2.3"
     verror "1.10.0"
 
+jump.js@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/jump.js/-/jump.js-1.0.2.tgz#e0641b47f40a38f2139c25fda0500bf28e43015a"
+  integrity sha1-4GQbR/QKOPITnCX9oFAL8o5DAVo=
+
 kew@^0.7.0:
   version "0.7.0"
   resolved "https://registry.yarnpkg.com/kew/-/kew-0.7.0.tgz#79d93d2d33363d6fdd2970b335d9141ad591d79b"
@@ -5894,6 +5899,11 @@ pluralize@^7.0.0:
 pn@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/pn/-/pn-1.1.0.tgz#e2f4cef0e219f463c179ab37463e4e1ecdccbafb"
+
+popper.js@^1.14.4:
+  version "1.14.5"
+  resolved "https://registry.yarnpkg.com/popper.js/-/popper.js-1.14.5.tgz#98abcce7c7c34c4ee47fcbc6b3da8af2c0a127bc"
+  integrity sha512-fs4Sd8bZLgEzrk8aS7Em1qh+wcawtE87kRUJQhK6+LndyV1HerX7+LURzAylVaTyWIn5NTB/lyjnWqw/AZ6Yrw==
 
 portfinder@^1.0.13, portfinder@^1.0.9:
   version "1.0.17"
@@ -7887,6 +7897,16 @@ vue-template-compiler@^2.5.17:
 vue-template-es2015-compiler@^1.6.0:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.6.0.tgz#dc42697133302ce3017524356a6c61b7b69b4a18"
+
+vue-tour@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/vue-tour/-/vue-tour-1.1.0.tgz#20da6e6697b8d286438d90616e847e1af9b82801"
+  integrity sha512-AcJ4pksVbKEKyk5qI3sEBQ6rGwhm2psFpqwsht4aT3vGpNi7Ft3359wrQedfctBcCHJATVB3wVBlFkmYfuRgNg==
+  dependencies:
+    hash-sum "^1.0.2"
+    jump.js "^1.0.2"
+    popper.js "^1.14.4"
+    vue "^2.5.17"
 
 vue@^2.5.17:
   version "2.5.17"

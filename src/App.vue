@@ -7,6 +7,7 @@
     <!--v-footer :fixed="fixed" app>
       <span>&copy; 2018</span>
     </v-footer -->
+    <v-tour name="game-tour" :steps="steps" :callbacks="tourCallbacks"></v-tour>
   </v-app>
 </template>
 
@@ -27,6 +28,36 @@ export default {
         icon: 'bubble_chart',
         title: 'Inspire'
       }],
+      steps: [{
+          target: '[data-v-step="1"]',
+          content: 'Who is the intruder? Can you guess which musical artist is the least related with the other two?',
+          params: {
+            placement: 'right'
+          }
+        }, {
+          target: '[data-v-step="2"]',
+          content: 'Each game is played in 10 rounds.',
+          params: {
+            placement: 'left'
+          }
+        }, {
+          target: '[data-v-step="3"]',
+          content: 'If your opinion matches at least one of the other two players, you score. So, it\'s not really about your opinion but whether <b>you can guess other people\'s opinions</b>!',
+          params: {
+            placement: 'bottom'
+          }
+        }, {
+          target: '[data-v-step="4"]',
+          content: 'You can activate this tutorial again by clicking here at any time.',
+          params: {
+            placement: 'bottom'
+          }
+      }],
+      tourCallbacks: {
+        onStop: () => {
+          this.toggleTutorial();
+        },
+      },
       miniVariant: false,
       right: true,
       rightDrawer: false,
@@ -34,8 +65,10 @@ export default {
     };
   },
   methods: {
-    ...mapActions(['toggleHelp']),
-    toggleHelp(){ this.$store.commit('toggleHelp'); }
+    ...mapActions(['toggleTutorial']),
+    toggleTutorial(){
+      this.$store.commit('toggleTutorial');
+    },
   },
   computed: mapState(['showHelp'])
 };
