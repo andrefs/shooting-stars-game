@@ -35,13 +35,10 @@ export default {
 .share-bar {
   position:fixed;
   z-index: 10;
-  left: 50%;
-  margin-top: -16px;
-  transform: translateX(-50%);
+  left: 0;
 
     font-size: 0.7em;
     display: flex;
-    width: 50%;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;

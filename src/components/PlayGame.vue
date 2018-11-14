@@ -4,7 +4,6 @@
     class="parent-layout"
     column>
     <LogoCorner />
-    <ShareBar />
     <TitleCorner :title="title" :pretitle="pretitle" />
     <v-layout
       class="play-game-layout"
@@ -13,7 +12,8 @@
       <v-flex :class="{artists:true, second: landscape}">
         <div class="star-container">
           <!-- StarsSVGCluster :items="items" v-if="landscape"/ -->
-          <StarsSVGInline :items="items" :turnNumber="turnNumber"/>
+          <ItemsNoImage   :items="items" :turnNumber="turnNumber" v-if="imageless"/>
+          <StarsSVGInline :items="items" :turnNumber="turnNumber" v-else/>
         </div>
         <!-- div class="labels">
           <div :class="{label:true, left: true, landscape: landscape, portrait: !landscape}">
@@ -41,16 +41,24 @@
 import {knuthShuffle} from 'knuth-shuffle';
 import TitleBar from './TitleBar.vue';
 import TitleCorner from './TitleCorner.vue';
-import ShareBar from './ShareBar.vue';
 import LogoCorner from './LogoCorner.vue';
 import StarsSVGInline from './StarsSVGInline.vue';
+import ItemsNoImage from './ItemsNoImage.vue';
 // import StarsSVGCluster from './StarsSVGCluster.vue';
 import GenericScoreBoard from './GenericScoreBoard.vue';
 import {mapState} from 'vuex';
 
 export default {
   name: 'PlayGame',
-  components: {TitleBar, TitleCorner, ShareBar, LogoCorner, StarsSVGInline, /* StarsSVGCluster, */ GenericScoreBoard},
+  components: {
+    TitleBar,
+    TitleCorner,
+    LogoCorner,
+    StarsSVGInline,
+    ItemsNoImage,
+    /* StarsSVGCluster, */
+    GenericScoreBoard
+  },
   mounted(){
     this.recalcLandscape();
   },
@@ -70,6 +78,9 @@ export default {
   },
   computed: {
     ...mapState(['game', 'gameStatus']),
+    imageless(){
+      return process.env.VUE_APP_GAME_STYLE === 'imageless';
+    },
     turnNumber(){
       return this.game.turns.previous.length + 1;
     },
@@ -79,14 +90,17 @@ export default {
       return knuthShuffle([{
         name: triple.itemA.name,
         imageUrl: triple.itemA.imageUrl,
+        description: triple.itemA.description,
         position: 'A'
       }, {
         name: triple.itemB.name,
         imageUrl: triple.itemB.imageUrl,
+        description: triple.itemB.description,
         position: 'B'
       }, {
         name: triple.itemC.name,
         imageUrl: triple.itemC.imageUrl,
+        description: triple.itemC.description,
         position: 'C'
       }]);
     },
@@ -180,7 +194,7 @@ a {
   margin-top: -10%;
 }
 .score-flex-landscape {
-  margin-top: 10%;
+  margin-top: 15%;
 }
 
 </style>
