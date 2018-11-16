@@ -8,7 +8,7 @@
 
 <style>
 .logo-corner {
-  width: 25%;
+  width: 20%;
   position: fixed;
   left: 16px;
 }

@@ -6,24 +6,22 @@
     <LogoCorner />
     <TitleCorner :title="title" :pretitle="pretitle" vStep="2"/>
     <v-layout
-      class="play-game-layout"
-      v-bind="flexContainer"
+      :class="{'play-game-layout':true, 'portrait': !landscape, 'landscape': landscape}"
       >
-      <v-flex :class="{artists:true, second: landscape}">
-        <div class="star-container" data-v-step="1">
-          <!-- StarsSVGCluster :items="items" v-if="landscape"/ -->
-          <ItemsNoImage   :items="items" :turnNumber="turnNumber" v-if="imageless"/>
-          <StarsSVGInline :items="items" :turnNumber="turnNumber" v-else/>
-        </div>
-      </v-flex>
-      <v-flex :class="{'score-flex': true, 'score-flex-portrait': !landscape, 'score-flex-landscape': landscape}">
+      <div class="star-container" data-v-step="1">
+        <!-- StarsSVGCluster :items="items" v-if="landscape"/ -->
+        <ItemsNoImage   :items="items" :turnNumber="turnNumber" v-if="imageless"/>
+        <StarsSVGInline :items="items" :turnNumber="turnNumber" v-else/>
+      </div>
+      <!-- <div :class="{'score-fixed': true, 'score-flex-portrait': !landscape, 'score-flex-landscape': landscape}"> -->
+      <div :class="{'score-fixed': true}">
         <GenericScoreBoard
           title="Score"
           :players="players"
           :columnHeaders="false"
           data-v-step="3"
           />
-      </v-flex>
+      </div>
     </v-layout>
   </v-layout>
 </template>
@@ -119,12 +117,6 @@ export default {
         this.game.turns.previous.length : 0;
       return (turns+1)+'/10';
     },
-    flexContainer(){
-      if(this.landscape){
-        return {column: false, 'align-center': true};
-      }
-      return {column: true};
-    },
   }
 };
 </script>
@@ -155,8 +147,8 @@ html {
 
 .star-container {
   height: 100%;
+  width: 100%;
   z-index: 5;
-  position: relative;
 }
 
 .parent-layout {
@@ -178,17 +170,20 @@ a {
   color: #42b983;
 }
 
-.score-flex {
-  align-self: center;
-  flex-basis: 15%;
-  flex-grow: 0;
-  position: relative;
+.score-fixed {
+  position: fixed;
+  bottom: 10px;
+  left: 50%;
+  margin-left: -5em;
+  width: 10em;
+  background-color: white;
+  z-index: 30;
+  display: flex;
+
 }
-.score-flex-portrait {
-  margin-top: -10%;
-}
-.score-flex-landscape {
-  margin-top: 15%;
+
+.score-fixed table.v-table tbody td, table.v-table tbody th {
+  height: 40px;
 }
 
 div.v-tour {

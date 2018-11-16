@@ -56,7 +56,7 @@ export default {
   font-size: 0.5em;
   font-weight: normal;
   text-align: center;
-  margin: 10px 10px;
+  margin: 0 0 2px 0;
   padding-top: 0;
 }
 .score-title {
@@ -78,8 +78,23 @@ export default {
 }
 
 .score-board {
-  border-radius: 25px;
+  border-radius: 5px;
 }
+
+#scoreArea table.v-table tbody td {
+  padding: 0 5px;
+  height: 20px;
+}
+
+
+#scoreArea table.v-table tbody td:first-child {
+  padding: 0 5px 0 10px;
+}
+#scoreArea table.v-table tbody td:last-child {
+  padding: 0 10px 0 5px;
+}
+
+
 
 
 </style>
