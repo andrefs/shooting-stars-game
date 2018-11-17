@@ -27,6 +27,12 @@
   </v-toolbar -->
 
   <v-toolbar app dense>
+    <v-toolbar-items class="hidden-sm-and-down share-bar-h">
+            <vue-goodshare-facebook      has_icon  />
+            <vue-goodshare-twitter      has_icon  />
+            <vue-goodshare-reddit      has_icon  />
+            <vue-goodshare-email      has_icon  />
+    </v-toolbar-items>
     <v-menu  class="hidden-md-and-up">
       <v-toolbar-side-icon  slot="activator"><v-icon>share</v-icon></v-toolbar-side-icon>
       <v-list>
@@ -57,7 +63,6 @@
       <v-btn data-v-step="4" flat @click="toggleTutorial">{{ hideTutorial ? 'show tutorial' : 'hide tutorial' }}</v-btn>
     </v-toolbar-items>
     <v-toolbar-items class="hidden-sm-and-down">
-      <ShareBar />
       <v-btn flat to="login">Login</v-btn>
       <v-btn flat to="register">Register</v-btn>
     </v-toolbar-items>
@@ -110,3 +115,9 @@ export default {
   computed: mapState(['hideTutorial', 'authStatus', '$route']),
 };
 </script>
+
+<style>
+.share-bar-h {
+  font-size: 0.7em;
+}
+</style>
