@@ -86,7 +86,6 @@
 
 <script>
 import {mapActions, mapState} from 'vuex';
-import ShareBar from './ShareBar.vue';
 import VueGoodshareFacebook from 'vue-goodshare/src/providers/Facebook.vue';
 import VueGoodshareReddit from 'vue-goodshare/src/providers/Reddit.vue';
 import VueGoodshareTwitter from 'vue-goodshare/src/providers/Twitter.vue';
@@ -95,7 +94,6 @@ import VueGoodshareEmail from 'vue-goodshare/src/providers/Email.vue';
 export default {
   name: 'TopBar',
   components: {
-    VueGoodshareFacebook,
     VueGoodshareFacebook,
     VueGoodshareReddit,
     VueGoodshareTwitter,
