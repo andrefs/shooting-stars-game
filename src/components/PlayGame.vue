@@ -48,6 +48,9 @@ export default {
     /* StarsSVGCluster, */
     GenericScoreBoard
   },
+  beforeDestroy(){
+    this.$tours['game-tour'].stop();
+  },
   mounted(){
     this.recalcLandscape();
     if(!this.hideTutorial){
@@ -187,7 +190,7 @@ a {
 }
 
 div.v-tour {
-  z-index: 20;
+  z-index: 40;
 }
 
 </style>

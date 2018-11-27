@@ -63,20 +63,26 @@
       <v-btn data-v-step="4" flat @click="toggleTutorial">{{ hideTutorial ? 'show tutorial' : 'hide tutorial' }}</v-btn>
     </v-toolbar-items>
     <v-toolbar-items class="hidden-sm-and-down">
-      <v-btn flat to="login">Login</v-btn>
-      <v-btn flat to="register">Register</v-btn>
+      <v-btn flat v-if="!loggedIn"  to="login">Login</v-btn>
+      <v-btn flat v-if="!loggedIn"  to="register">Register</v-btn>
+      <v-btn flat v-if="loggedIn" to="logout">Logout</v-btn>
     </v-toolbar-items>
     <v-menu  class="hidden-md-and-up">
       <v-toolbar-side-icon  slot="activator"></v-toolbar-side-icon>
       <v-list>
-        <v-list-tile>
+        <v-list-tile v-if="!loggedIn" to="login">
           <v-list-tile-content>
             <v-list-tile-title>Login</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
-        <v-list-tile>
+        <v-list-tile v-if="!loggedIn" to="register">
           <v-list-tile-content>
             <v-list-tile-title>Register</v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+        <v-list-tile v-if="loggedIn" to="logout">
+          <v-list-tile-content>
+            <v-list-tile-title>Logout</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
       </v-list>
@@ -110,7 +116,12 @@ export default {
       }
     },
   },
-  computed: mapState(['hideTutorial', 'authStatus', '$route']),
+  computed: {
+    ...mapState(['hideTutorial', 'authStatus', 'user']),
+    loggedIn(){
+      return this.user && !this.user.isGuest;
+    },
+  }
 };
 </script>
 

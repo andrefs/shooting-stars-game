@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import {mapActions} from 'vuex';
+import {mapActions, mapState} from 'vuex';
 import LogoCorner from '../components/LogoCorner.vue';
 
 export default {
@@ -51,6 +51,7 @@ export default {
   components: {LogoCorner},
 
   computed: {
+    ...mapState(['token']),
     username: {
       get(){
         return this.$store.state.registerForm.username;
@@ -77,8 +78,9 @@ export default {
         try {
           await this.$store.dispatch('register', {
             fields: {
-              username: this.username,
-              password: this.password
+              username : this.username,
+              password : this.password,
+              token    : this.token
             }
           });
           this.clearForm();
