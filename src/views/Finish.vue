@@ -9,7 +9,6 @@
 </template>
 
 <script>
-import {mapState} from 'vuex';
 import LogoCorner from '../components/LogoCorner.vue';
 
 export default {

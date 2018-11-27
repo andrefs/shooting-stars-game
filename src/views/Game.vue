@@ -11,13 +11,12 @@
 import {mapActions, mapState} from 'vuex';
 import LoadingGame from '../components/LoadingGame.vue';
 import PostingPick from '../components/PostingPick.vue';
-import ChooseNext from '../components/ChooseNext.vue';
 import PlayGame from '../components/PlayGame.vue';
 import ShowScore from '../components/ShowScore.vue';
 
 export default {
   name: 'game',
-  components: {LoadingGame, ChooseNext, ShowScore, PostingPick, PlayGame},
+  components: {LoadingGame, ShowScore, PostingPick, PlayGame},
   async created(){
     // if(!this.token){
     //   this.$router.replace({name: 'welcome'});
