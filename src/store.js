@@ -170,10 +170,6 @@ let store = new Vuex.Store({
       } catch(error){
         commit('loginFailure', error);
         // dispatch something alert
-
-        if(error.response && error.response.status === 401){
-          throw new Error('Bad credentials');
-        }
         throw error;
       }
     },

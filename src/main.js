@@ -8,6 +8,7 @@ import store from './store';
 import './registerServiceWorker';
 import VueGoodshare from 'vue-goodshare';
 import VueTour from 'vue-tour';
+import Toast from './plugins/toast';
 
 require('vue-tour/dist/vue-tour.css');
 
@@ -24,6 +25,9 @@ const axios = initAxios(store);
 // Injecting axios into the store so we can make
 // this.$axios requests inside store actions
 store.$axios = axios;
+
+Vue.prototype.$toast = Toast;
+store.$toast = Toast;
 
 new Vue({
   router,

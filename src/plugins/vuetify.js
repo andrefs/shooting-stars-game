@@ -18,6 +18,7 @@ import {
   VTextField,
   VToolbar,
   VTooltip,
+  VSnackbar,
   Vuetify,
   transitions
 } from 'vuetify';
@@ -41,6 +42,7 @@ Vue.use(Vuetify, {
     VMenu,
     VProgressCircular,
     VTextField,
+    VSnackbar,
     VToolbar,
     VTooltip,
     transitions

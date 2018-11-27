@@ -75,6 +75,7 @@ export default {
       if(this.$refs.loginForm.validate()){
         this.loading = true;
         try {
+          // this.$toast.open({text: 'test'});
           await this.$store.dispatch('login', {
             fields: {
               username: this.username,
@@ -86,8 +87,10 @@ export default {
           this.$router.push({name: 'game'});
         } catch(e){
           this.loading = false;
-          // TODO error handling
-          console.log('XXXXXXXXXXXXXXXXXXX err 2', e);
+          if(e.response && e.response.status === 401){
+            // Vue.$snackbar.show();
+            this.$toast.open({text: 'Invalid username or password', type:'warning'});
+          }
         }
       }
     },
