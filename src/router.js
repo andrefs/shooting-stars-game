@@ -7,6 +7,7 @@ import GameTopBar from './components/GameTopBar';
 import Login from './views/Login.vue';
 import Logout from './views/Logout.vue';
 import Register from './views/Register.vue';
+import Finish from './views/Finish.vue';
 import NotFoundComponent from './components/NotFoundComponent';
 
 Vue.use(Router);
@@ -50,6 +51,14 @@ export default new Router({
       name: 'register',
       components: {
         default: Register,
+        navigation: DefaultTopBar
+      }
+    },
+    {
+      path: '/finish',
+      name: 'finish',
+      components: {
+        default: Finish,
         navigation: DefaultTopBar
       }
     },

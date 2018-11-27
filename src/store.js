@@ -2,6 +2,8 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import createPersistedState from 'vuex-persistedstate';
 import * as Cookie from 'js-cookie';
+import router from './router'
+
 
 Vue.use(Vuex);
 
@@ -162,6 +164,7 @@ let store = new Vuex.Store({
       try {
         // Send credentials to API
         let response = await this.$axios.post('/auth/login', fields);
+        console.log(response);
         const {token, user} = response.data;
         commit('loginSuccess', {token, user});
       } catch(error){
@@ -220,8 +223,13 @@ let store = new Vuex.Store({
 
         // 404 might happen, it's ok
         if(error.response && error.response.status !== 404){
+          const err = error.response.data.err.name;
+          if(err === 'NoMoreItemsError'){
+            router.push({name: 'finish'});
+          } else {
           // TODO dispatch something alert
-          throw error;
+            throw error;
+          }
         }
       }
     },
