@@ -3,6 +3,7 @@ import Router from 'vue-router';
 // import Home from './views/Home.vue';
 import Game from './views/Game.vue';
 import Login from './views/Login.vue';
+import Logout from './views/Logout.vue';
 import Register from './views/Register.vue';
 import NotFoundComponent from './components/NotFoundComponent';
 
@@ -27,6 +28,11 @@ export default new Router({
       path: '/login',
       name: 'login',
       component: Login,
+    },
+    {
+      path: '/logout',
+      name: 'logout',
+      component: Logout,
     },
     {
       path: '/register',
