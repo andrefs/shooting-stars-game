@@ -2,6 +2,8 @@ import Vue from 'vue';
 import Router from 'vue-router';
 // import Home from './views/Home.vue';
 import Game from './views/Game.vue';
+import DefaultTopBar from './components/DefaultTopBar';
+import GameTopBar from './components/GameTopBar';
 import Login from './views/Login.vue';
 import Logout from './views/Logout.vue';
 import Register from './views/Register.vue';
@@ -22,26 +24,41 @@ export default new Router({
       // path: '/game',
       path: '/',
       name: 'game',
-      component: Game,
+      components: {
+        default: Game,
+        navigation: GameTopBar
+      },
     },
     {
       path: '/login',
       name: 'login',
-      component: Login,
+      components: {
+        default: Login,
+        navigation: DefaultTopBar
+      }
     },
     {
       path: '/logout',
       name: 'logout',
-      component: Logout,
+      components: {
+        default: Logout,
+        navigation: DefaultTopBar
+      }
     },
     {
       path: '/register',
       name: 'register',
-      component: Register,
+      components: {
+        default: Register,
+        navigation: DefaultTopBar
+      }
     },
     {
       path: '*',
-      component: NotFoundComponent
+      components: {
+        default: NotFoundComponent,
+        navigation: DefaultTopBar
+      }
     }
 
     // {

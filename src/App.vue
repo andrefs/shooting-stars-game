@@ -1,6 +1,6 @@
 <template>
   <v-app id="shooting-stars">
-    <TopBar :showHelp="showHelp"/>
+    <router-view name="navigation"></router-view>
     <v-content id="app-content">
       <router-view/>
     </v-content>
@@ -12,12 +12,10 @@
 </template>
 
 <script>
-import TopBar from './components/TopBar.vue';
-import {mapActions, mapState} from 'vuex';
+import {mapActions} from 'vuex';
 
 export default {
   name: 'App',
-  components: {TopBar},
   data(){
     return {
       show: false,
@@ -28,7 +26,8 @@ export default {
         icon: 'bubble_chart',
         title: 'Inspire'
       }],
-      steps: [{
+      steps: [
+        {
           target: '[data-v-step="1"]',
           content: '<span class="gold">Who is the intruder?</span> Can you guess which musical artist is the least related with the other two?',
           params: {
@@ -52,7 +51,8 @@ export default {
           params: {
             placement: 'bottom'
           }
-      }],
+        }
+      ],
       tourCallbacks: {
         onStop: () => {
           this.toggleTutorial();
@@ -70,7 +70,6 @@ export default {
       this.$store.commit('toggleTutorial');
     },
   },
-  computed: mapState(['showHelp'])
 };
 </script>
 

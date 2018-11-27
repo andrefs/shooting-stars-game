@@ -71,7 +71,7 @@ import VueGoodshareTwitter from 'vue-goodshare/src/providers/Twitter.vue';
 import VueGoodshareEmail from 'vue-goodshare/src/providers/Email.vue';
 
 export default {
-  name: 'TopBar',
+  name: 'GameTopBar',
   components: {
     VueGoodshareFacebook,
     VueGoodshareReddit,
@@ -93,7 +93,7 @@ export default {
     ...mapState(['hideTutorial', 'authStatus', 'user']),
     loggedIn(){
       return this.user && !this.user.isGuest;
-    },
+    }
   }
 };
 </script>
