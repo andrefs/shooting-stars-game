@@ -30,7 +30,7 @@ export default {
       }],
       steps: [{
           target: '[data-v-step="1"]',
-          content: 'Who is the intruder? Can you guess which musical artist is the least related with the other two?',
+          content: '<span class="gold">Who is the intruder?</span> Can you guess which musical artist is the least related with the other two?',
           params: {
             placement: 'right'
           }
@@ -42,7 +42,7 @@ export default {
           }
         }, {
           target: '[data-v-step="3"]',
-          content: 'If your opinion matches at least one of the other two players, you score. So, it\'s not really about your opinion but whether <b>you can guess other people\'s opinions</b>!',
+          content: '<span class="gold">If your opinion matches at least one of the other two players, you score!</span> So, it\'s not really about your opinion but whether you can guess other people\'s opinions!',
           params: {
             placement: 'bottom'
           }
@@ -113,6 +113,11 @@ footer img {
 }
 
 footer img:hover { opacity: .83; }
+
+span.gold {
+  color: #FFCC00;
+  font-weight: bold;
+}
 
 footer img:focus , footer a:focus { outline: none; }
 </style>
