@@ -21,7 +21,7 @@ export default {
       color: params.type || 'info',
       closeable: true,
       autoHeight: true,
-      timeout: 95000,
+      timeout: 3000,
       multiLine: !!params.title || params.text.length > 80
     };
 

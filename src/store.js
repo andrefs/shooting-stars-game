@@ -22,6 +22,12 @@ let store = new Vuex.Store({
       password: ''
     },
 
+    registerFormOpt: {
+      birthYear: '',
+      gender: '',
+      email: ''
+    },
+
     authStatus: '',
     token: '',
     user: null,
@@ -50,6 +56,16 @@ let store = new Vuex.Store({
     },
     updateRegisterFormPassword: (state, password) => {
       state.registerForm.password = password;
+    },
+
+    updateRegisterFormOptGender: (state, gender) => {
+      state.registerFormOpt.gender = gender;
+    },
+    updateRegisterFormOptEmail: (state, email) => {
+      state.registerFormOpt.email = email;
+    },
+    updateRegisterFormOptBirthYear: (state, birthYear) => {
+      state.registerFormOpt.birthYear = birthYear;
     },
     setToken: (state, token) => {
       state.token = token;
@@ -92,6 +108,16 @@ let store = new Vuex.Store({
       state.authStatus = 'registeringFailed';
       state.user = null;
       state.token = '';
+    },
+
+    registerOptRequest: state => {
+      state.registerOptStatus = 'registering';
+    },
+    registerOptSuccess: state => {
+      state.registerOptStatus = 'success';
+    },
+    registerOptFailure: state => {
+      state.registerOptStatus = 'failure';
     },
 
     registerGuestRequest: state => {
@@ -185,6 +211,22 @@ let store = new Vuex.Store({
         commit('registerSuccess', {token, user});
       } catch(error){
         commit('registerFailure', error);
+        // TODO dispatch something alert
+
+        throw error;
+      }
+    },
+
+    // Register optional fields
+    async registerOpt({dispatch, commit}, {fields}){
+      commit('registerOptRequest');
+
+      try {
+        // Send credentials to API
+        await this.$axios.patch('/user', fields);
+        commit('registerOptSuccess');
+      } catch(error){
+        commit('registerOptFailure', error);
         // TODO dispatch something alert
 
         throw error;
@@ -316,7 +358,7 @@ let store = new Vuex.Store({
   },
   plugins: [
     createPersistedState({
-      paths: ['token', 'authStatus', 'hideTutorial'],
+      paths: ['token', 'authStatus', 'hideTutorial', 'user'],
       getState: key => Cookie.getJSON(key),
       setState: (key, state) => Cookie.set(key, state, {expires: 1, secure: false})
     })

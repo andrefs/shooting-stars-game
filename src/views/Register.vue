@@ -3,100 +3,22 @@
     <v-slide-y-transition mode="out-in">
       <v-layout column align-center>
         <LogoCorner />
-        <v-form id="register-form" ref="registerForm" v-model="valid" @submit.prevent="handleSubmit">
-          <h1>Register</h1>
-          <v-text-field
-            :rules="[rules.required, rules.min]"
-            name="Username"
-            label="Username"
-            v-model="username"
-            required
-          ></v-text-field>
-          <v-text-field
-            :append-icon="showPwd ? 'visibility_off' : 'visibility'"
-            :rules="[rules.required, rules.min]"
-            :type="showPwd ? 'text' : 'password'"
-            v-model="password"
-            name="password"
-            label="Password"
-            hint="At least 8 characters"
-            @click:append="showPwd = !showPwd"
-          ></v-text-field>
-          <button type="submit" class="button buttonBlue">Register
-            <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
-          </button>
-        </v-form>
+        <RegisterOptional v-if="user && user.isGuest === false" />
+        <RegisterUser v-else />
       </v-layout>
     </v-slide-y-transition>
   </v-container>
 </template>
 
 <script>
-import {mapActions, mapState} from 'vuex';
+import {mapState} from 'vuex';
 import LogoCorner from '../components/LogoCorner.vue';
+import RegisterUser from '../components/RegisterUser.vue';
+import RegisterOptional from '../components/RegisterOptional.vue';
 
 export default {
-  data(){
-    return {
-      loading: false,
-      valid: true,
-      showPwd: false,
-      rules: {
-        required: value => !!value || 'Required.',
-        min: v => v.length >= 8 || 'Min 8 characters',
-        emailMatch: () => ('The email and password you entered don\'t match')
-      }
-    };
-  },
-  components: {LogoCorner},
-
-  computed: {
-    ...mapState(['token']),
-    username: {
-      get(){
-        return this.$store.state.registerForm.username;
-      },
-      set(value){
-        this.$store.commit('updateRegisterFormUsername', value);
-      }
-    },
-    password: {
-      get(){
-        return this.$store.state.registerForm.password;
-      },
-      set(value){
-        this.$store.commit('updateRegisterFormPassword', value);
-      }
-    },
-  },
-
-  methods: {
-    ...mapActions(['postRegister']),
-    async handleSubmit(){
-      if(this.$refs.registerForm.validate()){
-        this.loading = true;
-        try {
-          await this.$store.dispatch('register', {
-            fields: {
-              username : this.username,
-              password : this.password,
-              token    : this.token
-            }
-          });
-          this.clearForm();
-          this.loading = false;
-          this.$router.push({name: 'game'});
-        } catch(e){
-          this.loading = false;
-          // TODO error handling
-          console.log('XXXXXXXXXXXXXXXXXXX err 2', e);
-        }
-      }
-    },
-    clearForm(){
-      this.$refs.registerForm.reset();
-    }
-  }
+  components: {LogoCorner, RegisterUser, RegisterOptional},
+  computed: mapState(['user']),
 };
 </script>
 
@@ -125,7 +47,7 @@ h3 { color: #4a89dc; }
 form {
   width: 380px;
   margin: 4em auto;
-  padding: 3em 2em 2em 2em;
+  padding: 2em 1em 1em 1em;
   background: #fafafa;
   border: 1px solid #ebebeb;
   box-shadow: rgba(0,0,0,0.14902) 0px 1px 1px 0px,rgba(0,0,0,0.09804) 0px 1px 2px 0px;
