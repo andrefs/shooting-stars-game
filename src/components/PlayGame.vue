@@ -10,8 +10,9 @@
       >
       <div class="star-container" data-v-step="1">
         <!-- StarsSVGCluster :items="items" v-if="landscape"/ -->
-        <ItemsNoImage   :items="items" :turnNumber="turnNumber" v-if="imageless"/>
-        <StarsSVGInline :items="items" :turnNumber="turnNumber" v-else/>
+        <ItemsNoImage   :items="items" :turnNumber="turnNumber" v-if="gameStyle === 'imageless'" />
+        <StarsSVGInline :items="items" :turnNumber="turnNumber" v-if="gameStyle === 'stars'" />
+        <Pictures :items="items" :turnNumber="turnNumber" v-else />
       </div>
       <!-- <div :class="{'score-fixed': true, 'score-flex-portrait': !landscape, 'score-flex-landscape': landscape}"> -->
       <div :class="{'score-fixed': true}">
@@ -33,6 +34,7 @@ import TitleCorner from './TitleCorner.vue';
 import LogoCorner from './LogoCorner.vue';
 import StarsSVGInline from './StarsSVGInline.vue';
 import ItemsNoImage from './ItemsNoImage.vue';
+import Pictures from './Pictures.vue';
 // import StarsSVGCluster from './StarsSVGCluster.vue';
 import GenericScoreBoard from './GenericScoreBoard.vue';
 import {mapState} from 'vuex';
@@ -45,6 +47,7 @@ export default {
     LogoCorner,
     StarsSVGInline,
     ItemsNoImage,
+    Pictures,
     /* StarsSVGCluster, */
     GenericScoreBoard
   },
@@ -73,8 +76,8 @@ export default {
   },
   computed: {
     ...mapState(['game', 'gameStatus', 'hideTutorial']),
-    imageless(){
-      return process.env.VUE_APP_GAME_STYLE === 'imageless';
+    gameStyle(){
+      return process.env.VUE_APP_GAME_STYLE;
     },
     turnNumber(){
       return this.game.turns.previous.length + 1;
@@ -84,17 +87,17 @@ export default {
       // eslint-disable-next-line
       return knuthShuffle([{
         name: triple.itemA.name,
-        imageUrl: triple.itemA.imageUrl,
+        imagePath: triple.itemA.imagePath,
         description: triple.itemA.description,
         position: 'A'
       }, {
         name: triple.itemB.name,
-        imageUrl: triple.itemB.imageUrl,
+        imagePath: triple.itemB.imagePath,
         description: triple.itemB.description,
         position: 'B'
       }, {
         name: triple.itemC.name,
-        imageUrl: triple.itemC.imageUrl,
+        imagePath: triple.itemC.imagePath,
         description: triple.itemC.description,
         position: 'C'
       }]);

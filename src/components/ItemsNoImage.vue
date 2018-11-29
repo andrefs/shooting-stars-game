@@ -15,16 +15,16 @@
     </foreignObject>
     -->
     <foreignObject class="text-item left"   width="550" height="150">
-      <h2 :data-position="items[0].position" v-on:click="() => selectItem(items[0].position)" >integration</h2>
-      <p>[noun] a natural and periodic state of rest during which consciousness of the world is suspended; "he didn\'t get enough sleep last night"; "calm as a child in dreamless slumber"</p>
+      <h2 :data-position="items[0].position" v-on:click="() => selectItem(items[0].position)" >{{items[0].name}}</h2>
+      <p>{{items[0].description}}</p>
     </foreignObject>
-    <foreignObject class="text-item center" width="550" height="150">
-      <h2 :data-position="items[1].position" v-on:click="() => selectItem(items[1].position)">integration</h2>
-      <p>[noun] a natural and periodic state of rest during which consciousness of the world is suspended; "he didn\'t get enough sleep last night"; "calm as a child in dreamless slumber"</p>
+      <foreignObject class="text-item center" width="550" height="150">
+      <h2 :data-position="items[1].position" v-on:click="() => selectItem(items[1].position)">{{items[1].name}}</h2>
+    <p>{{items[1].description}}</p>
     </foreignObject>
-    <foreignObject class="text-item right"  width="550" height="150">
-      <h2 :data-position="items[2].position" v-on:click="() => selectItem(items[2].position)">integration</h2>
-      <p>[noun] a natural and periodic state of rest during which consciousness of the world is suspended; "he didn\'t get enough sleep last night"; "calm as a child in dreamless slumber"</p>
+      <foreignObject class="text-item right"  width="550" height="150">
+      <h2 :data-position="items[2].position" v-on:click="() => selectItem(items[2].position)">{{items[2].name}}</h2>
+    <p>{{items[2].description}}</p>
     </foreignObject>
   </svg>
 </template>

@@ -217,6 +217,16 @@ input:focus ~ label, input.used ~ label {
 
 .buttonBlue:hover { background: #357bd8; }
 
+form {
+  width: 380px;
+  margin: 4em auto;
+  padding: 2em 1em 1em 1em;
+  background: #fafafa;
+  border: 1px solid #ebebeb;
+  box-shadow: rgba(0,0,0,0.14902) 0px 1px 1px 0px,rgba(0,0,0,0.09804) 0px 1px 2px 0px;
+}
+
+
 #login-form {
   width: 100%;
 }

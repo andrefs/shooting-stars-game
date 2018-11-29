@@ -1,5 +1,5 @@
 <template>
-  <v-toolbar app dense>
+  <v-toolbar app dense class="topbar">
     <v-toolbar-items class="hidden-sm-and-down share-bar-h">
             <vue-goodshare-facebook      has_icon  />
             <vue-goodshare-twitter      has_icon  />
@@ -99,6 +99,9 @@ export default {
 </script>
 
 <style>
+.topbar {
+  z-index: 10;
+}
 .share-bar-h {
   font-size: 0.7em;
 }
