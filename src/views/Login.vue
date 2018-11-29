@@ -1,10 +1,13 @@
 <template>
   <v-container fluid>
-    <v-slide-y-transition mode="out-in">
-      <v-layout column align-center>
+      <v-layout align-center>
+      <v-flex xs12 sm6 offset-sm3>
         <LogoCorner />
         <v-form id="login-form" ref="loginForm" v-model="valid" @submit.prevent="handleSubmit">
           <h1>Login</h1>
+    <v-container fluid grid-list-xl>
+    <v-layout wrap align-center>
+      <v-flex xs12 md6 d-flex>
           <v-text-field
             :rules="[rules.required, rules.min]"
             name="Username"
@@ -12,6 +15,8 @@
             v-model="username"
             required
           ></v-text-field>
+      </v-flex>
+      <v-flex xs12 md6 d-flex>
           <v-text-field
             :append-icon="showPwd ? 'visibility_off' : 'visibility'"
             :rules="[rules.required, rules.min]"
@@ -22,12 +27,15 @@
             hint="At least 8 characters"
             @click:append="showPwd = !showPwd"
           ></v-text-field>
+      </v-flex>
+    </v-layout>
+    </v-container>
           <button type="submit" class="button buttonBlue">Login
             <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
           </button>
         </v-form>
+      </v-flex>
       </v-layout>
-    </v-slide-y-transition>
   </v-container>
 </template>
 

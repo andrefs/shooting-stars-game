@@ -3,7 +3,7 @@
     <h1>Register</h1>
     <v-container fluid grid-list-xl>
     <v-layout wrap align-center>
-      <v-flex xs12 sm6 d-flex>
+      <v-flex xs12 md6 d-flex>
         <v-text-field
           :rules="[rules.required, rules.min]"
           name="Username"
@@ -12,7 +12,7 @@
           required
         ></v-text-field>
       </v-flex>
-      <v-flex xs12 sm6 d-flex>
+      <v-flex xs12 md6 d-flex>
         <v-text-field
           :append-icon="showPwd ? 'visibility_off' : 'visibility'"
           :rules="[rules.required, rules.min]"

@@ -92,7 +92,7 @@ export default {
   computed: {
     ...mapState(['hideTutorial', 'authStatus', 'user']),
     loggedIn(){
-      return this.user && !this.user.isGuest;
+      return this.user && this.user.isGuest === false;
     }
   }
 };

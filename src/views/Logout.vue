@@ -1,10 +1,31 @@
 <template>
   <v-container fluid>
-    <v-slide-y-transition mode="out-in">
-      <v-layout column align-center>
-        <LogoCorner />
-      </v-layout>
-    </v-slide-y-transition>
+    <v-layout column align-center>
+      <LogoCorner />
+      <v-flex xs12 sm6 offset-sm3>
+        <v-card>
+          <v-card-title>
+            <v-container fill-height fluid>
+               <v-layout fill-height>
+                 <v-flex xs12 align-end flexbox>
+                   <span class="headline">You have been logged out.</span>
+                 </v-flex>
+               </v-layout>
+             </v-container>
+          </v-card-title>
+          <v-card-actions>
+            <v-layout row wrap>
+              <v-flex xs12>
+                <v-btn block  color="cyan darken-1" to="login">Login again!</v-btn>
+              </v-flex>
+              <v-flex xs12>
+              <v-btn block color="cyan darken-1" :to="{name: 'game'}">Play without an account!</v-btn>
+              </v-flex>
+            </v-layout>
+          </v-card-actions>
+        </v-card>
+      </v-flex>
+    </v-layout>
   </v-container>
 </template>
 

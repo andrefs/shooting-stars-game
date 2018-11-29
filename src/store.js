@@ -85,8 +85,6 @@ let store = new Vuex.Store({
     },
     loginFailure: state => {
       state.authStatus = 'loggingInFailed';
-      state.user = null;
-      state.token = '';
     },
     logout: state => {
       state.authStatus = '';
@@ -106,8 +104,6 @@ let store = new Vuex.Store({
     },
     registerFailure: state => {
       state.authStatus = 'registeringFailed';
-      state.user = null;
-      state.token = '';
     },
 
     registerOptRequest: state => {

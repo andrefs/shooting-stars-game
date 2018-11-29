@@ -1,12 +1,12 @@
 <template>
   <v-container fluid>
-    <v-slide-y-transition mode="out-in">
-      <v-layout column align-center>
+    <v-layout align-center>
+      <v-flex xs12 sm6 offset-sm3>
         <LogoCorner />
         <RegisterOptional v-if="user && user.isGuest === false" />
         <RegisterUser v-else />
-      </v-layout>
-    </v-slide-y-transition>
+      </v-flex>
+    </v-layout>
   </v-container>
 </template>
 
