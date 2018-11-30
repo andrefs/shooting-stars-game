@@ -29,9 +29,9 @@ export default {
       steps: [
         {
           target: '[data-v-step="1"]',
-          content: '<span class="gold">Who is the intruder?</span> Can you guess which musical artist is the least related with the other two?',
+          content: '<span class="gold">Who is the intruder?</span> Can you guess which of these 3 items is <span class="gold">the least related</span> with the other two?',
           params: {
-            placement: 'right'
+            placement: 'bottom'
           }
         }, {
           target: '[data-v-step="2"]',

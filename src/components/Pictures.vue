@@ -179,7 +179,7 @@ svg.stars path.starRight:hover{
   transform: translate(7%,69%);
 }
 .label.center {
-  transform: translate(31.5%, 58%);
+  transform: translate(31.5%, 40%);
 }
 .label.right {
   transform: translate(54%,69%);
