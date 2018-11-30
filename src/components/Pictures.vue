@@ -115,7 +115,7 @@ svg.stars path.starRight:hover{
 .label {
   font-family: 'Love Ya Like A Sister', cursive !important;
   text-align: center;
-  width: 100%;
+  width: 30%;
   font-size: 26px;
   margin: 0;
 }
@@ -129,10 +129,10 @@ svg.stars path.starRight:hover{
   transform: translate(7%,69%);
 }
 .label.center {
-  transform: translate(31.5%, 40%);
+  transform: translate(36.5%, 40%);
 }
 .label.right {
-  transform: translate(54%,69%);
+  transform: translate(70%,69%);
 }
 
 
