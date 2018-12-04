@@ -29,7 +29,7 @@
         <v-select
           :items="levels"
           label="English comprehension"
-          v-model="gender"
+          v-model="topicKnowledge"
         ></v-select>
       </v-flex>
       <v-flex xs6 sm6 d-flex>
@@ -73,6 +73,14 @@ export default {
   },
   computed: {
     ...mapState(['token']),
+    topicKnowledge: {
+      get(){
+        return this.$store.state.registerFormOpt.topicKnowledge;
+      },
+      set(value){
+        this.$store.commit('updateRegisterFormOptTopicKnowledge', value);
+      }
+    },
     birthYear: {
       get(){
         return this.$store.state.registerFormOpt.birthYear;
@@ -107,7 +115,8 @@ export default {
             fields: {
               gender    : this.gender,
               birthYear : this.birthYear,
-              email     : this.email
+              email     : this.email,
+              topicKnowledge: this.topicKnowledge
             }
           });
           this.clearForm();

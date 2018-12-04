@@ -112,6 +112,10 @@ export default {
 .share-bar-h {
   font-size: 0.7em;
 }
+.share-bar-h a.button-social{
+  padding: 2px 3px;
+  font-size: 0.95em;
+}
 .v-toolbar .v-btn {
   margin: 0;
 }
