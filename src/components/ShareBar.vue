@@ -43,4 +43,7 @@ export default {
     align-items: center;
     justify-content: center;
 }
+.share-bar a.button-social {
+  padding: 3px;
+}
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid>
+  <v-container fluid class="about-container">
     <v-layout align-center>
     <LogoCorner />
     <v-flex xs12 sm8 offset-sm2 >
@@ -33,6 +33,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
+
 * { box-sizing:border-box; }
 
 body {
@@ -61,5 +62,10 @@ h3 { color: #4a89dc; }
     background: #fafafa;
     border: 1px solid #ebebeb;
     box-shadow: rgba(0,0,0,0.14902) 0px 1px 1px 0px, rgba(0,0,0,0.09804) 0px 1px 2px 0px;
+}
+
+.about-container {
+  height: 100%;
+  overflow-y: scroll;
 }
 </style>

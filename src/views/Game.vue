@@ -38,6 +38,10 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
+html {
+  overflow: hidden;
+}
+
 @import url('https://fonts.googleapis.com/css?family=Love+Ya+Like+A+Sister');
 
 html, body, .application, #shooting-stars, #shooting-stars .v-jumbotron h3 {
@@ -46,6 +50,7 @@ html, body, .application, #shooting-stars, #shooting-stars .v-jumbotron h3 {
 
 .game-container {
   height: 100%;
+  padding: 16px 0;
 }
 
 h1, h2 {
