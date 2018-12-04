@@ -25,15 +25,18 @@
           v-model="email"
         ></v-text-field>
       </v-flex>
-      <v-flex xs6 sm6 d-flex>
-        <button class="button buttonBlue">Clear
-          <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
-        </button>
+      <v-flex xs12 sm12 d-flex>
+        <v-select
+          :items="levels"
+          label="English comprehension"
+          v-model="gender"
+        ></v-select>
       </v-flex>
       <v-flex xs6 sm6 d-flex>
-        <button type="submit" class="button buttonBlue">Submit
-          <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
-        </button>
+        <v-btn block class="white--text" color="cyan darken-1" ripple>Clear</v-btn>
+      </v-flex>
+      <v-flex xs6 sm6 d-flex>
+        <v-btn block class="white--text" color="cyan darken-1" type="submit" ripple>Submit</v-btn>
       </v-flex>
     </v-layout>
     </v-container>
@@ -51,6 +54,14 @@ export default {
       menu: false,
       loading: false,
       valid: true,
+      levels: [
+        {text: '0 - No proficiency',                   value: '0'} ,
+        {text: '1 - Elementary proficiency',           value: '1'} ,
+        {text: '2 - Limited working proficiency',      value: '2'} ,
+        {text: '3 - Professional working proficiency', value: '3'} ,
+        {text: '4 - Full professional proficiency',    value: '4'} ,
+        {text: '5 - Native or bilingual proficiency',  value: '5'} ,
+      ],
       years: Array(110).fill().map((v, i) => -i+new Date().getFullYear()),
       rules: {
         email: value => {

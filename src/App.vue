@@ -85,6 +85,7 @@ html { font-size: calc(1em + 1vw); }
 
 #app-content {
   height: 100vh;
+  display: flex;
 }
 
 footer { text-align: center; }

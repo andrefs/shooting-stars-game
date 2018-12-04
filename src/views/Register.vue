@@ -1,8 +1,8 @@
 <template>
-  <v-container fluid>
+  <v-container fluid id="top-container">
     <v-layout align-center>
+      <LogoCorner />
       <v-flex xs12 sm6 offset-sm3>
-        <LogoCorner />
         <RegisterOptional v-if="user && user.isGuest === false" />
         <RegisterUser v-else />
       </v-flex>
@@ -46,7 +46,7 @@ h3 { color: #4a89dc; }
 
 form {
   width: 380px;
-  margin: 4em auto;
+  margin: 0 auto;
   padding: 2em 1em 1em 1em;
   background: #fafafa;
   border: 1px solid #ebebeb;
@@ -132,6 +132,11 @@ input:focus ~ label, input.used ~ label {
 
 #register-form {
   width: 100%;
+}
+
+#top-container {
+  height: 100%;
+  display: flex;
 }
 
 </style>

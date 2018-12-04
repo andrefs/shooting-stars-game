@@ -1,40 +1,38 @@
 <template>
-  <v-container fluid>
+  <v-container fluid id="top-container">
       <v-layout align-center>
-      <v-flex xs12 sm6 offset-sm3>
         <LogoCorner />
-        <v-form id="login-form" ref="loginForm" v-model="valid" @submit.prevent="handleSubmit">
-          <h1>Login</h1>
-    <v-container fluid grid-list-xl>
-    <v-layout wrap align-center>
-      <v-flex xs12 md6 d-flex>
-          <v-text-field
-            :rules="[rules.required, rules.min]"
-            name="Username"
-            label="Username"
-            v-model="username"
-            required
-          ></v-text-field>
-      </v-flex>
-      <v-flex xs12 md6 d-flex>
-          <v-text-field
-            :append-icon="showPwd ? 'visibility_off' : 'visibility'"
-            :rules="[rules.required, rules.min]"
-            :type="showPwd ? 'text' : 'password'"
-            v-model="password"
-            name="password"
-            label="Password"
-            hint="At least 8 characters"
-            @click:append="showPwd = !showPwd"
-          ></v-text-field>
-      </v-flex>
-    </v-layout>
-    </v-container>
-          <button type="submit" class="button buttonBlue">Login
-            <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
-          </button>
-        </v-form>
-      </v-flex>
+        <v-flex xs12 sm6 offset-sm3>
+          <v-form id="login-form" ref="loginForm" v-model="valid" @submit.prevent="handleSubmit">
+            <h1>Login</h1>
+            <v-container fluid grid-list-xl>
+              <v-layout wrap align-center>
+                <v-flex xs12 md6 d-flex>
+                    <v-text-field
+                      :rules="[rules.required, rules.min]"
+                      name="Username"
+                      label="Username"
+                      v-model="username"
+                      required
+                    ></v-text-field>
+                </v-flex>
+                <v-flex xs12 md6 d-flex>
+                    <v-text-field
+                      :append-icon="showPwd ? 'visibility_off' : 'visibility'"
+                      :rules="[rules.required, rules.min]"
+                      :type="showPwd ? 'text' : 'password'"
+                      v-model="password"
+                      name="password"
+                      label="Password"
+                      hint="At least 8 characters"
+                      @click:append="showPwd = !showPwd"
+                    ></v-text-field>
+                </v-flex>
+              </v-layout>
+            </v-container>
+            <v-btn block class="white--text" color="cyan darken-1" type="submit" ripple>Login</v-btn>
+          </v-form>
+        </v-flex>
       </v-layout>
   </v-container>
 </template>
@@ -51,7 +49,7 @@ export default {
       showPwd: false,
       rules: {
         required: value => !!value || 'Required.',
-        min: v => v.length >= 8 || 'Min 8 characters',
+        min: v => (v||'').length >= 8 || 'Min 8 characters',
         emailMatch: () => ('The email and password you entered don\'t match')
       }
     };
@@ -133,7 +131,7 @@ h3 { color: #4a89dc; }
 
 form {
   width: 380px;
-  margin: 4em auto;
+  margin: 0 auto;
   padding: 3em 2em 2em 2em;
   background: #fafafa;
   border: 1px solid #ebebeb;
@@ -229,5 +227,10 @@ form {
 
 #login-form {
   width: 100%;
+}
+
+#top-container {
+  height:100%;
+  display:flex;
 }
 </style>

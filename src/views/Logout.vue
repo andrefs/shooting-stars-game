@@ -1,33 +1,18 @@
 <template>
   <v-container fluid>
-    <v-layout column align-center>
+    <v-layout align-center>
+    <v-flex xs12 sm6 offset-sm3>
       <LogoCorner />
-      <v-flex xs12 sm6 offset-sm3>
-        <v-card>
-          <v-card-title>
-            <v-container fill-height fluid>
-               <v-layout fill-height>
-                 <v-flex xs12 align-end flexbox>
-                   <span class="headline">You have been logged out.</span>
-                 </v-flex>
-               </v-layout>
-             </v-container>
-          </v-card-title>
-          <v-card-actions>
-            <v-layout row wrap>
-              <v-flex xs12>
-                <v-btn block  color="cyan darken-1" to="login">Login again!</v-btn>
-              </v-flex>
-              <v-flex xs12>
-              <v-btn block color="cyan darken-1" :to="{name: 'game'}">Play without an account!</v-btn>
-              </v-flex>
-            </v-layout>
-          </v-card-actions>
-        </v-card>
-      </v-flex>
+      <div class="box">
+        <h1>Logged out</h1>
+        <v-btn block class="white--text" color="cyan darken-1" ripple to="login">Login again!</v-btn>
+        <v-btn block class="white--text" color="cyan darken-1" ripple :to="{name: 'game'}">Play without an account!</v-btn>
+      </div>
+    </v-flex>
     </v-layout>
   </v-container>
 </template>
+
 
 <script>
 import {mapState} from 'vuex';
@@ -161,5 +146,12 @@ input:focus ~ label, input.used ~ label {
 
 #login-form {
   width: 100%;
+}
+.box {
+    margin: 0 auto;
+    padding: 2em 1em 1em 1em;
+    background: #fafafa;
+    border: 1px solid #ebebeb;
+    box-shadow: rgba(0,0,0,0.14902) 0px 1px 1px 0px, rgba(0,0,0,0.09804) 0px 1px 2px 0px;
 }
 </style>

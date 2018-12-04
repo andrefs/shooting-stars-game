@@ -11,6 +11,7 @@
   width: 20%;
   position: fixed;
   left: 16px;
+  align-self: flex-start;
 }
 .logo-corner img {
   width: 100%;

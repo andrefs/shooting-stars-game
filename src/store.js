@@ -23,6 +23,7 @@ let store = new Vuex.Store({
     },
 
     registerFormOpt: {
+      topicKnowledge: '',
       birthYear: '',
       gender: '',
       email: ''
@@ -63,6 +64,9 @@ let store = new Vuex.Store({
     },
     updateRegisterFormOptEmail: (state, email) => {
       state.registerFormOpt.email = email;
+    },
+    updateRegisterFormOptTopicKnowledge: (state, topicKnowledge) => {
+      state.registerFormOpt.topicKnowledge = topicKnowledge;
     },
     updateRegisterFormOptBirthYear: (state, birthYear) => {
       state.registerFormOpt.birthYear = birthYear;

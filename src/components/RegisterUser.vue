@@ -26,9 +26,7 @@
       </v-flex>
     </v-layout>
     </v-container>
-    <button type="submit" class="button buttonBlue">Register
-      <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
-    </button>
+    <v-btn block class="white--text" color="cyan darken-1" type="submit" ripple>Register</v-btn>
   </v-form>
 </template>
 

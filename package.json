@@ -123,24 +123,14 @@
         "warn",
         "never"
       ],
-      "space-infix-ops": [
-        "off"
-      ],
-      "key-spacing": [
-        "off"
-      ],
-      "no-multi-spaces": [
-        "error",
-        {
-          "exceptions": {
-            "Property": true
-          }
-        }
-      ],
+      "space-infix-ops": 0,
+      "key-spacing": 0,
+      "no-multi-spaces": 0,
       "operator-linebreak": [
         "error",
         "after"
-      ]
+      ],
+      "comma-spacing": 0
     },
     "parserOptions": {
       "parser": "babel-eslint"
