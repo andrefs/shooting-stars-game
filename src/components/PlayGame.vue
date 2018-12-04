@@ -11,17 +11,17 @@
       <div class="star-container" data-v-step="1">
         <!-- StarsSVGCluster :items="items" v-if="landscape"/ -->
         <ItemsNoImage   :items="items" :turnNumber="turnNumber" v-if="gameStyle === 'imageless'" />
-        <StarsSVGInline :items="items" :turnNumber="turnNumber" v-if="gameStyle === 'stars'" />
+        <StarsSVG :items="items" :turnNumber="turnNumber" v-if="gameStyle === 'stars'" />
         <Pictures :items="items" :turnNumber="turnNumber" v-else />
       </div>
       <!-- <div :class="{'score-fixed': true, 'score-flex-portrait': !landscape, 'score-flex-landscape': landscape}"> -->
-      <div :class="{'score-fixed': true}">
+      <!-- div :class="{'score-fixed': true}">
         <GenericScoreBoard
           title="Score"
           :players="players"
           :columnHeaders="false"
           data-v-step="3"
-          />
+          / -->
       </div>
     </v-layout>
   </v-layout>
@@ -32,7 +32,7 @@ import {knuthShuffle} from 'knuth-shuffle';
 import TitleBar from './TitleBar.vue';
 import TitleCorner from './TitleCorner.vue';
 import LogoCorner from './LogoCorner.vue';
-import StarsSVGInline from './StarsSVGInline.vue';
+import StarsSVG from './StarsSVG.vue';
 import ItemsNoImage from './ItemsNoImage.vue';
 import Pictures from './Pictures.vue';
 // import StarsSVGCluster from './StarsSVGCluster.vue';
@@ -45,7 +45,7 @@ export default {
     TitleBar,
     TitleCorner,
     LogoCorner,
-    StarsSVGInline,
+    StarsSVG,
     ItemsNoImage,
     Pictures,
     /* StarsSVGCluster, */

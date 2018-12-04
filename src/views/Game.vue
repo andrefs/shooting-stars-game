@@ -50,7 +50,8 @@ html, body, .application, #shooting-stars, #shooting-stars .v-jumbotron h3 {
 
 .game-container {
   height: 100%;
-  padding: 16px 0;
+  padding: 16px 0 36px 0;
+
 }
 
 h1, h2 {
