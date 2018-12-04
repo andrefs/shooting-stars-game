@@ -1,5 +1,5 @@
 <template>
-  <v-layout class="parent-layout" column>
+  <v-layout class="parent-layout">
     <LogoCorner />
     <TitleCorner :title="title" :pretitle="pretitle" vStep="2"/>
     <v-layout class="play-game-layout">

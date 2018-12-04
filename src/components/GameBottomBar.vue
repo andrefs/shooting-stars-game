@@ -1,5 +1,5 @@
 <template>
-  <v-toolbar class="bottom-bar">
+  <v-toolbar class="bottom-bar" data-v-step="3">
     <v-toolbar-title class="bb-title hidden-sm-and-down">Scores:</v-toolbar-title>
     <v-spacer class="hidden-sm-and-down"></v-spacer>
     <v-toolbar-title>
@@ -36,10 +36,14 @@ export default {
   font-size: 4vw;
   line-height: 1;
 }
+.bottom-bar .bb-title {
+  text-overflow: initial;
+}
 
 .bottom-bar .player-name.main-player {
   font-weight: 800;
   font-size: 6vw;
+  width: 25vw;
 }
 
 .bottom-bar .v-chip {
@@ -47,7 +51,7 @@ export default {
 }
 
 .bottom-bar .v-chip__content {
-  padding: 0 6px;
+  padding: 0 2px;
   height:auto;
 }
 .bottom-bar .v-toolbar__content, .v-toolbar__extension {
@@ -55,5 +59,14 @@ export default {
 }
 .bottom-bar .v-toolbar__title:not(:first-child) {
   margin-left: 2vw;
+}
+
+.bottom-bar .player-name {
+  width: 20vw;
+  display:inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: right;
+  vertical-align: middle;
 }
 </style>

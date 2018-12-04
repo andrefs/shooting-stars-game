@@ -33,7 +33,7 @@
     </v-menu>
     <v-spacer></v-spacer>
     <v-toolbar-items>
-      <v-btn data-v-step="4" flat @click="toggleTutorial">{{ hideTutorial ? 'show tutorial' : 'hide tutorial' }}</v-btn>
+      <v-btn data-v-step="5" flat @click="toggleTutorial">{{ hideTutorial ? 'show tutorial' : 'hide tutorial' }}</v-btn>
     </v-toolbar-items>
     <v-toolbar-items class="hidden-sm-and-down">
       <v-btn flat v-if="!loggedIn"  to="login">Login</v-btn>

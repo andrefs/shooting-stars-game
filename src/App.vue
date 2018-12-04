@@ -29,13 +29,13 @@ export default {
       steps: [
         {
           target: '[data-v-step="1"]',
-          content: '<span class="gold">Who is the intruder?</span> Can you guess which of these 3 items is <span class="gold">the least related</span> with the other two?',
+          content: '<span class="gold">Who is the intruder?</span> Which of these 3 items is <span class="gold">the least related</span> with the other two?',
           params: {
             placement: 'bottom'
           }
         }, {
           target: '[data-v-step="2"]',
-          content: 'Each game is played in 10 rounds.',
+          content: 'Each game is played in <span class="gold">10 rounds.</span>',
           params: {
             placement: 'left'
           }
@@ -46,8 +46,14 @@ export default {
             placement: 'bottom'
           }
         }, {
-          target: '[data-v-step="4"]',
-          content: 'You can activate this tutorial again by clicking here at any time.',
+          target: '[data-v-step="1"]',
+          content: '<span class="gold">Click or tap on the intruder to select it!</span>',
+          params: {
+            placement: 'bottom'
+          }
+        }, {
+          target: '[data-v-step="5"]',
+          content: 'You can <span class="gold">activate this tutorial</span> again by clicking here at any time.',
           params: {
             placement: 'bottom'
           }
