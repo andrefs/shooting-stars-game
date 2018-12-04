@@ -22,8 +22,8 @@
           :columnHeaders="false"
           data-v-step="3"
           / -->
-      </div>
     </v-layout>
+    <GameBottomBar :players="players" />
   </v-layout>
 </template>
 
@@ -35,6 +35,7 @@ import LogoCorner from './LogoCorner.vue';
 import StarsSVG from './StarsSVG.vue';
 import ItemsNoImage from './ItemsNoImage.vue';
 import Pictures from './Pictures.vue';
+import GameBottomBar from './GameBottomBar.vue';
 // import StarsSVGCluster from './StarsSVGCluster.vue';
 import GenericScoreBoard from './GenericScoreBoard.vue';
 import {mapState} from 'vuex';
@@ -47,6 +48,7 @@ export default {
     LogoCorner,
     StarsSVG,
     ItemsNoImage,
+    GameBottomBar,
     Pictures,
     /* StarsSVGCluster, */
     GenericScoreBoard
