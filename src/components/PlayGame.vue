@@ -131,9 +131,6 @@ export default {
 <style>
 @import url('https://fonts.googleapis.com/css?family=Love+Ya+Like+A+Sister');
 
-html {
-  overflow: hidden;
-}
 .play-game-content {
   padding: 0 !important;
 }

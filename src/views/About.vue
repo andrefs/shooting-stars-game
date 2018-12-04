@@ -1,10 +1,24 @@
 <template>
   <v-container fluid>
-    <v-slide-y-transition mode="out-in">
-      <v-layout column align-center>
-        <LogoCorner />
-      </v-layout>
-    </v-slide-y-transition>
+    <v-layout align-center>
+    <LogoCorner />
+    <v-flex xs12 sm8 offset-sm2 >
+      <div class="box">
+        <h1>About</h1>
+        <p>Who is the intruder? Can you guess which musical artist is the least related with the other two? If your opinion matches at least one of the other two payers, you score. So, it's not really about your opinion but whether <b>you can guess other people's opinions</b>!</p>
+        <p>You will win this game if you match the opinion of most people. And you may ask: what is in for you, the developers of Shooting Stars? Fair question, since you are not paying for it and it has no advertising. Believe it or not, we are genuinely interested in you opinion :-)</p>
+        <p>Shooting Stars was developed to collect opinions on <a href="https://en.wikipedia.org/wiki/Named_entity" target=”_blank”>named entities</a> relationships using gamification. We are recording statistics of the responses and we will produce a dataset that will be used as a benchmark to analyse and tune semantic measures. Sounds weird? Don't worry, just enjoy Shooting Stars and share it with your friends. The more more data we collect the more accurate our benchmark will be. But if you want to know more fell free to drop us a line.</p>
+        <p>We hope you find this game fun!</p>
+        <p class="text-xs-center"> And don't forget to share it with your friends ;-)</p>
+
+        <div class="text-xs-center">
+          <p>André Santos <a href="mailto:afs@inesctec.pt">afs@inesctec.pt</a></p>
+          <p> José Paulo Leal <a href="mailto:zp@dcc.fc.up.pt"> zp@dcc.fc.up.pt </a></p>
+          <p> Teresa Costa </p>
+        </div>
+      </div>
+    </v-flex>
+    </v-layout>
   </v-container>
 </template>
 
@@ -34,97 +48,18 @@ hgroup {
 
 h1, h3 { font-weight: 300; }
 
-h1 { color: #636363; }
+h1 {
+  color: #636363;
+  margin-bottom: 0.5em;
+}
 
 h3 { color: #4a89dc; }
 
-form {
-  width: 380px;
-  margin: 4em auto;
-  padding: 3em 2em 2em 2em;
-  background: #fafafa;
-  border: 1px solid #ebebeb;
-  box-shadow: rgba(0,0,0,0.14902) 0px 1px 1px 0px,rgba(0,0,0,0.09804) 0px 1px 2px 0px;
-}
-
-.group {
-  position: relative;
-  margin-bottom: 45px;
-}
-
-input {
-  font-size: 18px;
-  padding: 10px 10px 10px 5px;
-  -webkit-appearance: none;
-  display: block;
-  background: #fafafa;
-  color: #636363;
-  width: 100%;
-  border: none;
-  border-radius: 0;
-  border-bottom: 1px solid #757575;
-}
-
-input:focus { outline: none; }
-
-
-/* Label */
-
-label {
-  color: #999;
-  font-size: 18px;
-  font-weight: normal;
-  position: absolute;
-  pointer-events: none;
-  left: 5px;
-  top: 10px;
-  transition: all 0.2s ease;
-}
-
-
-/* active */
-
-input:focus ~ label, input.used ~ label {
-  top: -20px;
-  transform: scale(.75); left: -2px;
-  /* font-size: 14px; */
-  color: #4a89dc;
-}
-
-/* Button */
-
-.button {
-  position: relative;
-  display: inline-block;
-  padding: 12px 24px;
-  margin: .3em 0 1em 0;
-  width: 100%;
-  vertical-align: middle;
-  color: #fff;
-  font-size: 16px;
-  line-height: 20px;
-  -webkit-font-smoothing: antialiased;
-  text-align: center;
-  letter-spacing: 1px;
-  background: transparent;
-  border: 0;
-  border-bottom: 2px solid #3160B6;
-  cursor: pointer;
-  transition: all 0.15s ease;
-}
-.button:focus { outline: 0; }
-
-
-/* Button modifiers */
-
-.buttonBlue {
-  background: #4a89dc;
-  text-shadow: 1px 1px 0 rgba(39, 110, 204, .5);
-}
-
-.buttonBlue:hover { background: #357bd8; }
-
-#login-form {
-  width: 100%;
+.box {
+    margin: 0 auto;
+    padding: 2em 1em 1em 1em;
+    background: #fafafa;
+    border: 1px solid #ebebeb;
+    box-shadow: rgba(0,0,0,0.14902) 0px 1px 1px 0px, rgba(0,0,0,0.09804) 0px 1px 2px 0px;
 }
 </style>
