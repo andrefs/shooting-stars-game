@@ -1,7 +1,7 @@
 <template>
   <v-app id="shooting-stars">
     <router-view name="navigation"></router-view>
-    <v-content id="app-content">
+    <v-content id="app-content" style="padding: 7vh 0px 9vh 0;">
       <router-view/>
     </v-content>
     <!--v-footer :fixed="fixed" app>

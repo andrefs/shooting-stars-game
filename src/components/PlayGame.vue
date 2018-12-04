@@ -1,27 +1,13 @@
 <template>
-  <v-layout
-    v-resize="recalcLandscape"
-    class="parent-layout"
-    column>
+  <v-layout class="parent-layout" column>
     <LogoCorner />
     <TitleCorner :title="title" :pretitle="pretitle" vStep="2"/>
-    <v-layout
-      :class="{'play-game-layout':true, 'portrait': !landscape, 'landscape': landscape}"
-      >
+    <v-layout class="play-game-layout">
       <div class="star-container" data-v-step="1">
-        <!-- StarsSVGCluster :items="items" v-if="landscape"/ -->
         <ItemsNoImage   :items="items" :turnNumber="turnNumber" v-if="gameStyle === 'imageless'" />
         <StarsSVG :items="items" :turnNumber="turnNumber" v-if="gameStyle === 'stars'" />
         <Pictures :items="items" :turnNumber="turnNumber" v-else />
       </div>
-      <!-- <div :class="{'score-fixed': true, 'score-flex-portrait': !landscape, 'score-flex-landscape': landscape}"> -->
-      <!-- div :class="{'score-fixed': true}">
-        <GenericScoreBoard
-          title="Score"
-          :players="players"
-          :columnHeaders="false"
-          data-v-step="3"
-          / -->
     </v-layout>
     <GameBottomBar :players="players" />
   </v-layout>
@@ -57,23 +43,8 @@ export default {
     this.$tours['game-tour'].stop();
   },
   mounted(){
-    this.recalcLandscape();
     if(!this.hideTutorial){
       this.$tours['game-tour'].start();
-    }
-  },
-  data(){
-    return {
-      landscape: 'init'
-    };
-  },
-  methods: {
-    recalcLandscape(){
-      if(window.innerWidth > window.innerHeight){
-        this.landscape = true;
-      } else {
-        this.landscape = false;
-      }
     }
   },
   computed: {
