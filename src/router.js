@@ -9,6 +9,7 @@ import Login from './views/Login.vue';
 import Logout from './views/Logout.vue';
 import Register from './views/Register.vue';
 import Finish from './views/Finish.vue';
+import Reset from './views/Reset.vue';
 import NotFoundComponent from './components/NotFoundComponent';
 
 Vue.use(Router);
@@ -23,6 +24,13 @@ export default new Router({
       components: {
         default: About,
         navigation: DefaultTopBar
+      }
+    },
+    {
+      path: '/reset',
+      name: 'reset',
+      components: {
+        default: Reset
       }
     },
     {
