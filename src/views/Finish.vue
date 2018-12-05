@@ -1,10 +1,14 @@
 <template>
-  <v-container fluid>
-    <v-slide-y-transition mode="out-in">
-      <v-layout column align-center>
-        <LogoCorner />
-      </v-layout>
-    </v-slide-y-transition>
+  <v-container fluid id="top-container">
+    <v-layout align-center>
+    <LogoCorner />
+    <v-flex xs12 sm6 offset-sm3>
+      <div class="box">
+            <h1>Finished!</h1>
+            <p>You finished the game! Thank you very much for your cooperation!</p>
+      </div>
+    </v-flex>
+    </v-layout>
   </v-container>
 </template>
 
