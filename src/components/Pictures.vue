@@ -1,10 +1,3 @@
-    <!-- <path  d="M129.783 1.78h121.67v79.927h-121.67z"  />
-    <path  d="M1.779 49.028h121.67v79.927H1.779z"    />
-    <path  d="M257.787 49.028h121.67v79.927h-121.67z"/>
-<svg xmlns="http://www.w3.org/2000/svg" width="125.228" height="83.485">
-  <path fill="#00b3ff" stroke="#00b4ff" stroke-width="3.558" />
-</svg-->
-
 <template>
   <div class="star-parent">
     <div class="star left" :data-position="items[0].position" v-on:click="() => selectItem(items[0].position)">
@@ -32,7 +25,7 @@
 import {mapActions} from 'vuex';
 
 export default {
-  name: 'StarsSVG',
+  name: 'Pictures',
   props: ['items', 'turnNumber'],
   methods: {
     ...mapActions(['postPick']),

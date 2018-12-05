@@ -5,7 +5,7 @@
     <v-layout class="play-game-layout">
       <div class="star-container" data-v-step="1">
         <ItemsNoImage   :items="items" :turnNumber="turnNumber" v-if="gameStyle === 'imageless'" />
-        <StarsSVG :items="items" :turnNumber="turnNumber" v-if="gameStyle === 'stars'" />
+        <StarsSVG :items="items" :turnNumber="turnNumber" v-else-if="gameStyle === 'stars'" />
         <Pictures :items="items" :turnNumber="turnNumber" v-else />
       </div>
     </v-layout>
