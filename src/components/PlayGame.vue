@@ -22,7 +22,6 @@ import StarsSVG from './StarsSVG.vue';
 import ItemsNoImage from './ItemsNoImage.vue';
 import Pictures from './Pictures.vue';
 import GameBottomBar from './GameBottomBar.vue';
-// import StarsSVGCluster from './StarsSVGCluster.vue';
 import GenericScoreBoard from './GenericScoreBoard.vue';
 import {mapState} from 'vuex';
 
@@ -36,7 +35,6 @@ export default {
     ItemsNoImage,
     GameBottomBar,
     Pictures,
-    /* StarsSVGCluster, */
     GenericScoreBoard
   },
   beforeDestroy(){
