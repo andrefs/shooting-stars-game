@@ -62,15 +62,17 @@ div.no-image {
   justify-content: center;
   width: 45%;
   height:45%;
-  clip-path: polygon(0% 16%, 100% 16%, 100% 84%, 0 84%, 0 100%);
   position: absolute;
   transition: transform 0.2s;
+  border: 1vmin solid #00acc1;
+  padding-left: 1vmin;
+  padding-right: 1vmin;
 }
 
 
 div.no-image p.title {
   align-self: flex-start;
-  margin-top: 17%;
+  margin-top: 3%;
   border: 2px solid black;
   background-color: white;
   position: absolute;
@@ -82,7 +84,7 @@ div.no-image p.description {
   font-size: 2.5vmin;
   font-family: Arial;
   font-style: italic;
-  margin-top: 40%;
+  margin-top: 25%;
 }
 
 div.no-image.left {
@@ -94,9 +96,10 @@ div.no-image.left:hover {
 }
 
 div.no-image.center {
-  top: 7%;
-  left: 20%;
+  top: 4%;
+  left: 0;
   margin: 0 auto;
+  right: 0;
 }
 div.no-image.center:hover {
   transform: translateY(-10px) scale(1.1);
@@ -104,7 +107,7 @@ div.no-image.center:hover {
 
 div.no-image.right {
   right: 4%;
-  bottom: 16%;
+  bottom: 5%;
 }
 div.no-image.right:hover {
   transform: translateX(10px) scale(1.1);
