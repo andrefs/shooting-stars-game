@@ -3,7 +3,7 @@
     <LoadingGame v-if="!token || !game || gameStatus==='fetching' || !gameStatus" />
     <ShowScore   v-else-if="game.isFinished" />
     <PlayGame    v-else />
-    <PostingPick v-if="gameStatus==='postingPick'" />
+    <PostingPick v-if="gameStatus==='postingPick' || previousTurnOutcome" />
   </v-container>
 </template>
 
@@ -18,15 +18,12 @@ export default {
   name: 'game',
   components: {LoadingGame, ShowScore, PostingPick, PlayGame},
   async created(){
-    // if(!this.token){
-    //   this.$router.replace({name: 'welcome'});
-    // }
     if(!this.token){
       await this.registerGuest();
     }
     this.getGame();
   },
-  computed: mapState(['game', 'gameStatus', 'token']),
+  computed: mapState(['game', 'gameStatus', 'token', 'previousTurnOutcome']),
   methods: {
     ...mapActions(['fetchOrCreateGame', 'registerGuest']),
     getGame(){

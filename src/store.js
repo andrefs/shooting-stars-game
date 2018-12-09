@@ -35,6 +35,7 @@ let store = new Vuex.Store({
 
     hideTutorial: false,
     showItems: true,
+    previousTurnOutcome: null,
     showLoadingSpinner: false
   },
   mutations: {
@@ -163,6 +164,15 @@ let store = new Vuex.Store({
       state.game = null;
     },
 
+    previousTurnWon: state => {
+      state.previousTurnOutcome = 'won';
+    },
+    previousTurnLost: state => {
+      state.previousTurnOutcome = 'lost';
+    },
+    clearPreviousTurnOutcome: state => {
+      state.previousTurnOutcome = null;
+    },
     postPickRequest: state => {
       state.gameStatus = 'postingPick';
       state.showItems = false;
@@ -338,7 +348,20 @@ let store = new Vuex.Store({
       try {
         let response = await this.$axios.post(`/gameInstances/current/${turnNumber}/${pick}`);
         const game = response.data;
-        commit('postPickSuccess', {game});
+        const previousTurn = game.turns.previous.slice(-1)[0];
+        if(previousTurn){
+          if(previousTurn.score.player === 0){
+            commit('previousTurnLost');
+          } else {
+            commit('previousTurnWon');
+          }
+          setTimeout(() => {
+            commit('postPickSuccess', {game});
+          }, 500);
+          setTimeout(() => {
+            commit('clearPreviousTurnOutcome');
+          }, 1000);
+        }
       } catch(error){
         commit('postPickFailure', error);
 
