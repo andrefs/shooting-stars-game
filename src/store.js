@@ -43,6 +43,9 @@ let store = new Vuex.Store({
     hideLoadingSpinner: state => {
       state.showLoadingSpinner = false;
     },
+    hideTutorial: state => {
+      state.hideTutorial = true;
+    },
     toggleTutorial: state => {
       state.hideTutorial = !state.hideTutorial;
     },

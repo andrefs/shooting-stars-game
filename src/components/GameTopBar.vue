@@ -70,7 +70,7 @@
 </template>
 
 <script>
-import {mapActions, mapState} from 'vuex';
+import {mapState} from 'vuex';
 import VueGoodshareFacebook from 'vue-goodshare/src/providers/Facebook.vue';
 import VueGoodshareReddit from 'vue-goodshare/src/providers/Reddit.vue';
 import VueGoodshareTwitter from 'vue-goodshare/src/providers/Twitter.vue';
@@ -85,7 +85,6 @@ export default {
     VueGoodshareEmail,
   },
   methods: {
-    ...mapActions(['toggleTutorial']),
     toggleTutorial(){
       if(!this.hideTutorial){
         this.$tours['game-tour'].stop();

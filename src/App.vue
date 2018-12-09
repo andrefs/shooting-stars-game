@@ -61,7 +61,7 @@ export default {
       ],
       tourCallbacks: {
         onStop: () => {
-          this.toggleTutorial();
+          this.hideTutorial();
         },
       },
       miniVariant: false,
@@ -72,8 +72,8 @@ export default {
   },
   methods: {
     ...mapActions(['toggleTutorial']),
-    toggleTutorial(){
-      this.$store.commit('toggleTutorial');
+    hideTutorial(){
+      this.$store.commit('hideTutorial');
     },
   },
 };
