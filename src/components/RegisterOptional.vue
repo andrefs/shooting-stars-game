@@ -33,7 +33,7 @@
         ></v-select>
       </v-flex>
       <v-flex xs6 sm6 d-flex>
-        <v-btn block class="white--text" color="cyan darken-1" ripple>Clear</v-btn>
+      <v-btn block class="white--text" color="cyan darken-1" :to="{name: 'game'}" ripple>Skip</v-btn>
       </v-flex>
       <v-flex xs6 sm6 d-flex>
         <v-btn block class="white--text" color="cyan darken-1" type="submit" ripple>Submit</v-btn>
