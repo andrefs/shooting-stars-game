@@ -92,7 +92,7 @@ div.no-image.left {
   bottom: 5%;
 }
 div.no-image.left:hover {
-  transform: translateX(-10px) scale(1.1);
+  transform: translateX(-5px) scale(1.1);
 }
 
 div.no-image.center {
@@ -102,7 +102,7 @@ div.no-image.center {
   right: 0;
 }
 div.no-image.center:hover {
-  transform: translateY(-10px) scale(1.1);
+  transform: translateY(-5px) scale(1.1);
 }
 
 div.no-image.right {
@@ -110,7 +110,7 @@ div.no-image.right {
   bottom: 5%;
 }
 div.no-image.right:hover {
-  transform: translateX(10px) scale(1.1);
+  transform: translateX(5px) scale(1.1);
 }
 
 div.no-image:hover{

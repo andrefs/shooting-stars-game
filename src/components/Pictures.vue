@@ -1,19 +1,19 @@
 <template>
-  <div class="star-parent">
-    <div class="star left" :data-position="items[0].position" v-on:click="() => selectItem(items[0].position)">
-      <div class="inside-star">
+  <div class="picture-parent">
+    <div class="picture left" :data-position="items[0].position" v-on:click="() => selectItem(items[0].position)">
+      <div class="inside-picture">
         <img v-bind="{'src':imageBaseUrl + '/items/' + items[0].imagePath}">
       </div>
       <p class="title">{{items[0].name}}</p>
     </div>
-    <div class="star center" :data-position="items[1].position" v-on:click="() => selectItem(items[1].position)">
-      <div class="inside-star">
+    <div class="picture center" :data-position="items[1].position" v-on:click="() => selectItem(items[1].position)">
+      <div class="inside-picture">
         <img v-bind="{'src':imageBaseUrl + '/items/' + items[1].imagePath}">
       </div>
       <p class="title">{{items[1].name}}</p>
     </div>
-    <div class="star right" :data-position="items[2].position" v-on:click="() => selectItem(items[2].position)">
-      <div class="inside-star">
+    <div class="picture right" :data-position="items[2].position" v-on:click="() => selectItem(items[2].position)">
+      <div class="inside-picture">
         <img v-bind="{'src':imageBaseUrl + '/items/' + items[2].imagePath}">
       </div>
       <p class="title">{{items[2].name}}</p>
@@ -62,12 +62,12 @@ export default {
 
 <style>
 
-div.star img {
+div.picture img {
   height: 100%;
   cursor: pointer;
 }
 
-div.star {
+div.picture {
   display: flex;
   justify-content: center;
   width: 45%;
@@ -79,7 +79,7 @@ div.star {
 }
 
 
-div.inside-star {
+div.inside-picture {
   display: flex;
   justify-content: center;
   width: 90%;
@@ -90,7 +90,7 @@ div.inside-star {
   position: absolute;
 }
 
-div.star p.title {
+div.picture p.title {
   align-self: flex-end;
   margin-top: -18%;
   border: 2px solid black;
@@ -100,36 +100,36 @@ div.star p.title {
   padding: 3px;
 }
 
-div.star.left {
+div.picture.left {
   left: 4%;
   bottom: 5%;
 }
-div.star.left:hover {
-  transform: translateX(-10px) scale(1.1);
+div.picture.left:hover {
+  transform: translateX(-5px) scale(1.1);
 }
 
-div.star.center {
+div.picture.center {
   top: 7%;
   left: 20%;
   margin: 0 auto;
 }
-div.star.center:hover {
-  transform: translateY(-10px) scale(1.1);
+div.picture.center:hover {
+  transform: translateY(-5px) scale(1.1);
 }
 
-div.star.right {
+div.picture.right {
   right: 4%;
   bottom: 16%;
 }
-div.star.right:hover {
-  transform: translateX(10px) scale(1.1);
+div.picture.right:hover {
+  transform: translateX(5px) scale(1.1);
 }
 
-div.star:hover{
+div.picture:hover{
   z-index: 50;
 }
 
-div.star-parent {
+div.picture-parent {
   width: 90vw;
   height: 90vw;
   max-height: 90vh;
