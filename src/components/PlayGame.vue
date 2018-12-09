@@ -3,11 +3,13 @@
     <LogoCorner />
     <TitleCorner :title="title" :pretitle="pretitle" vStep="2"/>
     <v-layout class="play-game-layout">
-      <div class="star-container" data-v-step="1">
-        <ItemsNoImage   :items="items" :turnNumber="turnNumber" v-if="gameStyle === 'imageless'" />
-        <StarsSVG :items="items" :turnNumber="turnNumber" v-else-if="gameStyle === 'stars'" />
-        <Pictures :items="items" :turnNumber="turnNumber" v-else />
-      </div>
+      <transition name="fade">
+        <div class="star-container" data-v-step="1" v-if="showItems">
+          <ItemsNoImage   :items="items" :turnNumber="turnNumber" v-if="gameStyle      === 'imageless'" />
+          <StarsSVG       :items="items" :turnNumber="turnNumber" v-else-if="gameStyle === 'stars'" />
+          <Pictures       :items="items" :turnNumber="turnNumber" v-else />
+        </div>
+      </transition>
     </v-layout>
     <GameBottomBar :players="players" />
   </v-layout>
@@ -46,7 +48,7 @@ export default {
     }
   },
   computed: {
-    ...mapState(['game', 'gameStatus', 'hideTutorial']),
+    ...mapState(['game', 'gameStatus', 'hideTutorial', 'showItems']),
     gameStyle(){
       return process.env.VUE_APP_GAME_STYLE;
     },
@@ -162,6 +164,12 @@ a {
 
 div.v-tour {
   z-index: 40;
+}
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
 }
 
 </style>

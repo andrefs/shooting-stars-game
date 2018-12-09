@@ -34,6 +34,7 @@ let store = new Vuex.Store({
     user: null,
 
     hideTutorial: false,
+    showItems: true,
     showLoadingSpinner: false
   },
   mutations: {
@@ -164,10 +165,12 @@ let store = new Vuex.Store({
 
     postPickRequest: state => {
       state.gameStatus = 'postingPick';
+      state.showItems = false;
     },
     postPickSuccess: (state, {game}) => {
       state.gameStatus = 'ok';
       state.game = game;
+      state.showItems = true;
     },
     postPickFailure: state => {
       state.gameStatus = 'postPickFailed';
