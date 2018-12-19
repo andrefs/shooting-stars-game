@@ -21,7 +21,7 @@
 
 <script>
 export default {
-  name: 'GameTopBar',
+  name: 'GameBottomBar',
   props: ['title', 'players'],
 };
 </script>
@@ -33,7 +33,7 @@ export default {
 }
 
 .bottom-bar .player-name, .bottom-bar .bb-title {
-  font-size: 4vw;
+  font-size: 4vmin;
   line-height: 1;
 }
 .bottom-bar .bb-title {
@@ -42,12 +42,12 @@ export default {
 
 .bottom-bar .player-name.main-player {
   font-weight: 800;
-  font-size: 6vw;
+  font-size: 6vmin;
   width: 25vw;
 }
 
 .bottom-bar .v-chip {
-  font-size: 6vw;
+  font-size: 4vmin;
 }
 
 .bottom-bar .v-chip__content {
