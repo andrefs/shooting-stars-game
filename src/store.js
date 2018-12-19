@@ -274,6 +274,11 @@ let store = new Vuex.Store({
         commit('createGameSuccess', {game});
       } catch(error){
         commit('createGameFailure', error);
+        // Unauthorized
+        if(error.response && error.response.status === 401){
+          router.push({name: 'reset'});
+          return;
+        }
 
         // 404 might happen, it's ok
         if(error.response && error.response.status !== 404){
@@ -297,6 +302,12 @@ let store = new Vuex.Store({
       } catch(error){
         commit('fetchGameFailure', error);
 
+        // Unauthorized
+        if(error.response && error.response.status === 401){
+          router.push({name: 'reset'});
+          return;
+        }
+
         // 404 might happen, it's ok
         if(error.response && error.response.status !== 404){
           // TODO dispatch something alert
@@ -316,13 +327,19 @@ let store = new Vuex.Store({
           commit('fetchGameSuccess', {game});
         }
       } catch(error){
+        // Unauthorized
+        if(error.response && error.response.status === 401){
+          router.push({name: 'reset'});
+          return;
+        }
+
         // there's no current game, we need to create it
-        if(error.response && error.response.status === 404){
-          dispatch('createGame');
-        } else {
+        if(error.response && error.response.status !== 404){
           commit('fetchOrCreateGameFailure', error);
           throw error;
         }
+
+        dispatch('createGame');
       }
     },
 
