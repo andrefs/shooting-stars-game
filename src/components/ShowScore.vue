@@ -16,7 +16,7 @@
           />
       </v-flex>
       <v-flex xs8>
-        <v-btn block class="start-game" color="cyan darken-1" v-on:click="createGame">Play again!</v-btn>
+        <v-btn block class="start-game" color="cyan darken-1" v-on:click="createGame">Play more!</v-btn>
       </v-flex>
     </v-layout>
   </v-layout>

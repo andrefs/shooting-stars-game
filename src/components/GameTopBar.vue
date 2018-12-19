@@ -1,10 +1,10 @@
 <template>
   <v-toolbar app height=35 class="topbar">
     <v-toolbar-items class="hidden-sm-and-down share-bar-h">
-            <vue-goodshare-facebook      has_icon  />
-            <vue-goodshare-twitter      has_icon  />
-            <vue-goodshare-reddit      has_icon  />
-            <vue-goodshare-email      has_icon  />
+            <vue-goodshare-facebook  has_icon  />
+            <vue-goodshare-twitter   has_icon  />
+            <vue-goodshare-reddit    has_icon  />
+            <vue-goodshare-email     has_icon  />
     </v-toolbar-items>
     <v-menu  class="hidden-md-and-up">
       <v-toolbar-side-icon  slot="activator"><v-icon>share</v-icon></v-toolbar-side-icon>

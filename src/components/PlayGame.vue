@@ -94,7 +94,7 @@ export default {
     title(){
       let turns = this.game && this.game.turns && this.game.turns.previous ?
         this.game.turns.previous.length : 0;
-      return (turns+1)+'/10';
+      return (turns+1)+'/' + (this.game.seqLength || 10);
     },
   }
 };
