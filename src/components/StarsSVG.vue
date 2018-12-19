@@ -98,7 +98,7 @@ div.inside-star {
 }
 
 div.star p.title {
-  width: 45%;
+  width: 50%;
   align-self: flex-end;
   bottom: 8vmin;
   border: 2px solid black;
