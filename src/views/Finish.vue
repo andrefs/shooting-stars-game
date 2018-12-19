@@ -5,7 +5,7 @@
     <v-flex xs12 sm6 offset-sm3>
       <div class="box">
             <h1>Finished!</h1>
-            <p>You finished the game! Thank you very much for your cooperation!</p>
+            <p class="text-xs-center">Congratulations, you finished the game! Thank you very much for your cooperation!</p>
       </div>
     </v-flex>
     </v-layout>

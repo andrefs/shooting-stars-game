@@ -11,19 +11,19 @@
       <div class="inside-star">
         <img v-bind="{'src':imageBaseUrl + '/items/' + items[0].imagePath}">
       </div>
-      <p class="title">{{items[0].name}}</p>
+      <p class="text-xs-center title">{{items[0].name}}</p>
     </div>
     <div class="star center" :data-position="items[1].position" v-on:click="() => selectItem(items[1].position)">
       <div class="inside-star">
         <img v-bind="{'src':imageBaseUrl + '/items/' + items[1].imagePath}">
       </div>
-      <p class="title">{{items[1].name}}</p>
+      <p class="text-xs-center title">{{items[1].name}}</p>
     </div>
     <div class="star right" :data-position="items[2].position" v-on:click="() => selectItem(items[2].position)">
       <div class="inside-star">
         <img v-bind="{'src':imageBaseUrl + '/items/' + items[2].imagePath}">
       </div>
-      <p class="title">{{items[2].name}}</p>
+      <p class="text-xs-center title">{{items[2].name}}</p>
     </div>
   </div>
 </template>
@@ -98,13 +98,17 @@ div.inside-star {
 }
 
 div.star p.title {
+  width: 45%;
   align-self: flex-end;
-  margin-top: -15%;
+  bottom: 8vmin;
   border: 2px solid black;
   background-color: white;
+  cursor: pointer;
   position: absolute;
   z-index: 200;
   padding: 3px;
+  margin-bottom: 0;
+  font-size: 3vmin !important;
 }
 
 div.star.left {
