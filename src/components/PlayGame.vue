@@ -1,7 +1,7 @@
 <template>
   <v-layout class="parent-layout">
     <LogoCorner />
-    <TitleCorner :title="title" :pretitle="pretitle" vStep="2"/>
+    <TitleCorner :title="title" :pretitle="pretitle" :legend="legend" vStep="2"/>
     <v-layout class="play-game-layout">
       <transition name="fade">
         <div class="star-container" data-v-step="1" v-if="showItems">
@@ -87,6 +87,9 @@ export default {
         username: this.game.opponentNames.rand2 || 'Ernesto',
         score: this.game.currentScore.rand2
       }];
+    },
+    legend(){
+      return 'Who is the<br />intruder?';
     },
     pretitle(){
       return 'Round';

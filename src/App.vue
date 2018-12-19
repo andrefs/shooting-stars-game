@@ -29,7 +29,7 @@ export default {
       steps: [
         {
           target: '[data-v-step="1"]',
-          content: '<span class="gold">Who is the intruder?</span> Which of these 3 items is <span class="gold">the least related</span> with the other two?',
+          content: '<span class="gold">Who is the intruder?</span> Which of these 3 artists is <span class="gold">the least related</span> with the other two?',
           params: {
             placement: 'bottom'
           }
@@ -67,7 +67,7 @@ export default {
       miniVariant: false,
       right: true,
       rightDrawer: false,
-      title: 'Vuetify.js'
+      title: 'Shooting Stars'
     };
   },
   methods: {
