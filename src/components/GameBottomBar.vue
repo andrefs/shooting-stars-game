@@ -30,6 +30,7 @@ export default {
 .bottom-bar {
   position: fixed;
   bottom: 0;
+  user-select: none;
 }
 
 .bottom-bar .player-name, .bottom-bar .bb-title {
