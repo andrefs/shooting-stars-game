@@ -57,6 +57,12 @@ export default {
           params: {
             placement: 'bottom'
           }
+        }, {
+          target: '[data-v-step="5"]',
+          content: 'You can <span class="gold">enter a fullscreen mode</span> by clicking the <span class="gold"><i aria-hidden="true" class="v-icon material-icons">fullscreen</i> View fullscreen</span> button at any time.',
+          params: {
+            placement: 'bottom'
+          }
         }
       ],
       tourCallbacks: {
