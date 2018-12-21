@@ -38,6 +38,7 @@
       <v-btn flat v-if="loggedIn" to="logout">Logout</v-btn>
       <v-btn flat to="about">About</v-btn>
     </v-toolbar-items>
+    <v-toolbar-title class="main-player-name" v-if="user"><v-icon>person_pin</v-icon><span>{{user.username}}</span></v-toolbar-title>
     <v-menu  class="hidden-md-and-up">
       <v-toolbar-side-icon  slot="activator"></v-toolbar-side-icon>
       <v-list>
@@ -110,5 +111,13 @@ export default {
 }
 .v-toolbar .v-btn {
   margin: 0;
+}
+
+.main-player-name {
+  user-select: none;
+  color: #1BA4B9;
+}
+.main-player-name .v-icon {
+  color: #1BA4B9;
 }
 </style>

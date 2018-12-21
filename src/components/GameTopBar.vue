@@ -1,5 +1,5 @@
 <template>
-  <v-toolbar app height=35 class="topbar">
+  <v-toolbar app height=35 class="topbar" data-v-step="5">
     <v-toolbar-items class="hidden-sm-and-down share-bar-h">
             <vue-goodshare-facebook  has_icon  />
             <vue-goodshare-twitter   has_icon  />
@@ -32,8 +32,23 @@
       </v-list>
     </v-menu>
     <v-spacer></v-spacer>
-    <v-toolbar-items>
-      <v-btn data-v-step="5" flat @click="toggleTutorial">{{ hideTutorial ? 'show tutorial' : 'hide tutorial' }}</v-btn>
+    <v-toolbar-items class="hidden-md-and-up">
+      <v-btn icon flat @click="toggleFullscreen">
+        <v-icon>{{fullscreen? 'fullscreen_exit' : 'fullscreen'}}</v-icon>
+      </v-btn>
+      <v-btn icon flat @click="toggleTutorial">
+        <v-icon>help_outline</v-icon>
+      </v-btn>
+    </v-toolbar-items>
+    <v-toolbar-items class="hidden-sm-and-down">
+      <v-btn flat @click="toggleFullscreen">
+        <v-icon>{{fullscreen? 'fullscreen_exit' : 'fullscreen'}}</v-icon>
+        <span>{{fullscreen ? 'exit fullscreen' : 'view fullscreen'}}</span>
+      </v-btn>
+      <v-btn flat @click="toggleTutorial">
+        <v-icon>help_outline</v-icon>
+        <span>{{ hideTutorial ? 'show tutorial' : 'hide tutorial' }}</span>
+      </v-btn>
     </v-toolbar-items>
     <v-toolbar-items class="hidden-sm-and-down">
       <v-btn flat v-if="!loggedIn"  to="login">Login</v-btn>
@@ -41,6 +56,7 @@
       <v-btn flat v-if="loggedIn" to="logout">Logout</v-btn>
       <v-btn flat to="about">About</v-btn>
     </v-toolbar-items>
+    <v-toolbar-title class="main-player-name"><v-icon>person_pin</v-icon><span>{{user.username}}</span></v-toolbar-title>
     <v-menu  class="hidden-md-and-up">
       <v-toolbar-side-icon  slot="activator"></v-toolbar-side-icon>
       <v-list>
@@ -93,6 +109,20 @@ export default {
         this.$tours['game-tour'].start();
       }
     },
+    toggleFullscreen(){
+      this.$fullscreen.toggle(document.querySelector('#shooting-stars'), {
+        wrap: false,
+        callback: this.fullscreenChange
+      });
+    },
+    fullscreenChange(fullscreen){
+      this.fullscreen = fullscreen;
+    }
+  },
+  data(){
+    return {
+      fullscreen: false
+    };
   },
   computed: {
     ...mapState(['hideTutorial', 'authStatus', 'user']),
@@ -117,5 +147,12 @@ export default {
 }
 .v-toolbar .v-btn {
   margin: 0;
+}
+.main-player-name {
+  user-select: none;
+  color: #1BA4B9;
+}
+.main-player-name .v-icon {
+  color: #1BA4B9;
 }
 </style>

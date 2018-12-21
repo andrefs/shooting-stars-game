@@ -27,6 +27,7 @@ import GameBottomBar from './GameBottomBar.vue';
 import GenericScoreBoard from './GenericScoreBoard.vue';
 import {mapState} from 'vuex';
 
+
 export default {
   name: 'PlayGame',
   components: {
@@ -132,6 +133,7 @@ export default {
 
 .parent-layout {
   height: 100%;
+  background-color: white;
 }
 
 h1, h2 {

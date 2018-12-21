@@ -53,7 +53,7 @@ export default {
           }
         }, {
           target: '[data-v-step="5"]',
-          content: 'You can <span class="gold">activate this tutorial</span> again by clicking here at any time.',
+          content: 'You can <span class="gold">activate this tutorial</span> again by clicking the <span class="gold"><i aria-hidden="true" class="v-icon material-icons">help_outline</i> Show tutorial</span> button at any time.',
           params: {
             placement: 'bottom'
           }

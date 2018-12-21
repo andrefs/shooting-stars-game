@@ -9,8 +9,11 @@ import './registerServiceWorker';
 import VueGoodshare from 'vue-goodshare';
 import VueTour from 'vue-tour';
 import Toast from './plugins/toast';
+import FullScreen from 'vue-fullscreen';
 
 require('vue-tour/dist/vue-tour.css');
+
+Vue.use(FullScreen);
 
 Vue.use(VueTour);
 
