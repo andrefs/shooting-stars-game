@@ -9,7 +9,7 @@
       :size="100">
       <div class="text-xs-center">
         <v-card
-          color="cyan darken-1"
+          :color="color"
           dark
         >
           <v-icon
@@ -39,6 +39,7 @@ import {mapState} from 'vuex';
 export default {
   props: ['hideOverlay'],
   data(){
+    console.log(this.previousTurnOutcome);
     return {
       show: true,
     };
@@ -51,6 +52,11 @@ export default {
       if(this.gameStatus === 'creating'){    return true; }
       return false;
     },
+    color(){
+      return this.previousTurnOutcome === 'lost' ?
+        '#FFCC00' :
+        'cyan darken-1';
+    }
   },
   name: 'VCenterLoadingSpinner'
 };
