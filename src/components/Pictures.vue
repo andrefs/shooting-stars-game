@@ -45,7 +45,7 @@ export default {
   },
   data(){
     return {
-      imageBaseUrl: process.env.VUE_APP_API
+      imageBaseUrl: process.env.VUE_APP_API_URL
     };
   },
   computed: {
