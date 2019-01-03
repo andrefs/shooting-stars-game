@@ -8,7 +8,7 @@
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit",
     "test:e2e": "vue-cli-service test:e2e",
-    "prod:pm2": "NODE_ENV=production pm2 serve dist/ 15112 --name='ss-prod-game' --log-date-format 'DD-MM HH:mm:ss.SSS'"
+    "prod:pm2": "NODE_ENV=production pm2 start /home/andrefs/.yarn/bin/serve --name='ss-prod-game' --log-date-format 'DD-MM HH:mm:ss.SSS' -- -s -l 15112 dist"
   },
   "dependencies": {
     "js-cookie": "^2.2.0",
