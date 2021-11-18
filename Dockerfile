@@ -11,7 +11,10 @@ WORKDIR /app
 COPY --chown=node:node ["package.json", "yarn.lock", "./"]
 RUN yarn install --frozen-lockfile
 
-ENV NODE_ENV=production
+COPY --chown=node:node ["src", "./src"]
+COPY --chown=node:node ["public", "./public"]
+COPY --chown=node:node ["aux", "./aux"]
+COPY --chown=node:node [".env.production", "vue.config.js", "babel.config.js", "./"]
 RUN yarn run build
 
 # Run stage
