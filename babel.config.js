@@ -1,21 +1,22 @@
 module.exports = {
-  "presets": [
+  'presets': [
     [
-      "@vue/app",
+      '@vue/app',
       {
-        "useBuiltIns": "entry"
+        'useBuiltIns': 'entry'
       }
     ]
   ],
-  "plugins": [
+  'plugins': [
     [
-      "transform-imports",
+      'transform-imports',
       {
-        "vuetify": {
+        'vuetify': {
+          // eslint-disable-next-line
           "transform": "vuetify/es5/components/${member}",
-          "preventFullImport": true
+          'preventFullImport': true
         }
       }
     ]
   ]
-}
+};
