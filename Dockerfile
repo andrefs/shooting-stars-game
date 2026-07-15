@@ -9,7 +9,7 @@ ENV NODE_ENV=development
 WORKDIR /app
 
 COPY --chown=node:node ["package.json", "yarn.lock", "./"]
-RUN yarn install --frozen-lockfile --ignore-scripts
+RUN yarn install --frozen-lockfile --ignore-scripts --ignore-engines
 
 COPY --chown=node:node ["src", "./src"]
 COPY --chown=node:node ["public", "./public"]
